@@ -1,0 +1,12 @@
+[
+	{ test:'(from the )?(start|beginning) of (the )?line', replace:'^' },
+	{ test:'(to the )?end of (the )?line', replace:'$' },
+	{ test:'([0-9]+) numbers?', replace:'[0-9]{$1}' },
+	{ test:'any( number of| amount of)? numbers', replace:'[0-9]+' },
+	{ test:'([0-9]+) characters?', replace:'[a-zA-Z]{$1}' },
+	{ test:'any( number of| amount of)? characters', replace:'[a-zA-Z]+' },
+	{ test:'any( number of| amount of)? numbers( &| and| or)? characters', replace:'[a-zA-Z0-9]+' },
+	{ test:'no(n|t)? white ?space', replace:'\\S' },
+	{ test:'white ?space', replace:'\\s' },
+	{ test:'a word', replace:'\\w' }
+]
