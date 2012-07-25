@@ -6,6 +6,15 @@ jQuery(function($) {
 	$.get('scripts/tests', function(data, textStatus, jqXHR) {
 		// TODO: Do some checking to make sure the data isn't corrupted here.
 		PARSE = eval(data);
+
+		var drag_drop = '<ul>';
+		$.each(PARSE, function(i, val) {
+			if (val.name) {
+				drag_drop+= '<li>'+val.name+'</li>';
+			}
+		});
+		drag_drop+= '</ul>';
+		$('.verbose').before(drag_drop);
 	});
   
 	$('.verbose').keyup(function() {
