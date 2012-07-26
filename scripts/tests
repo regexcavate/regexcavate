@@ -8,5 +8,6 @@
 	{ name:'any amount of numbers and/or characters', test:'any( number of| amount of)? numbers( &| and| or)? characters', replace:'[a-zA-Z0-9]+' },
 	{ name:'non white space', test:'no(n|t)? white ?space', replace:'\\S' },
 	{ name:'white space', test:'white ?space', replace:'\\s' },
-	{ name:'a word', test:'a word', replace:'\\w' }
+	{ name:'? words', test:'([0-9]+) words', replace:'\\w{$1}' },
+	{ name:'a word', test:'(a|one|1) word', replace:'\\w' }
 ]
