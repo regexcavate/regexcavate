@@ -6,6 +6,7 @@
 	{ name:'? characters', test:'([0-9]+) characters?', replace:'[a-zA-Z]{$1}' },
 	{ name:'any amount of characters', test:'any( number of| amount of)? characters', replace:'[a-zA-Z]+' },
 	{ name:'any amount of numbers and/or characters', test:'any( number of| amount of)? numbers( &| and| or)? characters', replace:'[a-zA-Z0-9]+' },
+	{ name:'new line', test:'(new line|enter)', replace:'\\n' },
 	{ name:'non white space', test:'no(n|t)? white ?space', replace:'\\S' },
 	{ name:'white space', test:'white ?space', replace:'\\s' },
 	{ name:'? words', test:'([0-9]+) words', replace:'\\w{$1}' },
