@@ -10,5 +10,6 @@
 	{ name:'non white space', test:'no(n|t)? white ?space', replace:'\\S' },
 	{ name:'white space', test:'white ?space', replace:'\\s' },
 	{ name:'? words', test:'([0-9]+) words', replace:'\\w{$1}' },
-	{ name:'a word', test:'(a|one|1) word', replace:'\\w' }
+	{ name:'a word', test:'(a|one|1) word', replace:'\\w' },
+	{ name:'? letters', test:'([0-9]+) letters', replace:'[a-zA-Z]{$1}' }
 ]
