@@ -3,3 +3,4 @@ config.rb
 css/*
 .dropbox
 Icon*
+scripts/jquery.min.js
