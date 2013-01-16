@@ -7,6 +7,17 @@ jQuery(function($) {
 			parseInput.call(this);
 		}
 	}).change(parseInput);
+	$('.result').click(function() {
+		$(this).hide();
+		$('.result-copy').css({
+			display:'inline',
+			width:$(this).width()
+		}).select();
+	});
+	$('.result-copy').blur(function() {
+		$(this).hide();
+		$('.result').show();
+	});
 });
 
 /**
@@ -15,16 +26,18 @@ jQuery(function($) {
 function parseInput() {
 	var parts = this.value.split(','),
 		regex = strToRegex(parts),
-		regexString = '';
+		regexString = '',
+		regexStringCopy = '';
 
 	for (var i=regex.length; i > 0; i--) {
 		regexString+= '<abbr class="part" title="'+parts[regex.length-i]+'">'+regex[regex.length-i]+'</abbr>';
+		regexStringCopy+= regex[regex.length-i];
 	}
 
-	$('.result').html('Your regex: '+regexString);
-	$('.highlight').html(regexString);
+	$('.result').html(regexString);
+	$('.result-copy').val(regexStringCopy);
 	$('.example').hide();
-	$('.visual').show();
+	$('.result-container, .visual').show();
 }
 
 /**

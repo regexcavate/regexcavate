@@ -12,6 +12,13 @@ input[type="text"], .highlight {
 	height:auto;
 	width:100%;
 }
+.result-container, input.result-copy {
+	display:none;
+}
+input[type="text"].result-copy {
+	font-size:1em;
+	width:auto;
+}
 .part {
 	cursor:help;
 	margin-right:5px;
