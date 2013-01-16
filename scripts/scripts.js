@@ -51,8 +51,15 @@
 		var regexParts = [];
 
 		for (var i=parts.length; i > 0; i--) {
-			var part = parts[parts.length - i],
+			var negation = false,
+				part = parts[parts.length - i],
 				partSolved = false;
+
+			// If this part starts with not/no, trim it out and remember that this is a negation for later.
+			if (/^(not|no)/.test(part)) {
+				part = part.replace(/^(not|no) /, '');
+				negation = true;
+			}
 
 			for (var j=tests.length; j > 0; j--) {
 				var regex = new RegExp('^'+tests[tests.length-j].test+'$');
@@ -64,6 +71,12 @@
 
 					break;
 				}
+			}
+
+			// If this part has a regex match AND is a negation AND doesn't already have a negation in it for some reason.
+			if (partSolved && negation && /\[[^\^]/.test(regexParts[regexParts.length-1])) {
+				// Add the ^ symbol to the start of any range that doesn't already have it.
+				regexParts[regexParts.length-1] = regexParts[regexParts.length-1].replace(/\[/, '[^');
 			}
 
 			// If none of the tests matched, then just give back the same as was input.
