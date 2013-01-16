@@ -80,4 +80,9 @@ var tests = [
 		test:'([0-9]+) letters',
 		replace:'[a-zA-Z]{$1}'
 	 }
+	,{
+		name:'a letter',
+		test:'(a|one|1) letter',
+		replace:'[a-zA-Z]'
+	 }
 ];
