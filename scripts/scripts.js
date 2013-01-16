@@ -1,3 +1,5 @@
+'use strict';
+
 jQuery(function($) {
 	$('.verbose').keyup(function(e) {
 		// If the user presses enter (13), or types a comma (188)
@@ -15,12 +17,14 @@ function parseInput() {
 		regex = strToRegex(parts),
 		regexString = '';
 
-	for (i=regex.length; i > 0; i--) {
+	for (var i=regex.length; i > 0; i--) {
 		regexString+= '<abbr class="part" title="'+parts[regex.length-i]+'">'+regex[regex.length-i]+'</abbr>';
 	}
 
 	$('.result').html('Your regex: '+regexString);
 	$('.highlight').html(regexString);
+	$('.example').hide();
+	$('.visual').show();
 }
 
 /**
@@ -36,7 +40,7 @@ function strToRegex(parts) {
 		var part = parts[parts.length - i],
 			partSolved = false;
 
-		for (j=tests.length; j > 0; j--) {
+		for (var j=tests.length; j > 0; j--) {
 			var regex = new RegExp('^'+tests[tests.length-j].test+'$');
 			
 			// If this part (i) matches this test (j), we have a winner.

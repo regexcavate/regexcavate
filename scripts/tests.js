@@ -14,6 +14,8 @@
 			replace:'' // The regex that the user was after.
 		 }
  */
+'use strict';
+
 var tests = [
 	 {
 	 	name:'start of the line',
