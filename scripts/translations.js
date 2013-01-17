@@ -5,11 +5,11 @@
 
 	Having said that, there are a few rules:
 
-	1. Commas at the beginning of the test. This is to make it easier to
-		add new tests as we go along without worry of missing a comma.
-	2. Make sure that any tests reflect the following syntax:
+	1. Commas at the beginning of the translation. This is to make it easier to
+		add new translations as we go along without worry of missing a comma.
+	2. Make sure that any translations reflect the following syntax:
 		{
-			name:'', // Essentially: what this test matches for in plain old English.
+			name:'', // Essentially: what this translation matches for in plain old English.
 			in:'',   // The regex that determines whether what the user has input has a matching translation.
 			out:''   // The regex that the user was after.
 		}
