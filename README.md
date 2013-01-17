@@ -16,3 +16,7 @@ I know, right? So all you need to help contribute here is a pre-existing knowled
         }
 
 ... and that's all there is to it. Head on over to the `translate.js` file now to have a gander at what's there already.
+
+## A Note on Negations ##
+
+There's no need to include any negations. To save duplicating too much stuff in the `translations.js` file, the negation works by checking if the user typed 'no'/'not' before any part of the query and stripping that out. If the regex returned by any of the individual translations is within a range (ie: '[...]'), then `^` will automatically be prepended inside.

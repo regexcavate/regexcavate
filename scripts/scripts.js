@@ -73,7 +73,7 @@
 				}
 			}
 
-			// If this part has a regex match AND is a negation AND doesn't already have a negation in it for some reason.
+			// If this part has a regex match AND is a negation AND is a range that doesn't already have a negation in it.
 			if (partSolved && negation && /\[[^\^]/.test(regexParts[regexParts.length-1])) {
 				// Add the ^ symbol to the start of any range that doesn't already have it.
 				regexParts[regexParts.length-1] = regexParts[regexParts.length-1].replace(/\[/, '[^');

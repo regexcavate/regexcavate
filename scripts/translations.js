@@ -13,6 +13,11 @@
 			in:'',   // The regex that determines whether what the user has input has a matching translation.
 			out:''   // The regex that the user was after.
 		}
+
+	NOTE: There's no need to include any negations. To save duplicating too much stuff below, the negation works
+			by checking if the user typed 'no'/'not' before any part of the query and stripping that out. If the
+			regex returned by any of the individual translations below is within a range (ie: '[...]'), then `^`
+			will automatically be prepended inside.
  */
 'use strict';
 
