@@ -61,12 +61,12 @@
 				negation = true;
 			}
 
-			for (var j=tests.length; j > 0; j--) {
-				var regex = new RegExp('^'+tests[tests.length-j].test+'$');
+			for (var j=translations.length; j > 0; j--) {
+				var regex = new RegExp('^'+translations[translations.length-j].in+'$');
 				
 				// If this part (i) matches this test (j), we have a winner.
 				if ( regex.test(part) ) {
-					regexParts.push(part.replace(regex, tests[tests.length-j].replace));
+					regexParts.push(part.replace(regex, translations[translations.length-j].out));
 					partSolved = true;
 
 					break;
@@ -79,7 +79,7 @@
 				regexParts[regexParts.length-1] = regexParts[regexParts.length-1].replace(/\[/, '[^');
 			}
 
-			// If none of the tests matched, then just give back the same as was input.
+			// If none of the translations matched, then just give back the same as was input.
 			if (!partSolved) {
 				regexParts.push(escapeRegExp(part));
 			}
