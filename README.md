@@ -8,10 +8,11 @@ I know, right? So all you need to help contribute here is a pre-existing knowled
 
 1. Commas at the beginning of the translation. This is to make it easier to add new translations as we go along without worry of missing a comma.
 2. Make sure that any translations reflect the following syntax:
-    {
-        name:'', // Essentially: what this translation matches for in plain old English.
-        in:'',   // The regex that determines whether what the user has input has a matching translation.
-        out:''   // The regex that the user was after.
-    }
+    
+        {
+            name:'', // Essentially: what this translation matches for in plain old English.
+            in:'',   // The regex that determines whether what the user has input has a matching translation.
+            out:''   // The regex that the user was after.
+        }
 
 ... and that's all there is to it. Head on over to the `translate.js` file now to have a gander at what's there already.
