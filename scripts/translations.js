@@ -23,6 +23,11 @@
 
 var translations = [
 	 {
+		name:'anything',
+		in:'anything',
+		out:'.*'
+	 }
+	,{
 		name:'start of the line',
 		in:'(from the )?(start|beginning) of (the )?line',
 		out:'^'
