@@ -1,36 +1,82 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
-	<link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
-	<link href="css/screen.css" rel="stylesheet" type="text/css" />
-	<meta charset=utf-8 />
-	<title>Regexcavate</title>
-</head>
-<body>
-	<div class="container">
-		<header>
-			<h1><img src="" alt="Epic logo here"> Regexcavate</h1>
-		</header>
-		<input type="text" class="verbose">
-		<p class="result-container">
-			Your regex: <span class="result"></span>
-			<input type="text" class="result-copy" value="">
-		</p>
-		<p class="example">
-			Try: "any numbers or letters,@,7 letters,.co.uk"
-		</p>
-		<p class="visual">
-			Want a more visual representation of this regex? Try the above Regex over at <a href="http://www.regexper.com" rel="friend">regexper.com</a>.
-		</p>
+	<head>
+		<link href="css/screen.css" rel="stylesheet" type="text/css">
+		<meta charset="utf-8">
+		<title>RegExcavate - Dig into Regular Expressions</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width">
+	</head>
+	<body>
 
-		<footer>
-			Lovingly crafted by <a href="http://twitter.com/remybach" title="Follow Rémy Bach on Twitter">@remybach</a>, <a href="http://twitter.com/guyroutledge" title="Follow Guy Routledge on Twitter">@guyroutledge</a>, and <a href="http://twitter.com/robmil" title="Follow Rob Miller on Twitter">@robmil</a>.
+		<section class="app">
+			<div class="section-wrap">
+
+				<header class="site-header">
+					<nav class="main-nav">
+						<a href="#about">About</a>
+						<a href="#contribute">Contribute</a>
+						<a href="#who">Who?</a>
+					</nav>
+					<a class="fork-me">Fork me on Github</a>
+				</header>
+
+				<hgroup class="main-title">
+					<h1>Regexcavate</h1>
+					<h2>Dig into regular expressions</h2>
+				</hgroup>
+
+				<input type="text" class="verbose" placeholder="try: Any number of letters or numbers,@,7 letters,.co.uk">
+
+				<div class="result-container">
+					<h2 class="section-title">Result</h2>
+					<pre>
+						<code class="result">&nbsp;</code>
+						<span class="copy-result">
+							<i class="icon icon-copy">&nbsp;</i> copy
+						</span>
+					</pre>
+					<p>
+						Want a more visual representation of this regex? Try the above Regex over at <a href="http://www.regexper.com" rel="friend">regexper.com</a>.
+					</p>
+				</div>
+
+			</div>
+		</section>
+
+		<section class="about" id="about">
+			<div class="section-wrap">
+				<h2 class="section-title">About</h2>
+				<p>A regular expression is used  in programming to match words, characters or patterns in strings of text. They can look pretty complex and confusing but once you know how to use them, can be extremely powerful.</p>
+				<p>This tool takes the words you would use to describe a pattern and turns it into a regular expression you can use in your code.</p>
+				<p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae.
+			</div>
+		</section>
+
+		<section class="contribute" id="contribute">
+			<div class="section-wrap">
+				<h2 class="section-title">Contribute</h2>
+				<p>To make this little tool as awesome and as useful as possible, we need all the help we can get - so that means yours!</p>
+				<p>If you are a Reg-expert then hop onover to Github to check out all the stuff that makes this work behind the scenes. All you need to do is fork the project, hammer out your ‘translations’ and submit a pull request.</p>
+			</div>
+		</section>
+
+		<footer class="site-footer">
+			<div class="section-wrap">
+				<h2 class="section-title">Who?</h2>
+				<p>Regexcavate is bought to you by
+					<a href="http://www.twitter.com/remybach">@remybach</a>,
+					<a href="http://www.twitter.com/robmil">@robmil</a>
+					and
+					<a href="http://www.twitter.com/guyroutledge">@guyroutledge</a>
+				</p>
+
+			</div>
 		</footer>
-	</div>
 
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-	<script src="scripts/translations.js"></script>
-	<script src="scripts/scripts.js"></script>
-</body>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script src="scripts/translations.js"></script>
+		<script src="scripts/scripts.js"></script>
+
+	</body>
 </html>
