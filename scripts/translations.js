@@ -19,9 +19,7 @@
 			regex returned by any of the individual translations below is within a range (ie: '[...]'), then `^`
 			will automatically be prepended inside.
  */
-'use strict';
-
-var translations = [
+define({list:[
 	 {
 		name:'anything',
 		in:'anything',
@@ -207,4 +205,4 @@ var translations = [
 		in:'(between|from) ([0-9]+) (and|to) ([0-9]+) non-digits',
 		out:'\\D{$2,$4}'
 	 }
-];
+]});

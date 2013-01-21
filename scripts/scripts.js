@@ -1,5 +1,12 @@
-(function(window, document, undefined) {
-	'use strict';
+'use strict';
+
+// Use this for development/debugging. Chrome (for example) caches XHRed scripts super aggressively.
+require.config({
+	urlArgs: "cache_bust=" +  (new Date()).getTime()
+});
+
+require(["jquery", "translations"], function(jQuery, translations) {
+	translations = translations.list;
 
 	jQuery(function($) {
 		$('.verbose').keyup(function(e) {
@@ -92,4 +99,4 @@
 	function escapeRegExp(str) {
 		return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
 	}
-})(window, document);
+});
