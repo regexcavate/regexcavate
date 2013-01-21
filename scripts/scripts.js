@@ -1,9 +1,11 @@
 'use strict';
 
-// Use this for development/debugging. Chrome (for example) caches XHRed scripts super aggressively.
-require.config({
-	urlArgs: "cache_bust=" +  (new Date()).getTime()
-});
+if (/debug=true/.test(location.href)) {
+	// Use this for development/debugging. Chrome (for example) caches XHRed scripts super aggressively.
+	require.config({
+		urlArgs: "cache_bust=" +  (new Date()).getTime()
+	});
+}
 
 require(["jquery", "translations"], function(jQuery, translations) {
 	translations = translations.list;
