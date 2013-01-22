@@ -21,3 +21,45 @@ $color-app-light:lighten($color-app, 20%);
 	background:url('../images/logo.svg') top left no-repeat;
 	background-size:100%;
 }
+
+// <input class="verbose">
+.verbose {
+	display:block;
+	width:90%;
+	margin:1em auto 2em;
+	padding:0.5em 0.75em;
+
+	color:#333;
+	font-size:2em;
+
+	border:1px solid darken($color-app, 20%);
+	box-shadow:0px 0px 25px rgba($color-link, 0.3),
+	           inset 5px 5px 15px rgba(0,0,0,0.2);
+	border-radius:0.5em;
+	@include transition(all 0.5s ease);
+
+	&:focus, &:active {
+		outline:none;
+		box-shadow:0px 0px 25px saturate(rgba($color-link, 0.6), 100%),
+		           inset 5px 5px 15px rgba(0,0,0,0.2);
+	}
+}
+
+@mixin placeholder() {
+	::-webkit-input-placeholder {
+		@content;
+	}
+	::-moz-placeholder {
+		@content;
+	}
+	:-moz-placeholder {
+		@content;
+	}
+	:-ms-input-placeholder {
+		@content;
+	}
+}
+@include placeholder(){
+	color:#999;
+	font-style:italic;
+}
