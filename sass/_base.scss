@@ -189,6 +189,18 @@ textarea {
 }
 
 //*************************
+//  	$$ Layout
+//**************************
+
+.section-wrap {
+	max-width:860px;
+	margin:0 auto;
+	padding-right:2%;
+	padding-left:2%;
+}
+
+
+//*************************
 //  	$$ Utils
 //**************************
 
@@ -200,4 +212,3 @@ textarea {
 .group:after {
 	clear: both;
 }
-
