@@ -1,0 +1,49 @@
+//*************************
+//  	$$ Fork Me Banner
+//**************************
+
+$color-banner-light:#b30000;
+$color-banner-dark:#880000;
+$color-banner-stitch:#e6b2b2;
+
+.fork-me {
+	position:absolute;
+	top:50px;
+	left:-50px;
+
+	display:block;
+	width:250px;
+	height:2.5em;
+	line-height:2.5em;
+	padding:0 4em;
+
+	color:#fff;
+	font-size:12px;
+	font-family:'Collegiate','Ubuntu','Helvetica','Arial',sans-serif;
+	text-align:center;
+	@include text-shadow(0px 0px 5px rgba(0,0,0,0.5));
+
+	box-shadow:0px 0px 5px rgba(0,0,0,0.5);
+	@include background(linear-gradient($color-banner-light, $color-banner-dark));
+	@include rotate(-45deg);
+
+	z-index:0;
+
+	&:hover { color:$color-banner-stitch; }
+
+	&:before {
+		content:"";
+
+		position:absolute;
+		top:0.2em;
+		left:0;
+
+		display:block;
+		width:100%;
+		height:2em;
+
+		border:1px dotted $color-banner-stitch;
+		border-left:none;
+		border-right:none;
+	}
+}

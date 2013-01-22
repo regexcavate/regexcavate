@@ -6,16 +6,25 @@ $nav-border:2px solid darken($color-nav, 25%);
 $nav-shadow:0px 2px 6px rgba(0,0,0,0.2);
 $header-height:10px;
 
-.site-header {
-	@include box-sizing(content-box);
+.site-header { 
 	position:relative;
-	height:$header-height;
 
-	background:$color-nav;
-	border-bottom:$nav-border;
-	box-shadow:$nav-shadow;
+	// create a bar that runs across the top of the page
+	// so that the fork-me banner falls beneath it
+	&:after {
+		position:absolute;
+		top:0;
+		left:0;
 
-	z-index:10;
+		width:100%;
+		height:$header-height;
+
+		background:$color-nav;
+		border-bottom:$nav-border;
+		box-shadow:$nav-shadow;
+
+		z-index:10;
+	}
 }
 .main-nav {
 	float:right;	
@@ -39,7 +48,7 @@ $header-height:10px;
 
 		&:first-child,
 		&:last-child { 
-			z-index:10; 
+			z-index:30; 
 		
 			&:before {
 				content:'';
@@ -67,4 +76,3 @@ $header-height:10px;
 		}
 	}
 }
-.fork-me { position:absolute; }
