@@ -187,3 +187,17 @@ textarea {
     vertical-align: top;
     resize:vertical; // only allow verticle resizing so fluid layout doesn't break
 }
+
+//*************************
+//  	$$ Utils
+//**************************
+
+.group:before,
+.group:after {
+	content: " "; /* 1 */
+	display: table; /* 2 */
+}
+.group:after {
+	clear: both;
+}
+
