@@ -1,0 +1,23 @@
+//*************************
+//  	$$ App
+//**************************
+
+$color-app-light:lighten($color-app, 20%);
+
+.app {
+	@include background(radial-gradient(color-stops($color-app-light, $color-app), 50px 100px));
+
+	.section-wrap-app {
+		padding-top:1.5em;
+		padding-bottom:2em;
+	}
+}
+
+.main-title {
+	width:550px;
+	height:240px;
+	margin:0 auto;
+
+	background:url('../images/logo.svg') top left no-repeat;
+	background-size:100%;
+}
