@@ -73,7 +73,7 @@ define({
 		 }
 		,{
 			name:'between ? and ? numbers',
-			in:'(between|from) ([0-9]+) (and|to) ([0-9]+) numbers',
+			in:'(between |from )?([0-9]+) (and|to) ([0-9]+) numbers',
 			out:'[0-9]{$2,$4}'
 		 }
 		,{
@@ -98,7 +98,7 @@ define({
 		 }
 		,{
 			name:'between ? and ? letters',
-			in:'(between|from) ([0-9]+) (and|to) ([0-9]+)( uppercase or lowercase| uppercase/lowercase| lowercase or uppercase| lowercase/uppercase)? letters',
+			in:'(between |from )?([0-9]+) (and|to) ([0-9]+)( uppercase or lowercase| uppercase/lowercase| lowercase or uppercase| lowercase/uppercase)? letters',
 			out:'[a-zA-Z]{$2,$4}'
 		 }
 		,{
@@ -123,7 +123,7 @@ define({
 		 }
 		,{
 			name:'between ? and ? lowercase letters',
-			in:'(between|from) ([0-9]+) (and|to) ([0-9]+) lowercase letters',
+			in:'(between |from )?([0-9]+) (and|to) ([0-9]+) lowercase letters',
 			out:'[a-z]{$2,$4}'
 		 }
 		,{
@@ -148,7 +148,7 @@ define({
 		 }
 		,{
 			name:'between ? and ? uppercase letters',
-			in:'(between|from) ([0-9]+) (and|to) ([0-9]+) uppercase letters',
+			in:'(between |from )?([0-9]+) (and|to) ([0-9]+) uppercase letters',
 			out:'[A-Z]{$2,$4}'
 		 }
 		,{
@@ -213,7 +213,7 @@ define({
 		 }
 		,{
 			name:'between ? and ? words',
-			in:'(between|from) ([0-9]+) (and|to) ([0-9]+) words',
+			in:'(between |from )?([0-9]+) (and|to) ([0-9]+) words',
 			out:'\\w{$2,$4}'
 		 }
 		,{
@@ -233,7 +233,7 @@ define({
 		 }
 		,{
 			name:'between ? and ? non-words',
-			in:'(between|from) ([0-9]+) (and|to) ([0-9]+) non-words',
+			in:'(between |from )?([0-9]+) (and|to) ([0-9]+) non-words',
 			out:'\\W{$2,$4}'
 		 }
 		,{
@@ -253,7 +253,7 @@ define({
 		 }
 		,{
 			name:'between ? and ? digits',
-			in:'(between|from) ([0-9]+) (and|to) ([0-9]+) digits',
+			in:'(between |from )?([0-9]+) (and|to) ([0-9]+) digits',
 			out:'\\d{$2,$4}'
 		 }
 		,{
@@ -273,7 +273,7 @@ define({
 		 }
 		,{
 			name:'between ? and ? non-digits',
-			in:'(between|from) ([0-9]+) (and|to) ([0-9]+) non-digits',
+			in:'(between |from )?([0-9]+) (and|to) ([0-9]+) non-digits',
 			out:'\\D{$2,$4}'
 		 }
 	],
@@ -305,7 +305,7 @@ define({
 		 }
 		,{
 			name:'between ? and ? vowels',
-			in:'(between|from) ([0-9]+) (and|to) ([0-9]+) vowels',
+			in:'(between |from )?([0-9]+) (and|to) ([0-9]+) vowels',
 			out:'[aeiou]{$2,$4}'
 		 }
 		,{
