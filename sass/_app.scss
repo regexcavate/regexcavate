@@ -3,11 +3,13 @@
 //**************************
 
 $color-app-light:lighten($color-app, 20%);
+$color-app-dark:darken($color-app, 20%);
 
 .app {
 	@include background(radial-gradient(color-stops($color-app-light, $color-app), 50px 100px));
 
 	.section-wrap-app {
+		@extend %column-container;
 		padding-top:1.5em;
 		padding-bottom:2em;
 	}
@@ -16,7 +18,7 @@ $color-app-light:lighten($color-app, 20%);
 .main-title {
 	width:550px;
 	height:240px;
-	margin:0 auto;
+	margin:0 auto 2em;
 
 	background:url('../images/logo.svg') top left no-repeat;
 	background-size:100%;
@@ -26,13 +28,13 @@ $color-app-light:lighten($color-app, 20%);
 .verbose {
 	display:block;
 	width:90%;
-	margin:1em auto 2em;
+	margin:0 auto 1em;
 	padding:0.5em 0.75em;
 
 	color:#333;
 	font-size:2em;
 
-	border:1px solid darken($color-app, 20%);
+	border:1px solid $color-app-dark;
 	box-shadow:0px 0px 25px rgba($color-link, 0.3),
 	           inset 5px 5px 15px rgba(0,0,0,0.2);
 	border-radius:0.5em;
@@ -62,4 +64,34 @@ $color-app-light:lighten($color-app, 20%);
 @include placeholder(){
 	color:#999;
 	font-style:italic;
+}
+
+.result-title {
+	@extend %column-1-of-6;
+}
+.result-content {
+	@extend %column-5-of-6;
+}
+.result-container {
+	position:relative;
+	margin-bottom:2em;
+	padding:1em 4em 1em 1em;
+	
+	border:1px solid $color-app-dark;
+	background:rgba(white, 0.3);
+
+	.result {
+		color:#333;
+		font-size:1.5em; // 24px / 16px
+		font-family:'Ubuntu Mono', monospace;
+	}
+	.copy-result {
+		position:absolute;
+		top:0.25em;
+		right:0.25em;
+
+		color:$color-app;
+		font-size:0.75em; // 12px / 16px
+	}
+
 }
