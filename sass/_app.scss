@@ -71,6 +71,8 @@ $color-app-dark:darken($color-app, 20%);
 }
 .result-content {
 	@extend %column-5-of-6;
+
+	p { color:#666; }
 }
 .result-container {
 	position:relative;
