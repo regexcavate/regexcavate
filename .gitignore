@@ -2,5 +2,4 @@ config.rb
 .sass-cache
 css/*
 .dropbox
-Icon*
 scripts/jquery.min.js

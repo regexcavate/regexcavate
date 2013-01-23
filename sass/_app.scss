@@ -7,11 +7,12 @@ $color-app-dark:darken($color-app, 20%);
 
 .app {
 	@include background(radial-gradient(color-stops($color-app-light, $color-app), 50px 100px));
+	border-bottom:7px solid darken($color-app, 5%);
 
 	.section-wrap-app {
 		@extend %column-container;
 		padding-top:1.5em;
-		padding-bottom:2em;
+		padding-bottom:1em;
 	}
 }
 
@@ -122,8 +123,9 @@ $color-app-dark:darken($color-app, 20%);
 	margin-bottom:2em;
 	padding:1em 4em 1em 1em;
 	
-	border:1px solid $color-app-dark;
 	background:rgba(white, 0.3);
+	border:1px solid $color-app-dark;
+	border-radius:0.5em;
 
 	.result {
 		color:#333;
@@ -136,10 +138,23 @@ $color-app-dark:darken($color-app, 20%);
 	.copy-result {
 		position:absolute;
 		top:0.25em;
-		right:0.25em;
+		right:0.5em;
 
 		color:$color-app;
-		font-size:0.75em; // 12px / 16px
+		@include font(0.75em, 20px); // 12px / 16px and line-height to match icon
+
+		&:before {
+			content:"";
+
+			display:inline-block;
+			width:20px;
+			height:20px;
+			line-height:20px;
+			vertical-align:middle;
+
+			background:url('../images/icon-copy.svg');
+			background-size:100%;
+		}
 	}
 
 }
