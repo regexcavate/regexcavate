@@ -6,28 +6,26 @@ jQuery(function($){
 
 	$('.part').live({
 		mouseenter: function(){
-
 			var $this = $(this);
 			var partWidth = $this.width();
 			var partPosition = $this.position().left;
-
-			var tooltipWidth;
 			var tooltipText = $this.attr('title');
-			var tooltipPosition = partPosition + (partWidth/4) + 'px';
 
-			console.log(partWidth, partPosition, tooltipPosition);
-
-			$('.tooltip').text(tooltipText).css({
-				'left'        : tooltipPosition
-			}).toggleClass('is-visible');
-
+			setText(tooltipText, partWidth, partPosition);
 		},
-		mouseleave: function(){ 
-
+		mouseleave: function(){
 			$('.tooltip').toggleClass('is-visible');
-
 		}
-
 	});
+	function setText(text, width, position){
+		$('.tooltip').text(text);
+		positionTooltip(width, position);
+	}
+	function positionTooltip(partWidth, partPosition){
+		var tooltipWidth = $('.tooltip').outerWidth();
+		var tooltipPosition = partPosition + (partWidth/2) - (tooltipWidth/2);
+
+		$('.tooltip').css({ 'left' : tooltipPosition }).toggleClass('is-visible');
+	}
 
 });
