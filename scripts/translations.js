@@ -57,7 +57,7 @@ define({
 			out:'[0-9]'
 		 }
 		,{
-			name:'numbers',
+			name:'one or more numbers',
 			in:'(one or more )?numbers',
 			out:'[0-9]+'
 		 }
@@ -82,7 +82,7 @@ define({
 			out:'[a-zA-Z]'
 		 }
 		,{
-			name:'letters',
+			name:'one or more letters',
 			in:'(one or more )?( uppercase or lowercase| uppercase/lowercase| lowercase or uppercase| lowercase/uppercase)? letters',
 			out:'[a-zA-Z]+'
 		 }
@@ -107,7 +107,7 @@ define({
 			out:'[a-z]'
 		 }
 		,{
-			name:'lowercase letters',
+			name:'one or more lowercase letters',
 			in:'(one or more )?lowercase letters',
 			out:'[a-z]+'
 		 }
@@ -132,7 +132,7 @@ define({
 			out:'[A-Z]'
 		 }
 		,{
-			name:'uppercase letters',
+			name:'one or more uppercase letters',
 			in:'(one or more )?uppercase letters',
 			out:'[A-Z]+'
 		 }
@@ -157,7 +157,7 @@ define({
 			out:'[a-zA-Z0-9]'
 		 }
 		,{
-			name:'numbers and/or letters',
+			name:'one or more numbers and/or letters',
 			in:'(one or more )?numbers( &| and| or)?( uppercase or lowercase| uppercase/lowercase| lowercase or uppercase| lowercase/uppercase)? letters',
 			out:'[a-zA-Z0-9]+'
 		 }
@@ -172,7 +172,7 @@ define({
 			out:'[a-z0-9]'
 		 }
 		,{
-			name:'numbers and/or lowercase letters',
+			name:'one or more numbers and/or lowercase letters',
 			in:'(one or more )?numbers( &| and| or)? lowercase letters',
 			out:'[a-z0-9]+'
 		 }
@@ -187,7 +187,7 @@ define({
 			out:'[A-Z0-9]'
 		 }
 		,{
-			name:'numbers and/or uppercase letters',
+			name:'one or more numbers and/or uppercase letters',
 			in:'(one or more )?numbers( &| and| or)? uppercase letters',
 			out:'[A-Z0-9]+'
 		 }
@@ -202,8 +202,13 @@ define({
 			out:'\\w'
 		 }
 		,{
-			name:'words',
-			in:'words',
+			name:'one or more words',
+			in:'(one or more )?words',
+			out:'\\w+'
+		 }
+		,{
+			name:'any amount of words',
+			in:'any( number of| amount of)? words',
 			out:'\\w+'
 		 }
 		,{
@@ -218,22 +223,27 @@ define({
 		 }
 		,{
 			name:'a non-word',
-			in:'(a|one|1) non-word',
+			in:'(a|one|1) non-?word',
 			out:'\\W'
 		 }
 		,{
-			name:'non-words',
-			in:'non-words',
+			name:'one or more non-words',
+			in:'(one or more )?non-?words',
+			out:'\\W+'
+		 }
+		,{
+			name:'any amount of non-words',
+			in:'any( number of| amount of)? non-?words',
 			out:'\\W+'
 		 }
 		,{
 			name:'? non-words',
-			in:'([0-9]+) non-words',
+			in:'([0-9]+) non-?words',
 			out:'\\W{$1}'
 		 }
 		,{
 			name:'between ? and ? non-words',
-			in:'(between |from )?([0-9]+) (and|to) ([0-9]+) non-words',
+			in:'(between |from )?([0-9]+) (and|to) ([0-9]+) non-?words',
 			out:'\\W{$2,$4}'
 		 }
 		,{
@@ -242,8 +252,13 @@ define({
 			out:'\\d'
 		 }
 		,{
-			name:'digits',
-			in:'digits',
+			name:'one or more digits',
+			in:'(one or more )?digits',
+			out:'\\d+'
+		 }
+		,{
+			name:'any amount of digits',
+			in:'any( number of| amount of)? digits',
 			out:'\\d+'
 		 }
 		,{
@@ -258,22 +273,27 @@ define({
 		 }
 		,{
 			name:'a non-digit',
-			in:'(a|one|1) non-digit',
+			in:'(a|one|1) non-?digit',
 			out:'\\D'
 		 }
 		,{
-			name:'non-digits',
-			in:'non-digits',
+			name:'one or more non-digits',
+			in:'(one or more )?non-?digits',
+			out:'\\D+'
+		 }
+		,{
+			name:'any amount of non-digits',
+			in:'any( number of| amount of)? non-?digits',
 			out:'\\D+'
 		 }
 		,{
 			name:'? non-digits',
-			in:'([0-9]+) non-digits',
+			in:'([0-9]+) non-?digits',
 			out:'\\D{$1}'
 		 }
 		,{
 			name:'between ? and ? non-digits',
-			in:'(between |from )?([0-9]+) (and|to) ([0-9]+) non-digits',
+			in:'(between |from )?([0-9]+) (and|to) ([0-9]+) non-?digits',
 			out:'\\D{$2,$4}'
 		 }
 	],
@@ -294,7 +314,7 @@ define({
 			out:'[aeiou]'
 		 }
 		,{
-			name:'vowels',
+			name:'one or more vowels',
 			in:'(one or more )?vowels',
 			out:'[aeiou]+'
 		 }
