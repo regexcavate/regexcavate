@@ -131,9 +131,24 @@ $color-app-dark:darken($color-app, 20%);
 		color:#333;
 		font-size:1.5em; // 24px / 16px
 		font-family:'Ubuntu Mono', monospace;
+
+		&:hover abbr {
+			@include transition(opacity 0.5s ease);
+			@include opacity(0.5);
+
+			&:hover {
+				border-bottom:2px dashed rgba(0,0,0,0.1);
+
+				@include opacity(1);
+			}
+		}
 	}
 
-	abbr { cursor:help; }
+	abbr {
+		cursor:help;
+		margin-bottom:-5px;
+		padding-bottom:5px;
+	}
 
 	.copy-result {
 		position:absolute;
