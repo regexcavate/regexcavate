@@ -9,7 +9,10 @@ jQuery(function($){
 			var $this = $(this);
 			var partWidth = $this.width();
 			var partPosition = $this.position().left;
-			var tooltipText = $this.attr('title');
+			var tooltipText = $this.attr('title') || $this.data('title');
+
+			// Remove the title so that we're not showing the native "tooltip" along with our fancy one.
+			$this.data('title', tooltipText).attr('title','');
 
 			setText(tooltipText, partWidth, partPosition);
 		},
