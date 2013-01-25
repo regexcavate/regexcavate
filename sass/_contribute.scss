@@ -7,7 +7,7 @@ $color-contribute-light:lighten($color-contribute, 20%);
 $color-contribute-dark:darken($color-contribute, 20%);
 
 .contribute {
-	background:$color-contribute;
+	background:$color-contribute url('../images/watermark.svg') center center repeat-x;
 	border-bottom:7px solid darken($color-contribute, 5%);
 
 	.section-wrap-contribute {
