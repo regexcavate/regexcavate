@@ -1,0 +1,25 @@
+//*************************
+//  	$$ contribute
+//**************************
+
+
+$color-contribute-light:lighten($color-contribute, 20%);
+$color-contribute-dark:darken($color-contribute, 20%);
+
+.contribute {
+	background:$color-contribute;
+	border-bottom:7px solid darken($color-contribute, 5%);
+
+	.section-wrap-contribute {
+		@extend %column-container;
+		padding-top:3em;
+		padding-bottom:1em;
+	}
+}
+
+.contribute-title {
+	@extend %column-1-of-6;
+}
+.contribute-content {
+	@extend %column-5-of-6;
+}
