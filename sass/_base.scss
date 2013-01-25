@@ -187,19 +187,6 @@ textarea {
     resize:vertical; // only allow verticle resizing so fluid layout doesn't break
 }
 
-//*************************
-//  	$$ Layout
-//**************************
-
-.section-wrap {
-	max-width:860px;
-	margin:0 auto;
-	padding-right:2%;
-	padding-left:2%;
-
-	p { padding-right:2em; }
-}
-
 
 //*************************
 //  	$$ Utils

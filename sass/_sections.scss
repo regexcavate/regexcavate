@@ -1,0 +1,65 @@
+//*************************
+//  	$$ Sections
+//**************************
+
+// Global setion styles
+
+.section-wrap {
+	@extend %column-container;
+	max-width:860px;
+	margin:0 auto;
+	padding:3em 2% 1em;
+
+	p { padding-right:2em; }
+}
+.section-title {
+	@extend %column-1-of-6;
+}
+.section-content {
+	@extend %column-5-of-6;
+}
+
+//*************************
+//  	$$ About
+//**************************
+
+
+$color-about-light:lighten($color-about, 20%);
+$color-about-dark:darken($color-about, 20%);
+
+.about {
+	background:$color-about;
+	border-bottom:7px solid darken($color-about, 5%);
+}
+
+//*************************
+//  	$$ contribute
+//**************************
+
+
+$color-contribute-light:lighten($color-contribute, 20%);
+$color-contribute-dark:darken($color-contribute, 20%);
+
+.contribute {
+	background:$color-contribute url('../images/watermark.svg') center center repeat-x;
+	border-bottom:7px solid darken($color-contribute, 5%);
+}
+
+.section-title-contribute {
+	position:relative;
+	left:-0.5em; // the word overflows the width of the container so tweak it back
+}
+
+//*************************
+//  	$$ footer
+//**************************
+
+$color-footer-light:lighten($color-footer, 20%);
+$color-footer-dark:darken($color-footer, 20%);
+
+.site-footer {
+	background:$color-footer;
+	border-bottom:7px solid darken($color-footer, 5%);
+
+	a { color:$color-link-footer; }
+}
