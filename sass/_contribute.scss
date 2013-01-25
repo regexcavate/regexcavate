@@ -19,6 +19,8 @@ $color-contribute-dark:darken($color-contribute, 20%);
 
 .contribute-title {
 	@extend %column-1-of-6;
+	position:relative;
+	left:-0.5em; // the word overflows the width of the container so tweak it back
 }
 .contribute-content {
 	@extend %column-5-of-6;
