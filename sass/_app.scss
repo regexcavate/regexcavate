@@ -134,20 +134,18 @@ $color-app-dark:darken($color-app, 20%);
 
 		&:hover abbr {
 			@include transition(opacity 0.5s ease);
-			@include opacity(0.5);
+			opacity:0.3;
 
 			&:hover {
-				border-bottom:2px dashed rgba(0,0,0,0.1);
-
-				@include opacity(1);
+				border-bottom:1px solid $color-app-dark;
+				opacity:1;
 			}
 		}
 	}
 
 	abbr {
 		cursor:help;
-		margin-bottom:-5px;
-		padding-bottom:5px;
+		padding:0.25em 0; // larger hover target
 	}
 
 	.copy-result {
