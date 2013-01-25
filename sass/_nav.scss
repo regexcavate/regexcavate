@@ -7,7 +7,9 @@ $nav-shadow:0px 2px 6px rgba(0,0,0,0.2);
 $header-height:10px;
 
 .site-header { 
-	position:relative;
+	position:fixed;
+	width:100%;
+	z-index:10; // above the result container
 
 	// create a bar that runs across the top of the page
 	// so that the fork-me banner falls beneath it
