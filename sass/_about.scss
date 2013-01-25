@@ -1,0 +1,25 @@
+//*************************
+//  	$$ About
+//**************************
+
+
+$color-about-light:lighten($color-about, 20%);
+$color-about-dark:darken($color-about, 20%);
+
+.about {
+	background:$color-about;
+	border-bottom:7px solid darken($color-about, 5%);
+
+	.section-wrap-about {
+		@extend %column-container;
+		padding-top:3em;
+		padding-bottom:1em;
+	}
+}
+
+.about-title {
+	@extend %column-1-of-6;
+}
+.about-content {
+	@extend %column-5-of-6;
+}
