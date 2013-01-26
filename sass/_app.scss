@@ -48,7 +48,7 @@ $color-app-dark:darken($color-app, 20%);
 .verbose {
 	display:block;
 	width:90%;
-	margin:0 auto 2em;
+	margin:0 auto 1em;
 	padding:0.5em 0.75em;
 
 	color:#333;
@@ -129,14 +129,20 @@ $color-app-dark:darken($color-app, 20%);
 }
 
 
-.result-title {
-	@extend %column-1-of-6;
-}
-.result-content {
-	@extend %column-5-of-6;
+.section-content-app {
 
 	p { color:#666; }
 }
+.section-content-modifiers {
+	margin:0 0 1em;
+	
+	li {
+		display:inline-block;
+		margin-right:0.5em;
+		color:#666;
+	}
+}
+
 .result-container {
 	position:relative;
 	margin-bottom:2em;
