@@ -39,12 +39,15 @@ $color-about-dark:darken($color-about, 20%);
 
 $color-contribute-light:lighten($color-contribute, 20%);
 $color-contribute-dark:darken($color-contribute, 20%);
+$color-contribute-faded:rgba($color-contribute, 0.9);
 
 .contribute {
 	background:$color-contribute url('../images/watermark.svg') center center repeat-x;
 	border-bottom:7px solid darken($color-contribute, 5%);
 }
-
+.section-wrap-contribute {
+	@include background(linear-gradient(left, rgba($color-contribute, 0), $color-contribute-faded 30%, $color-contribute-faded 70%, rgba($color-contribute, 0)));
+}
 .section-title-contribute {
 	position:relative;
 	left:-0.5em; // the word overflows the width of the container so tweak it back
