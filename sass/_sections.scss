@@ -52,7 +52,7 @@ $color-contribute-faded:rgba($color-contribute, 0.9);
 	position:relative;
 	left:-0.5em; // the word overflows the width of the container so tweak it back
 
-	@media screen and (max-width:800px) {
+	@media screen and (max-width:$media-medium) {
 		left:0;
 	}
 }
