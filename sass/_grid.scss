@@ -6,7 +6,7 @@
 // box-sizing:border-box to add the 'gutters' via padding.
 
 %column-container {
-	@extend .group; // self-clearfix
+	@extend %group; // self-clearfix
 }
 
 // Create a 1:5 column ratio with the main column having a padding-right equal

@@ -10,6 +10,7 @@ $header-height:10px;
 	position:fixed;
 	width:100%;
 	z-index:10; // above the result container
+	@extend %group;
 
 	// create a bar that runs across the top of the page
 	// so that the fork-me banner falls beneath it
