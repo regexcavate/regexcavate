@@ -171,7 +171,7 @@ require(["jquery", "translations", "examples"], function(jQuery, translations, e
 
 	// This function was found here: http://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
 	function escapeRegExp(str) {
-		return str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+		return str.replace(/[\-\[\/\{\(\)\*\+\?\.\\\^\$\|\<\>]/g, "\\$&");
 	}
 
 	/**
