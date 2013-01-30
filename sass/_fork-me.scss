@@ -29,7 +29,7 @@ $color-banner-stitch:#e6b2b2;
 
 	z-index:0;
 
-	@media screen and (max-width:$media-small) {
+	@media screen and (max-width:540px) {
 		display:none;
 	}
 
