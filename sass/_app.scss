@@ -135,7 +135,7 @@ $color-app-dark:darken($color-app, 20%);
 }
 .section-content-modifiers {
 	margin:0 0 1em;
-	
+
 	li {
 		display:inline-block;
 		margin-right:0.5em;
@@ -144,13 +144,18 @@ $color-app-dark:darken($color-app, 20%);
 }
 
 .result-container {
+	display:none;
 	position:relative;
-	margin-bottom:2em;
-	padding:1em 4em 1em 1em;
-	
-	background:rgba(white, 0.3);
-	border:1px solid $color-app-dark;
-	border-radius:0.5em;
+
+	pre {
+		position:relative;
+		margin:0 0 2em;
+		padding:2em 4em 2em 1em;
+
+		background:rgba(white, 0.3);
+		border:1px solid $color-app-dark;
+		border-radius:0.5em;
+	}
 
 	.result {
 		color:#333;
@@ -168,7 +173,7 @@ $color-app-dark:darken($color-app, 20%);
 		}
 	}
 
-	abbr {
+	.part {
 		cursor:help;
 		padding:0.25em 0; // larger hover target
 	}
@@ -202,7 +207,7 @@ $help-shadow:-3px -3px 6px rgba(0, 0, 0, 0.1);
 	top:100%;
 	right:10%;
 
-	width:370px;
+	width:400px;
 	padding:1em;
 
 	color:$color-about;
@@ -240,10 +245,14 @@ $help-shadow:-3px -3px 6px rgba(0, 0, 0, 0.1);
 		margin-top:0;
 	}
 
-	li { 
+	ul {
+		margin-top:1.5em;
+		@extend .group;
+	}
+	li {
 		float:left;
 		width:50%;
-		margin:0 0 0.5em; 
+		margin:0 0 0.5em;
 	}
 }
 .help-title {
