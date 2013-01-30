@@ -87,7 +87,7 @@ require(["jquery", "translations", "examples"], function(jQuery, translations, e
 	 *	This function receives a string that it parses into a regex Object.
 	 */
 	function parseInput() {
-		var parts = this.value.split(','),
+		var parts = this.value.replace(/, /, ',').split(','),
 			regex = strToRegex(parts),
 			regexString = '',
 			regexStringCopy = '';
