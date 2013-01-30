@@ -33,7 +33,7 @@ $color-app-dark:darken($color-app, 20%);
 		padding-top:1.5em;
 		padding-bottom:1em;
 
-		@media screen and (max-width:400px) {
+		@media screen and (max-width:$media-small) {
 			padding-bottom:2em;
 		}
 	}
@@ -258,7 +258,7 @@ $help-shadow:-3px -3px 6px rgba(0, 0, 0, 0.1);
 		width:50%;
 		margin:0 0 0.5em;
 	}
-	@media screen and (max-width:400px) {
+	@media screen and (max-width:$media-small) {
 		width:90%;
 		right:5%;
 	}
