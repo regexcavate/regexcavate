@@ -10,7 +10,13 @@
 	margin:0 auto;
 	padding:3em 2% 1em;
 
-	p { padding-right:2em; }
+	p {
+		padding-right:2em;
+
+		@media screen and (max-width:$media-small) {
+			padding:0;
+		}
+	}
 }
 .section-title {
 	@extend %column-1-of-6;
