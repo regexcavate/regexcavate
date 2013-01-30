@@ -32,6 +32,10 @@ $color-app-dark:darken($color-app, 20%);
 		@extend %column-container;
 		padding-top:1.5em;
 		padding-bottom:1em;
+
+		@media screen and (max-width:400px) {
+			padding-bottom:2em;
+		}
 	}
 }
 
@@ -253,6 +257,10 @@ $help-shadow:-3px -3px 6px rgba(0, 0, 0, 0.1);
 		float:left;
 		width:50%;
 		margin:0 0 0.5em;
+	}
+	@media screen and (max-width:400px) {
+		width:90%;
+		right:5%;
 	}
 }
 .help-title {
