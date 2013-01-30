@@ -40,7 +40,11 @@ $color-app-dark:darken($color-app, 20%);
 }
 
 .main-title {
-	margin:1em auto;
+	margin:0 auto 1em;
+
+	@media screen and (max-width:$media-small) {
+		margin-top:1em;
+	}
 
 	h1, h2 { @extend %visually-hidden; }
 

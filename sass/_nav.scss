@@ -28,6 +28,10 @@ $header-height:10px;
 
 		z-index:10;
 	}
+
+	@media screen and (max-width:$media-small) {
+		position:static; // position fixed can be weird on mobile
+	}
 }
 .main-nav {
 	float:right;
