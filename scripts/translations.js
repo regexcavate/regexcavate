@@ -57,7 +57,7 @@ define({
 			out:'[0-9]'
 		 }
 		,{
-			name:'one or more numbers',
+			name:'numbers',
 			in:'(one or more )?numbers',
 			out:'[0-9]+'
 		 }
@@ -82,7 +82,7 @@ define({
 			out:'[a-zA-Z]'
 		 }
 		,{
-			name:'one or more letters',
+			name:'letters',
 			in:'(one or more )?( uppercase or lowercase| uppercase/lowercase| lowercase or uppercase| lowercase/uppercase)? letters',
 			out:'[a-zA-Z]+'
 		 }
@@ -107,7 +107,7 @@ define({
 			out:'[a-z]'
 		 }
 		,{
-			name:'one or more lowercase letters',
+			name:'lowercase letters',
 			in:'(one or more )?lowercase letters',
 			out:'[a-z]+'
 		 }
@@ -132,7 +132,7 @@ define({
 			out:'[A-Z]'
 		 }
 		,{
-			name:'one or more uppercase letters',
+			name:'uppercase letters',
 			in:'(one or more )?uppercase letters',
 			out:'[A-Z]+'
 		 }
@@ -157,7 +157,7 @@ define({
 			out:'[a-zA-Z0-9]'
 		 }
 		,{
-			name:'one or more numbers and/or letters',
+			name:'numbers and/or letters',
 			in:'(one or more )?numbers( &| and| or)?( uppercase or lowercase| uppercase/lowercase| lowercase or uppercase| lowercase/uppercase)? letters',
 			out:'[a-zA-Z0-9]+'
 		 }
@@ -172,7 +172,7 @@ define({
 			out:'[a-z0-9]'
 		 }
 		,{
-			name:'one or more numbers and/or lowercase letters',
+			name:'numbers and/or lowercase letters',
 			in:'(one or more )?numbers( &| and| or)? lowercase letters',
 			out:'[a-z0-9]+'
 		 }
@@ -187,7 +187,7 @@ define({
 			out:'[A-Z0-9]'
 		 }
 		,{
-			name:'one or more numbers and/or uppercase letters',
+			name:'numbers and/or uppercase letters',
 			in:'(one or more )?numbers( &| and| or)? uppercase letters',
 			out:'[A-Z0-9]+'
 		 }
@@ -202,7 +202,7 @@ define({
 			out:'\\w'
 		 }
 		,{
-			name:'one or more words',
+			name:'words',
 			in:'(one or more )?words',
 			out:'\\w+'
 		 }
@@ -227,7 +227,7 @@ define({
 			out:'\\W'
 		 }
 		,{
-			name:'one or more non-words',
+			name:'non-words',
 			in:'(one or more )?non-?words',
 			out:'\\W+'
 		 }
@@ -252,7 +252,7 @@ define({
 			out:'\\d'
 		 }
 		,{
-			name:'one or more digits',
+			name:'digits',
 			in:'(one or more )?digits',
 			out:'\\d+'
 		 }
@@ -277,7 +277,7 @@ define({
 			out:'\\D'
 		 }
 		,{
-			name:'one or more non-digits',
+			name:'non-digits',
 			in:'(one or more )?non-?digits',
 			out:'\\D+'
 		 }
@@ -314,7 +314,7 @@ define({
 			out:'[aeiou]'
 		 }
 		,{
-			name:'one or more vowels',
+			name:'vowels',
 			in:'(one or more )?vowels',
 			out:'[aeiou]+'
 		 }
