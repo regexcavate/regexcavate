@@ -23,14 +23,16 @@ $color-banner-stitch:#e6b2b2;
 	text-align:center;
 	@include text-shadow(0px 0px 5px rgba(0,0,0,0.5));
 
+	opacity:1; // will fade out at breakpoint
 	box-shadow:0px 0px 5px rgba(0,0,0,0.5);
 	@include background(linear-gradient($color-banner-light, $color-banner-dark));
 	@include rotate(-45deg);
+	@include transition(all 0.3s ease);
 
 	z-index:0;
 
 	@media screen and (max-width:540px) {
-		display:none;
+		opacity:0;
 	}
 
 	&:hover { color:$color-banner-stitch; }
