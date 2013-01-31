@@ -7,7 +7,7 @@ if (/debug=true/.test(location.href)) {
 	});
 }
 
-require(["jquery", "translations", "examples"], function(jQuery, translations, examples) {
+require(["jquery", "translations", "examples", "help", "navscroll", "tooltip"], function(jQuery, translations, examples, help, navscroll, tooltip) {
 	var prepend = examples.prepend,
 		examples = examples.list,
 		regexParts = [],
