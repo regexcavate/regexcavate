@@ -214,6 +214,10 @@ $color-app-dark:darken($color-app, 20%);
 	}
 
 }
+//*************************
+//  	$$ Help Pannel
+//**************************
+
 $help-shadow:-3px -3px 6px rgba(0, 0, 0, 0.1);
 .help {
 	position:absolute;
@@ -260,12 +264,16 @@ $help-shadow:-3px -3px 6px rgba(0, 0, 0, 0.1);
 
 	ul {
 		margin-top:1.5em;
-		@extend .group;
+		@extend %group;
 	}
 	li {
 		float:left;
 		width:50%;
 		margin:0 0 0.5em;
+
+		@media screen and (max-width:$media-small) {
+			float:none;
+		}
 	}
 	@media screen and (max-width:$media-small) {
 		width:90%;
