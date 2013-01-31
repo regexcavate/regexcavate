@@ -35,7 +35,7 @@ $color-banner-stitch:#e6b2b2;
 		opacity:0;
 	}
 
-	&:hover { color:$color-banner-stitch; }
+	&:hover { color:lighten($color-banner-stitch, 15%); }
 
 	&:before {
 		content:"";

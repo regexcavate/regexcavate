@@ -79,6 +79,7 @@ $color-footer-dark:darken($color-footer, 20%);
 	border-bottom:7px solid darken($color-footer, 5%);
 
 	a { color:$color-link-footer; }
+	a:hover { color:lighten($color-link-footer, 15%); }
 }
 .section-wrap-footer {
 	padding-bottom:1em;

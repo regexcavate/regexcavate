@@ -47,6 +47,7 @@ a {
 	color:$color-link;
 	text-decoration:none;
 	cursor:pointer;
+	@include transition(color 0.3s ease);
 }
 a:hover {
 	color:$color-hover;
