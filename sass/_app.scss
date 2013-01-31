@@ -7,6 +7,7 @@ $color-app-dark:darken($color-app, 20%);
 
 .app {
 	position:relative;
+	background:$color-app; // fallback
 	@include background(radial-gradient(color-stops($color-app-light, $color-app), 50px 100px));
 	box-shadow:0px 5px 40px rgba(0,0,0,0.4);
 	overflow:hidden;
@@ -300,4 +301,5 @@ $help-shadow:-3px -3px 6px rgba(0, 0, 0, 0.1);
 	box-shadow:$help-shadow;
 	@include transition(all 0.2s ease);
 
+	&:hover { color:$color-link; }
 }
