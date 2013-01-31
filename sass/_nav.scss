@@ -1,0 +1,98 @@
+//*************************
+//  	$$ Nav
+//**************************
+
+$nav-border:2px solid darken($color-nav, 25%);
+$nav-shadow:0px 2px 6px rgba(0,0,0,0.2);
+$header-height:10px;
+
+.site-header {
+	position:fixed;
+	width:100%;
+	z-index:10; // above the result container
+	@extend %group;
+
+	// create a bar that runs across the top of the page
+	// so that the fork-me banner falls beneath it
+	&:after {
+		position:absolute;
+		top:0;
+		left:0;
+
+		width:100%;
+		height:$header-height;
+
+		background:$color-nav;
+		border-bottom:$nav-border;
+		box-shadow:$nav-shadow;
+
+		z-index:10;
+	}
+
+	@media screen and (max-width:$media-small) {
+		position:absolute; // position fixed can be weird on mobile
+	}
+}
+.main-nav {
+	float:right;
+	margin-right:10%;
+
+	@media screen and (max-width:$media-small) {
+		margin-right:5.5%;
+	}
+
+	a {
+		position:relative;
+		float:left;
+		margin:0;
+		padding:0.75em 2em;
+
+		font-size:0.875em; // 14px / 16px
+		color:$color-link-nav;
+
+		background:$color-nav;
+		border:$nav-border;
+		border-top:none;
+		border-radius:(0 0 10px 10px);
+		box-shadow:$nav-shadow;
+		@include transition(all 0.2s ease);
+
+		z-index:20;
+
+		&:first-child,
+		&:last-child {
+			z-index:30;
+
+			&:before {
+				content:'';
+				position:absolute;
+				top:0;
+
+				width:50%;
+				height:$header-height;
+				background:$color-nav;
+			}
+		}
+		&:first-child {
+			border-right:none;
+
+			&:before {
+				left:-10%;
+			}
+		}
+		&:last-child {
+			border-left:none;
+
+			&:before {
+				right:-10%;
+			}
+		}
+		&:hover {
+			padding-top:1.25em;
+		}
+
+		@media screen and (max-width:$media-small) {
+			padding:0.75em 1.5em;
+		}
+	}
+}

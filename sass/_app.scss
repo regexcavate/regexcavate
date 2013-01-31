@@ -1,0 +1,305 @@
+//*************************
+//  	$$ App
+//**************************
+
+$color-app-light:lighten($color-app, 20%);
+$color-app-dark:darken($color-app, 20%);
+
+.app {
+	position:relative;
+	background:$color-app; // fallback
+	@include background(radial-gradient(color-stops($color-app-light, $color-app), 50px 100px));
+	box-shadow:0px 5px 40px rgba(0,0,0,0.4);
+	overflow:hidden;
+
+	// fake a bottom border that is inside the container
+	// to allow better layout and positioning of the
+	// help tab and overflow.
+	&:after {
+		content:"";
+
+		position:absolute;
+		bottom:0;
+		left:0;
+		right:0;
+
+		height:7px;
+		background:darken($color-app, 5%);
+
+		z-index:0;
+	}
+
+	.section-wrap-app {
+		@extend %column-container;
+		padding-top:1.5em;
+		padding-bottom:1em;
+
+		@media screen and (max-width:$media-small) {
+			padding-bottom:4em;
+		}
+	}
+}
+
+.main-title {
+	margin:0 auto 1em;
+
+	@media screen and (max-width:$media-small) {
+		margin-top:1em;
+	}
+
+	h1, h2 { @extend %visually-hidden; }
+
+	.logo {
+		display:block;
+		margin:0 auto;
+	}
+}
+
+// <input class="verbose">
+.verbose {
+	display:block;
+	width:90%;
+	margin:0 auto 1em;
+	padding:0.5em 0.75em;
+
+	color:#333;
+	font-size:2em;
+
+	border:1px solid $color-app-dark;
+	box-shadow:0px 0px 25px rgba($color-link, 0.3),
+	           inset 5px 5px 15px rgba(0,0,0,0.2);
+	border-radius:0.5em;
+	@include transition(all 0.5s ease);
+
+	&:focus, &:active {
+		outline:none;
+		box-shadow:0px 0px 25px saturate(rgba($color-link, 0.6), 100%),
+		           inset 5px 5px 15px rgba(0,0,0,0.2);
+	}
+	@media screen and (max-width:$media-small) {
+		font-size:1.5em;
+	}
+}
+
+@mixin placeholder() {
+	::-webkit-input-placeholder {
+		@content;
+	}
+	::-moz-placeholder {
+		@content;
+	}
+	:-moz-placeholder {
+		@content;
+	}
+	:-ms-input-placeholder {
+		@content;
+	}
+}
+@include placeholder(){
+	color:#999;
+	font-style:italic;
+}
+
+.tooltip {
+	position:absolute;
+	bottom:110%;
+
+	padding:0.75em 1.5em;
+
+	color:$color-about;
+	font-size:0.875em; // 14px / 16px
+
+	background:$color-app-light;
+	border:1px solid $color-app-dark;
+	border-radius:0.5em;
+	box-shadow:0px 3px 5px rgba(black, 0.2);
+
+	opacity:0;
+	@include transition(all, 0.5s ease);
+	z-index:10;
+
+	&.is-visible { opacity:1; }
+
+	&:after {
+		content:"";
+
+		position:absolute;
+		bottom:-25%;
+		left:50%;
+
+		width:1em;
+		height:1em;
+		margin-left:-0.5em;
+
+		background:$color-app-light;
+		border:1px solid $color-app-dark;
+		border-top:none;
+		border-left:none;
+		@include rotate(45deg);
+		box-shadow:3px 3px 5px rgba(black, 0.2);
+
+		z-index:-1;
+	}
+}
+
+
+.section-content-app {
+
+	p { color:#666; }
+}
+.section-content-modifiers {
+	margin:0 0 1em;
+
+	li {
+		display:inline-block;
+		margin-right:0.5em;
+		color:#666;
+	}
+}
+
+.result-container {
+	display:none;
+	position:relative;
+
+	pre {
+		position:relative;
+		margin:0 0 2em;
+		padding:2em 4em 2em 1em;
+
+		background:rgba(white, 0.3);
+		border:1px solid $color-app-dark;
+		border-radius:0.5em;
+	}
+
+	.result {
+		color:#333;
+		font-size:1.5em; // 24px / 16px
+		font-family:'Ubuntu Mono', monospace;
+
+		&:hover abbr {
+			@include transition(opacity 0.5s ease);
+			opacity:0.3;
+
+			&:hover {
+				border-bottom:1px solid $color-app-dark;
+				opacity:1;
+			}
+		}
+	}
+
+	.part {
+		cursor:help;
+		padding:0.25em 0; // larger hover target
+	}
+
+	.copy-result {
+		position:absolute;
+		top:0.25em;
+		right:0.5em;
+
+		color:$color-app;
+		@include font(0.75em, 20px); // 12px / 16px and line-height to match icon
+
+		&:before {
+			content:"";
+
+			display:inline-block;
+			width:20px;
+			height:20px;
+			line-height:20px;
+			vertical-align:middle;
+
+			background:url('../images/icon-copy.svg');
+			background-size:100%;
+		}
+	}
+
+}
+//*************************
+//  	$$ Help Pannel
+//**************************
+
+$help-shadow:-3px -3px 6px rgba(0, 0, 0, 0.1);
+.help {
+	position:absolute;
+	top:100%;
+	right:10%;
+
+	width:400px;
+	padding:1em;
+
+	color:$color-about;
+	font-size:0.875em; // 14px / 16px;
+
+	background:$color-nav;
+	border:$nav-border;
+	border-bottom:0;
+	border-radius:10px 0 0 0;
+	box-shadow:$help-shadow;
+	@include transition(all 0.2s ease);
+	z-index:5;
+
+	&:after {
+		content:"";
+
+		position:absolute;
+		bottom:-1em;
+		left:-2px;
+
+		width:100%;
+		height:1em;
+
+		background:$color-nav;
+		border:$nav-border;
+		border-top:0;
+		border-bottom:0;
+		box-shadow:-3px 2px 6px rgba(0,0,0,0.1);
+	}
+
+	&:hover {
+		margin-top:-1.25em;
+	}
+	&.is-active:hover {
+		margin-top:0;
+	}
+
+	ul {
+		margin:1.5em 0 0 1.5em;
+		@extend %group;
+	}
+	li {
+		float:left;
+		width:50%;
+		margin:0 0 0.5em;
+
+		@media screen and (max-width:$media-small) {
+			float:none;
+		}
+	}
+	@media screen and (max-width:$media-small) {
+		width:90%;
+		right:5%;
+	}
+}
+.help-title {
+	color:$color-link;
+}
+.help-tab {
+	position:absolute;
+	bottom:100%;
+	right:-2px;
+
+	display:inline-block;
+	padding:0.75em 2em 1em;
+
+	color:$color-link-nav;
+
+	background:$color-nav;
+	border:$nav-border;
+	border-bottom:none;
+	border-radius:(10px 10px 0 0);
+	box-shadow:$help-shadow;
+	@include transition(all 0.2s ease);
+
+	&:hover { color:$color-link; }
+}

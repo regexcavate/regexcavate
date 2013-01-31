@@ -1,0 +1,53 @@
+//*************************
+//  	$$ Colours
+//**************************
+
+$color-app:#adc381; // light green
+$color-about:#61543a; // brown
+$color-contribute:#342f2b; // dark brown
+$color-footer:#272727; // dark grey
+
+$color-nav:#d8dfbd; // light green
+$color-link-nav:$color-about;
+$color-link:#517005; // dark green
+$color-hover:lighten($color-link, 20%);
+$color-link-footer:$color-app;
+
+$color-heading:#e8efd6; // very light green
+$color-sub-heading:#574a2a; // brown
+$color-copy:$color-heading;
+
+//*************************
+//  	$$ Fonts
+//**************************
+
+$font-brand:'Ubuntu', serif;
+$font-copy:$font-brand;
+
+@mixin font($font-size:0, $line-height:1em) {
+	font-size:$font-size;
+	line-height:$line-height;
+}
+
+//*************************
+//  	$$ List Styles
+//**************************
+
+$ul: disc;
+$ol: decimal;
+
+
+//*************************
+//  	$$ Global Baselines
+//**************************
+
+$global-vertical-rhythm:1em;
+$global-padding:1em;
+
+//*************************
+//  	$$ Media Queries
+//**************************
+
+$media-medium:800px;
+$media-small:400px;
+

@@ -1,0 +1,53 @@
+//*************************
+//  	$$ Grid
+//**************************
+
+// This simple grid takes advantage of a fairly basic layout and
+// box-sizing:border-box to add the 'gutters' via padding.
+
+%column-container {
+	@extend %group; // self-clearfix
+}
+
+// Create a 1:5 column ratio with the main column having a padding-right equal
+// to the width of the narrow column for a nice centered column of main content
+
+$one-of-six:(1/6)*100%;
+$five-of-six:(5/6)*100%;
+
+%column {
+	float:left;
+}
+%column-1-of-6 {
+	@extend %column;
+	width:$one-of-six;
+	text-align:right;
+
+	@media screen and (max-width:$media-medium) {
+		float:none;
+		width:$five-of-six;
+		margin-left:$one-of-six;
+		text-align:left;
+	}
+	@media screen and (max-width:$media-small) {
+		width:90%;
+		margin:0 auto 0.5em;
+		padding:0;
+	}
+}
+%column-5-of-6 {
+	@extend %column;
+	width:$five-of-six;
+	padding:0 $one-of-six 2em 4%;
+
+	@media screen and (max-width:$media-medium) {
+		float:none;
+		margin-left:$one-of-six;
+		padding-left:0;
+	}
+	@media screen and (max-width:$media-small) {
+		width:90%;
+		margin:0 auto;
+		padding:0;
+	}
+}

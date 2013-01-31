@@ -1,0 +1,84 @@
+//*************************
+//  	$$ Miner
+//**************************
+
+$miner-width:181px;
+
+.reggie-the-miner {
+	position:absolute;
+	top:20px;
+	left:-40px;
+
+	width:$miner-width;
+	height:140px;
+	background:url('../images/miner-sprite.svg');
+	background-size:auto 100%;
+
+	z-index:10;
+
+}
+.tunnel {
+	position:absolute;
+	right:0;
+	top:-20px;
+
+	width:330px;
+	height:175px;
+	background:url('../images/tunnel.svg');
+	background-size:auto 100%;
+	z-index:20;
+
+	&:after {
+		content:"";
+		position:absolute;
+		top:0;
+		left:0;
+
+		width:100%;
+		height:100%;
+		background:url('../images/tunnel-mask.svg');
+		background-size:auto 100%;
+
+		z-index:30; // above tunnel to mask lamp
+	}
+}
+@mixin chipping {
+	from { background-position:0 0; }
+	to { background-position:-$miner-width*5 0; }
+}
+
+@-webkit-keyframes chipping-away {
+	@include chipping;
+}
+@-moz-keyframes chipping-away {
+	@include chipping;
+}
+@-o-keyframes chipping-away {
+	@include chipping;
+}
+@keyframes chipping-away {
+	@include chipping;
+}
+.excavating .reggie-the-miner {
+	// No Compass animation without an extra plugin :s - not up for adding extra compass dependencies just for this.
+	-webkit-animation: chipping-away 0.5s steps(5) infinite; // Safari 5, Chrome
+	   -moz-animation: chipping-away 0.5s steps(5) infinite; // Firefox 5-15
+	     -o-animation: chipping-away 0.5s steps(5) infinite; // Opera 12+
+	        animation: chipping-away 0.5s steps(5) infinite; // Safari 5, Chrome, Firefox 16+
+}
+
+// Mediaquery easter egg - Reggie mines as you resize the browser.
+// Let's use a small interval and many media queries to make a nice smooth animation.
+// Start from ~320px for mobile and go all the way up to 2100px for widescreen
+// When we minify and gzip this sucker, it should be all well and good.
+
+$interval:25px;
+@for $i from 13 through 83 {
+	$from:($i*$interval); // eg. 325px
+	$to:($i+1)*$interval; // eg. 350px
+	@media screen and (min-width:$from) and (max-width:$to) {
+		.reggie-the-miner {
+			background-position:($miner-width*($i % 5)) 0;
+		}
+	}
+}
