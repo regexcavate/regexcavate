@@ -13,7 +13,10 @@
 	p {
 		padding-right:2em;
 
-		@media screen and (max-width:$media-small) {
+		@media screen and (max-width:600px) {
+			padding-right:1em;
+		}
+		@media screen and (max-width:500px) {
 			padding:0;
 		}
 	}
