@@ -71,8 +71,16 @@ $color-footer-light:lighten($color-footer, 20%);
 $color-footer-dark:darken($color-footer, 20%);
 
 .site-footer {
+	position:relative;
 	background:$color-footer;
 	border-bottom:7px solid darken($color-footer, 5%);
 
 	a { color:$color-link-footer; }
+}
+.section-wrap-footer {
+	padding-bottom:1em;
+
+	@media screen and (max-width:730px) {
+		padding-top:150px; // make space for reggie above copy
+	}
 }
