@@ -30,7 +30,7 @@ $header-height:10px;
 	}
 
 	@media screen and (max-width:$media-small) {
-		position:static; // position fixed can be weird on mobile
+		position:absolute; // position fixed can be weird on mobile
 	}
 }
 .main-nav {
