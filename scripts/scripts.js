@@ -87,7 +87,7 @@ require(["jquery", "translations", "examples", "help", "navscroll", "tooltip"], 
 	 *	This function receives a string that it parses into a regex Object.
 	 */
 	function parseInput() {
-		var parts = this.value.replace(/, /, ',').split(','),
+		var parts = this.value.replace(/, /g, ',').split(','),
 			regex = strToRegex(parts),
 			regexString = '',
 			regexStringCopy = '';
