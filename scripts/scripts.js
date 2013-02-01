@@ -55,7 +55,7 @@ require(["jquery", "translations", "examples", "help", "navscroll", "tooltip"], 
 				placeholder+= seeded;
 			}
 		}
-		
+
 		// Now that we're done, randomly choose whether to show $ (end of line) or not.
 		if (doIt()) {
 			placeholder+= 'end of line';
@@ -156,7 +156,7 @@ require(["jquery", "translations", "examples", "help", "navscroll", "tooltip"], 
 	function probe(list, part) {
 		for (var j=list.length; j > 0; j--) {
 			var regex = new RegExp('^'+list[list.length-j].in+'$');
-			
+
 			// If this part matches this translation, we have a winner.
 			if ( regex.test(part) ) {
 				regexParts.push(part.replace(regex, list[list.length-j].out));
