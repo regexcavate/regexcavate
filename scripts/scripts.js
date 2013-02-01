@@ -97,14 +97,16 @@ require(["jquery", "translations", "examples", "help", "navscroll", "tooltip"], 
 			regexStringCopy+= regex[regex.length-i];
 		}
 
-		if (regexString.length > 0) {
+		// If the regex isn't empty, show the result, otherwise empty
+		// the result and hide the container
+		if ( regex[0] !== '' ) {
 			$('.result').html(regexString);
 			$('.result-copy').val(regexStringCopy);
-			$('.result-container, .visual').show();
+			$('.result-container').slideDown();
 		} else {
-			$('.result').html('');
+			$('.result').empty();
 			$('.result-copy').val('');
-			$('.result-container, .visual').hide();
+			$('.result-container').slideUp();
 		}
 	}
 
