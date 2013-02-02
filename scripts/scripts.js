@@ -196,3 +196,17 @@ require(["jquery", "translations", "examples", "help", "navscroll", "tooltip"], 
 		return randomInterval(0, 1) === 1;
 	}
 });
+
+
+/*===== Just a little bit of fun. =====*/
+require(["konami"], function(Konami) {
+	var konami = new Konami();
+	konami.code = function() {
+		if ($('body').hasClass('excavating')) {
+			$('body').removeClass('excavating');
+		} else {
+			$('body').addClass('excavating');
+		}
+	};
+	konami.load();
+});
