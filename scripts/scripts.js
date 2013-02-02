@@ -102,7 +102,11 @@ require(["jquery", "translations", "examples"], function(jQuery, translations, e
 		if ( regex[0] !== '' ) {
 			$('.result').html(regexString);
 			$('.result-copy').val(regexStringCopy);
-			$('.result-container').slideDown();
+			$('.result-container').slideDown(500, function(){
+				// after slide down, set visible overflow to ensure
+				// that the tooltips are visible above the container
+				$('.result-container').css('overflow', 'visible');
+			});
 		} else {
 			$('.result').empty();
 			$('.result-copy').val('');
