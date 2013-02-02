@@ -7,7 +7,7 @@ if (/debug=true/.test(location.href)) {
 	});
 }
 
-require(["jquery", "translations", "examples", "help", "navscroll", "tooltip"], function(jQuery, translations, examples, help, navscroll, tooltip) {
+require(["jquery", "translations", "examples"], function(jQuery, translations, examples) {
 	var prepend = examples.prepend,
 		examples = examples.list,
 		regexParts = [],
@@ -197,6 +197,9 @@ require(["jquery", "translations", "examples", "help", "navscroll", "tooltip"], 
 	}
 });
 
+require(["jquery", "help", "navscroll", "tooltip"], function(jQuery, help, navscroll, tooltip) {
+	/* Everthing that's done by these is done in the respective js files. */
+});
 
 /*===== Just a little bit of fun. =====*/
 require(["konami"], function(Konami) {
