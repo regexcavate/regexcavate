@@ -172,6 +172,11 @@ define({
 			out:'[a-zA-Z0-9]+'
 		 }
 		,{
+			name:'a number and/or letter',
+			in:'(a |1 |a single )?(number|letter)( &| and| or)? (letter|number)',
+			out:'[a-zA-Z0-9]'
+		 }
+		,{
 			name:'a number and/or lowercase letter',
 			in:'(a |1 |a single )?number( &| and| or)? lowercase letter',
 			out:'[a-z0-9]'
