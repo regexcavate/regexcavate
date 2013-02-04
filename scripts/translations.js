@@ -173,7 +173,7 @@ define({
 		 }
 		,{
 			name:'a number and/or lowercase letter',
-			in:'(a )?number( &| and| or)? lowercase letter',
+			in:'(a |1 |a single )?number( &| and| or)? lowercase letter',
 			out:'[a-z0-9]'
 		 }
 		,{
@@ -188,7 +188,7 @@ define({
 		 }
 		,{
 			name:'a number and/or uppercase letter',
-			in:'(a )?number( &| and| or)? uppercase letter',
+			in:'(a |1 | a single )?number( &| and| or)? uppercase letter',
 			out:'[A-Z0-9]'
 		 }
 		,{
