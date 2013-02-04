@@ -207,6 +207,11 @@ define({
 			out:'[a-zA-Z0-9]{2}'
 		}
 		,{
+			name:'? numbers and/or lowercase/uppercase letters',
+			in:'([0-9]+) numbers( &| and| or) (lowercase|uppercase)( &| and| or) (uppercase|lowercase) letters',
+			out:'[a-zA-Z0-9]{$1}'
+		}
+		,{
 			name:'? numbers and/or lowercase letters',
 			in:'([0-9]+) numbers( &| and| or) lowercase letters',
 			out:'[a-z0-9]{$1}'
