@@ -87,6 +87,11 @@ define({
 			out:'[a-zA-Z]+'
 		 }
 		,{
+			name:'one or more letters',
+			in:'(1|one) or more letters',
+			out:'[a-zA-Z]+'
+		}
+		,{
 			name:'any amount of letters',
 			in:'any( number of| amount of)?( uppercase or lowercase| uppercase/lowercase| lowercase or uppercase| lowercase/uppercase)? letters',
 			out:'[a-zA-Z]+'
