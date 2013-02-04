@@ -197,6 +197,21 @@ define({
 			out:'[a-zA-Z0-9]+'
 		 }
 		,{
+			name:'a (letter|number) and/or (number|letter)',
+			in:'(a|one|1) (letter|number)( &| and| or) (number|letter)',
+			out:'[a-zA-Z0-9]{2}'
+		}
+		,{
+			name:'? (letters|numbers) and/or (numbers|letters)',
+			in:'([0-9]+) (letters|numbers)( &| and| or) (numbers|letters)',
+			out:'[a-zA-Z0-9]{$1}'
+		}
+		,{
+			name:'? to ? (letters|numbers) and/or (numbers|letters)',
+			in:'([0-9]+) to ([0-9]+) (letters|numbers)( &| and| or) (numbers|letters)',
+			out:'[a-zA-Z0-9]{$1,$2}'
+		}
+		,{
 			name:'a word',
 			in:'(a|one|1) word',
 			out:'\\w'
