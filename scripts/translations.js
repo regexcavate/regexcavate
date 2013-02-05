@@ -418,5 +418,20 @@ define({
 			in:'(url|URL)',
 			out:'^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$'
 		 }
+		,{
+			name:'Visa Credit Card', // http://www.regular-expressions.info/creditcard.html
+			in:'(visa|VISA|Visa)( credit| credit(-| ))?(card)?',
+			out:'^4[0-9]{12}(?:[0-9]{3})?$'
+		}
+		,{
+			name:'Mastercard Credit Card', // http://www.regular-expressions.info/creditcard.html
+			in:'(mastercard|Mastercard)( credit| credit(-| ))?(card)?',
+			out:'^5[1-5][0-9]{14}$'
+		}
+		,{
+			name:'American Express Credit Card',
+			in:'(amex|Amex|AmEx|American Express|american express)( credit| credit(-| ))?(card)?',
+			out:'^3[47][0-9]{13}$'
+		}
 	]
 });
