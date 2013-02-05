@@ -21,21 +21,15 @@
  */
 define({
 	list:[
-
-//*************************
-//  	$$ Misc
-//**************************
-
+	
+		/*===== Misc =====*/
 		 {
 			name:'anything',
 			in:'anything',
 			out:'.*'
 		 }
 
-//*************************
-//  	$$ Anchors
-//**************************
-
+		/*===== Anchors =====*/
 		,{
 			name:'start of the line',
 			in:'(from the )?(start|beginning) of (the )?line',
@@ -47,10 +41,7 @@ define({
 			out:'$'
 		 }
 
-//*************************
-//  	$$ Special Characters
-//**************************
-
+		/*===== Special Characters =====*/
 		,{
 			name:'new line',
 			in:'(new( |\-)?line|enter)',
@@ -67,10 +58,7 @@ define({
 			out:'\\s'
 		 }
 
-//*************************
-//  	$$ Numbers
-//**************************
-
+		/*===== Numbers =====*/
 		,{
 			name:'a number',
 			in:'(a |a single |one |1 )?number',
@@ -97,10 +85,7 @@ define({
 			out:'[0-9]{$2,$4}'
 		 }
 
-//*************************
-//  	$$ Letters
-//**************************
-
+		/*===== Letters =====*/
 		,{
 			name:'a letter',
 			in:'(a|a single|one|1)( uppercase or lowercase| uppercase/lowercase| lowercase or uppercase| lowercase/uppercase)? letter',
@@ -177,10 +162,7 @@ define({
 			out:'[A-Z]{$2,$4}'
 		 }
 
-//*************************
-//  	$$ Numbers & Letters
-//**************************
-
+		/*===== Numbers & Letters =====*/
 		,{
 			name:'a number and/or letter',
 			in:'(a |a single |1 )?number( &| and| or)?( uppercase or lowercase| uppercase/lowercase| lowercase or uppercase| lowercase/uppercase)? letter',
@@ -252,10 +234,7 @@ define({
 			out:'[a-zA-Z0-9]{$1,$2}'
 		}
 
-//*************************
-//  	$$ Words
-//**************************
-
+		/*===== Words =====*/
 		,{
 			name:'a word',
 			in:'(a|one|1) word',
@@ -282,10 +261,7 @@ define({
 			out:'\\w{$2,$4}'
 		 }
 
-//*************************
-//  	$$ Non Words
-//**************************
-
+		/*===== Non Words =====*/
 		,{
 			name:'a non-word',
 			in:'(a|one|1) non-?word',
@@ -312,10 +288,7 @@ define({
 			out:'\\W{$2,$4}'
 		 }
 
-//*************************
-//  	$$ Digits
-//**************************
-
+		/*===== Digits =====*/
 		,{
 			name:'a digit',
 			in:'(a|one|1) digit',
@@ -368,10 +341,7 @@ define({
 		 }
 	],
 
-//*************************
-//  	$$ Shortcuts
-//**************************
-
+	/*===== Shortcuts =====*/
 	shortcuts: [
 		 {
 			name:'email', // modified to include lowercase letters from http://www.regular-expressions.info/email.html
