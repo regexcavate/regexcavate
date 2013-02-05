@@ -87,6 +87,11 @@ define({
 			out:'[0-9]{$1}'
 		 }
 		,{
+			name:'? or more numbers',
+			in:'([0-9]+) or more numbers?',
+			out:'[0-9]{$1,}'
+		 }
+		,{
 			name:'between ? and ? numbers',
 			in:'(between |from )?([0-9]+) (and|to) ([0-9]+) numbers',
 			out:'[0-9]{$2,$4}'
@@ -110,6 +115,11 @@ define({
 			name:'? letters',
 			in:'([0-9]+)( uppercase or lowercase| uppercase/lowercase| lowercase or uppercase| lowercase/uppercase)? letters',
 			out:'[a-zA-Z]{$1}'
+		 }
+		,{
+			name:'? or more letters',
+			in:'([0-9]+) or more( uppercase or lowercase| uppercase/lowercase| lowercase or uppercase| lowercase/uppercase)? letters',
+			out:'[a-zA-Z]{$1,}'
 		 }
 		,{
 			name:'between ? and ? letters',
