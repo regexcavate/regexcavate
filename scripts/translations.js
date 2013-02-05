@@ -67,6 +67,16 @@ define({
 			out:'\\t{$1}'
 		}
 		,{
+			name:'word boundary',
+			in:'(a )?word boundary?',
+			out:'\\b'
+		}
+		,{
+			name:'non word boundary',
+			in:'(a )?non(-| )?word boundary',
+			out:'\\B'
+		}
+		,{
 			name:'a number',
 			in:'(a |a single |one |1 )?number',
 			out:'[0-9]'
