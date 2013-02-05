@@ -88,7 +88,7 @@ define({
 		 }
 		,{
 			name:'? or more numbers',
-			in:'([0-9]+) or more numbers?',
+			in:'([2-9]|[1-9][0-9]+) or more numbers?',
 			out:'[0-9]{$1,}'
 		 }
 		,{
@@ -118,7 +118,7 @@ define({
 		 }
 		,{
 			name:'? or more letters',
-			in:'([0-9]+) or more( uppercase or lowercase| uppercase/lowercase| lowercase or uppercase| lowercase/uppercase)? letters',
+			in:'([0-9]|[0-9][0-9]+) or more( uppercase or lowercase| uppercase/lowercase| lowercase or uppercase| lowercase/uppercase)? letters',
 			out:'[a-zA-Z]{$1,}'
 		 }
 		,{
