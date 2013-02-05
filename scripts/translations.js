@@ -153,7 +153,7 @@ define({
 		 }
 		,{
 			name:'a number and/or letter',
-			in:'(a )?number( &| and| or)?( uppercase or lowercase| uppercase/lowercase| lowercase or uppercase| lowercase/uppercase)? letter',
+			in:'(a |a single |1 )?number( &| and| or)?( uppercase or lowercase| uppercase/lowercase| lowercase or uppercase| lowercase/uppercase)? letter',
 			out:'[a-zA-Z0-9]'
 		 }
 		,{
@@ -165,11 +165,6 @@ define({
 			name:'any amount of numbers and/or letters',
 			in:'any( number of| amount of)? numbers( &| and| or)?( uppercase or lowercase| uppercase/lowercase| lowercase or uppercase| lowercase/uppercase)? letters',
 			out:'[a-zA-Z0-9]+'
-		 }
-		,{
-			name:'a number and/or letter',
-			in:'(a |1 |a single )?(number|letter)( &| and| or)? (letter|number)',
-			out:'[a-zA-Z0-9]'
 		 }
 		,{
 			name:'a number and/or lowercase letter',
