@@ -93,7 +93,7 @@ define({
 		 }
 		,{
 			name:'? numbers',
-			in:'([0-9]+ ) numbers?',
+			in:'([0-9]+) numbers?',
 			out:'[0-9]{$1}'
 		 }
 		,{
