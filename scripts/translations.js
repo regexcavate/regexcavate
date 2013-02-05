@@ -73,7 +73,7 @@ define({
 		 }
 		,{
 			name:'numbers',
-			in:'(one or more )?numbers',
+			in:'((one|1) or more)? numbers',
 			out:'[0-9]+'
 		 }
 		,{
