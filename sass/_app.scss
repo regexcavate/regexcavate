@@ -185,9 +185,11 @@ $color-app-dark:darken($color-app, 20%);
 	}
 
 	.copy-result {
+		cursor:pointer;
 		position:absolute;
 		top:0.25em;
 		right:0.5em;
+		z-index:1;
 
 		color:$color-app;
 		@include font(0.75em, 20px); // 12px / 16px and line-height to match icon
@@ -203,6 +205,22 @@ $color-app-dark:darken($color-app, 20%);
 
 			background:url('../images/icon-copy.svg');
 			background-size:100%;
+		}
+	}
+	.copy-me {
+		display:none;
+		left:0.1em;
+		margin:0.9em;
+		position:absolute;
+		top:0.35em;
+		width:80%;
+		
+		@extend .result;
+	}
+
+	&.busy-copying {
+		.copy-me {
+			display:block;
 		}
 	}
 

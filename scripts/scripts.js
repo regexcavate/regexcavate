@@ -70,16 +70,13 @@ require(["jquery", "translations", "examples"], function(jQuery, translations, e
 				parseInput.call(this);
 			}
 		}).change(parseInput).attr('placeholder', placeholder);
-		$('.result').click(function() {
-			$(this).hide();
-			$('.result-copy').css({
-				display:'inline',
-				width:$(this).width()
-			}).select();
+
+		$('.result, .copy-result').live('click', function() {
+			$('.result-container').addClass('busy-copying');
+			$('.copy-me').select();
 		});
-		$('.result-copy').blur(function() {
-			$(this).hide();
-			$('.result').show();
+		$('.copy-me').live('blur', function() {
+			$('.result-container').removeClass('busy-copying');
 		});
 	});
 
@@ -101,7 +98,7 @@ require(["jquery", "translations", "examples"], function(jQuery, translations, e
 		// the result and hide the container
 		if ( regex[0] !== '' ) {
 			$('.result').html(regexString);
-			$('.result-copy').val(regexStringCopy);
+			$('.copy-me').val(regexStringCopy);
 			$('.result-container').slideDown(500, function(){
 				// after slide down, set visible overflow to ensure
 				// that the tooltips are visible above the container
@@ -109,7 +106,7 @@ require(["jquery", "translations", "examples"], function(jQuery, translations, e
 			});
 		} else {
 			$('.result').empty();
-			$('.result-copy').val('');
+			$('.copy-me').val('');
 			$('.result-container').slideUp();
 		}
 	}
