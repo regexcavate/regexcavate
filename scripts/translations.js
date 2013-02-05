@@ -52,6 +52,21 @@ define({
 			out:'\\s'
 		 }
 		,{
+			name:'a tab',
+			in:'(a |a single |1 )?tab( key| character)?',
+			out:'\\t'
+		}
+		,{
+			name:'tabs',
+			in:'((one|1) or more )?tabs',
+			out:'\\t+'
+		}
+		,{
+			name:'? tabs',
+			in:'([0-9]+) tabs',
+			out:'\\t{$1}'
+		}
+		,{
 			name:'a number',
 			in:'(a |a single |one |1 )?number',
 			out:'[0-9]'
