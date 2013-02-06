@@ -34,6 +34,13 @@ $color-app-dark:darken($color-app, 20%);
 		padding-top:1.5em;
 		padding-bottom:1em;
 
+		// a bug in chrome makes the fixed header jump to a new positioning
+		// context if the .verbose input contains text longer than it's width
+		// and is deleted with backspace key. The usual GPU-rendering-gitch-fix
+		// seems to make it go away
+		// http://code.google.com/p/chromium/issues/detail?id=139613
+		-webkit-transform:translateZ(0);
+
 		@media screen and (max-width:$media-small) {
 			padding-bottom:4em;
 		}
