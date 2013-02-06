@@ -17,7 +17,7 @@ I know, right? So all you need to help contribute here is a pre-existing knowled
             out:''   // The regex that the user was after.
         }
 
-5. Finally: Remember to think of it as translating English<sup>&dagger;</sup> to Regex so try take into account all the different ways of expressing your translation.
+5. Finally: Remember to think of it as translating English† to Regex so try take into account all the different ways of expressing your translation.
 
 ... and that's all there is to it. Head on over to the `translate.js` file now to have a gander at what's there already.
 
@@ -31,6 +31,6 @@ In case you need to know, the user's input will *first* get parsed for the regul
 
 There's no need to include any negation in the translations themselves. To save duplicating too much stuff in the `translations.js` file, the negation works by checking if the user typed 'no'/'not' before any part of the query and stripping that out. If the regex returned by any of the individual translations is within a range (ie: '[...]'), then `^` will automatically be prepended inside.
 
-## <sup>&dagger;</sup> Localisation ##
+## † Localisation ##
 
 This is something that is in the works. if you are interested in helping out, get in touch with [@remybach](http://twitter.com/remybach) on twitter.
