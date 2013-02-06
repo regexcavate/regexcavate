@@ -12,6 +12,13 @@ $color-app-dark:darken($color-app, 20%);
 	box-shadow:0px 5px 40px rgba(0,0,0,0.4);
 	overflow:hidden;
 
+	// a bug in chrome makes the fixed header jump to a new positioning
+	// context if the .verbose input contains text longer than it's width
+	// and is deleted with backspace key. The usual GPU-rendering-gitch-fix
+	// seems to make it go away
+	// http://code.google.com/p/chromium/issues/detail?id=139613
+	-webkit-transform:translateZ(0);
+
 	// fake a bottom border that is inside the container
 	// to allow better layout and positioning of the
 	// help tab and overflow.
@@ -33,13 +40,6 @@ $color-app-dark:darken($color-app, 20%);
 		@extend %column-container;
 		padding-top:1.5em;
 		padding-bottom:1em;
-
-		// a bug in chrome makes the fixed header jump to a new positioning
-		// context if the .verbose input contains text longer than it's width
-		// and is deleted with backspace key. The usual GPU-rendering-gitch-fix
-		// seems to make it go away
-		// http://code.google.com/p/chromium/issues/detail?id=139613
-		-webkit-transform:translateZ(0);
 
 		@media screen and (max-width:$media-small) {
 			padding-bottom:4em;
