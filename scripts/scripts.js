@@ -98,7 +98,7 @@ require(["jquery", "translations", "examples"], function(jQuery, translations, e
 		// the result and hide the container
 		if ( regex[0] !== '' ) {
 			$('.result').html(regexString);
-			$('.copy-me').val(regexStringCopy);
+			$('.copy-me').html(regexStringCopy);
 			$('.result-container').slideDown(500, function(){
 				// after slide down, set visible overflow to ensure
 				// that the tooltips are visible above the container
@@ -106,7 +106,7 @@ require(["jquery", "translations", "examples"], function(jQuery, translations, e
 			});
 		} else {
 			$('.result').empty();
-			$('.copy-me').val('');
+			$('.copy-me').empty();
 			$('.result-container').slideUp();
 		}
 	}
