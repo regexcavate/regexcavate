@@ -223,6 +223,7 @@ $color-app-dark:darken($color-app, 20%);
 
 		border: 1px solid $color-app-dark;
 		border-radius: 5px;
+		resize: none;
 
 		&:focus { outline:none; }
 	}

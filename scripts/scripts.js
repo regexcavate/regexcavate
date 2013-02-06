@@ -72,8 +72,10 @@ require(["jquery", "translations", "examples"], function(jQuery, translations, e
 		}).change(parseInput).attr('placeholder', placeholder);
 
 		$('.result, .copy-result').live('click', function() {
+			var height = Number($('.result').outerHeight())+Number($('.result > .part').css('padding-bottom').replace('px', ''))+Number($('.result > .part').css('padding-top').replace('px', ''));
+
 			$('.result-container').addClass('busy-copying');
-			$('.copy-me').select();
+			$('.copy-me').height(height).select();
 		});
 		$('.copy-me').live('blur', function() {
 			$('.result-container').removeClass('busy-copying');
