@@ -3,9 +3,9 @@
 
 # TEAM
 
-    Guy Routledge -- Front-end Developer/Designer -- @guyroutledge
+    Guy Routledge -- Front-end Developer/Design Guru -- @guyroutledge
     Rémy Bach -- Front-end Developer/JS Ninja -- @remybach
-    Rob Miller -- Regexpert -- @robmil
+    Rob Miller -- Regexpert/Wikipedia-on-legs -- @robmil
 
 # TECHNOLOGY COLOPHON
 
