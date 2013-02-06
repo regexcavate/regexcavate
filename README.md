@@ -33,4 +33,4 @@ There's no need to include any negation in the translations themselves. To save 
 
 ## † Localisation ##
 
-This is something that is in the works. if you are interested in helping out, get in touch with [@remybach](http://twitter.com/remybach) on twitter.
+This is something that is in the works. if you are interested in helping out, get in touch with [@regexcavate](http://twitter.com/regexcavate) on twitter, or email [regexcavate@gmail.com](mailto:regexcavate@gmail.com).
