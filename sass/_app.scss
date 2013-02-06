@@ -45,6 +45,9 @@ $color-app-dark:darken($color-app, 20%);
 			padding-bottom:4em;
 		}
 	}
+	.section-title {
+		@extend %screen-reader-text;
+	}
 }
 
 .main-title {
