@@ -361,6 +361,11 @@ define({
 			in:'(between |from )?([0-9]+) (and|to) ([0-9]+) non-?digits',
 			out:'\\D{$2,$4}'
 		 }
+		,{
+			name:'OR',
+			in:'([a-zA-Z0-9\\s]+)( or | OR | alternatively |/)([a-zA-Z0-9\\s]+)',
+			out:'($1|$3)'
+		}
 	],
 	shortcuts: [
 		 {
