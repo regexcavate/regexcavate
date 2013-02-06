@@ -1,0 +1,64 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Guy Routledge -- Front-end Developer/Designer -- @guyroutledge
+    Rémy Bach -- Front-end Developer/JS Ninja -- @remybach
+    Rob Miller -- Regexpert -- @robmil
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3, JS
+    jQuery, Require.js, Compass/SCSS
+
+
+                                  .r;.                                                                         
+                                ,A@G,                                                                          
+                              :A@@5                                                                            
+                            ;#@@@.                                                                             
+                          r#@@@A                                                                               
+                        ;#@BhB2                                                                                
+                      ,A@#r;&A                                                                                 
+                     i@@i ,#M.                                                                                 
+                   :#@9, ;BM:                                                                                  
+                  i@#r .;A@;                                                                                   
+                 9@G, ,;A@i                                                                                    
+               ,A@S .:;s@A                                                                                     
+              ,H@; ,;:r#H:                                                                                     
+             ,#@: ,;;;3@s                                                                                      
+            :MB; ,r;:5M3.                                                                                      
+           ,9#; ,;;:;B@,                                                                                       
+           3#; .;r:;5#X                                                                                        
+         .iB2 .;r;:r#A,                                                                                        
+      ,5A@@2 .;r;;;5@5                                                                                         
+     rM@@@H, :r;;:;3@@2r,                                                                                      
+    .h@#@#; .;r;;;::rh@@@@MS.                                                                                  
+     r#@@X. ;r;;;;:,,,:;rA@@i                                                                                  
+       5Ar .r;;;;;;::::,.i@@A5r:.                                                                              
+       s2:.:r;;;;;;;;;::rB@H3#@@#A2r,                                                                          
+      .AX.,;r;;;::::;;:;A@B2S2X9A#@@@MGS;,                                                                     
+      ;As :r;;rS2Sr::,:S@@#AAG93222XGH#@@@B9i;.                                                                
+     .S&; :r;;:s@@@@HS2#AsiA@@#MA&h3X222XGH#@@#HXr:.                                                           
+     ,XX:.;r;;:3@i.;9@@#.   .;2B@@@#BAG3X25523&B#@@#A5r,                                                       
+     :Gi,,;r::iM&                :SA#@@##Ah3X225523AM@@@Mhi;.                                                  
+     ;Hr.,;r::AM:                    ,s9M@@@#H&9XX255529A#@@#HXs:.                                             
+     ;Mr.:;;:r@A                         .rXB@@@#H&93X25SS5X&B#@@#A2r:                                         
+     rMr.:;:;3#s                              ;SA@@@#HAG9325SSS23AM#@#MGS;,                                    
+     ;Mr.:;:s#h.                                  ,iA#@@#MH&9X25SSS5X9AM#@#B9i;.                               
+     ;Mr.:;:2@i                                       ,rh#@@@#BAhX225SSS2XGA##@#A2r:.                          
+     ;Bs,::rh#;                                           .;XB@@@#BAh3X25SSSS2XGH#@@M&5r,.                     
+     :&i:,:SA9.                                                :5A@@@@#Ah3X225SiSS23AM#@#H9i;,                 
+     .XX;.:G#i                                                     ,iG#@@@MAG93X25SiiS5XGH####AXs:.            
+      5Ar :B#;                                                         ,r9#@@@#HAG3X25SiiiS23&HM##MA2r:        
+      rHi :##.                                                             .;XM@@@#MAG3X25SSiiS529&H###MGS;.   
+      ,BX.r#A                                                                   ;5H@@@@#AG9X22SiiiSS2X9&B#@H;  
+       A&:rB2                                                                       :iA#@@@#H&9XX25SiiiSS5hBG: 
+       ihS5&s                                                                           ,sh#@@@#H&h3X25SiiS9Ar.
+       ,XMAh;                                                                               .rXM@@@#BAG93XhAX, 
+        s@@&:                                                                                    ;2B@@@@@#Hs.  
+        ,#@B.                                                                                        :SXS;     
+         s@M                                                                                                   
+          #A.                                                                                                  
+          ;r.                                                                                                  
+           .                                                                                                  
