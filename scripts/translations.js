@@ -113,7 +113,7 @@ define({
 		 }
 		,{
 			name:'letters',
-			in:'((one|1) or more)?( uppercase or lowercase| uppercase/lowercase| lowercase or uppercase| lowercase/uppercase)? letters',
+			in:'((one |1 )or more )?(uppercase or lowercase |uppercase/lowercase |lowercase or uppercase |lowercase/uppercase )?letters',
 			out:'[a-zA-Z]+'
 		 }
 		,{
