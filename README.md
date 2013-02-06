@@ -11,7 +11,7 @@ I know, right? So all you need to help contribute here is a pre-existing knowled
 3. Commas at the beginning of the translation. This isn't a popular choice, but a necessary one to make it easier to add new translations as we go along without worry of missing a comma.
 4. Make sure that any translations reflect the following syntax:
     
-        {
+        ,{
             name:'', // What this translation matches for in plain old English.
             in:'',   // The regex that determines whether what the user has input has a matching translation.
             out:''   // The regex that the user was after.
