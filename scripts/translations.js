@@ -370,7 +370,7 @@ define({
 	shortcuts: [
 		 {
 			name:'email', // modified to include lowercase letters from http://www.regular-expressions.info/email.html
-			in:'email',
+			in:'(an )?email( [aA]ddress)?',
 			out:'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$'
 		 }
 		,{
@@ -400,7 +400,7 @@ define({
 		 }
 		,{
 			name:'IP address', // http://regexlib.com/REDetails.aspx?regexp_id=32
-			in:'(ip address|IP|^ip$)( address)?',
+			in:'(an )?(ip address|IP|^ip$)( address)?',
 			out:'^(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])$'
 		 }
 		,{
@@ -410,32 +410,32 @@ define({
 		 }
 		,{
 			name:'HTML tag', // http://www.regular-expressions.info/examples.html
-			in:'(HTML|html)( tag)?',
+			in:'(an? )?(HTML|html)( tag)?',
 			out:'<([a-zA-Z][a-zA-Z0-9]*)\b[^>]*>(.*?)</\1>'
 		 }
 		,{
 			name:'Hex colour', // http://stackoverflow.com/questions/1636350/how-to-identify-a-given-string-is-hex-color-format#1636354
-			in:'[hH]ex [cC]olou?r',
+			in:'(a )?[hH]ex [cC]olou?r',
 			out:'^#(?:[0-9a-fA-F]{3}){1,2}$'
 		 }
 		,{
 			name:'URL', // http://net.tutsplus.com/tutorials/other/8-regular-expressions-you-should-know/
-			in:'(url|URL)',
+			in:'(a )?(url|URL)',
 			out:'^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$'
 		 }
 		,{
 			name:'Visa Credit Card', // http://www.regular-expressions.info/creditcard.html
-			in:'(visa|VISA|Visa)( credit| credit(-| ))?(card)?',
+			in:'(a )?(visa|VISA|Visa)( credit| credit(-| ))?(card)?',
 			out:'^4[0-9]{12}(?:[0-9]{3})?$'
 		}
 		,{
 			name:'Mastercard Credit Card', // http://www.regular-expressions.info/creditcard.html
-			in:'(mastercard|Mastercard)( credit| credit(-| ))?(card)?',
+			in:'(a )?(mastercard|Mastercard)( credit| credit(-| ))?(card)?',
 			out:'^5[1-5][0-9]{14}$'
 		}
 		,{
 			name:'American Express Credit Card',
-			in:'(amex|Amex|AmEx|American Express|american express)( credit| credit(-| ))?(card)?',
+			in:'(a )?(amex|Amex|AmEx|American Express|american express)( credit| credit(-| ))?(card)?',
 			out:'^3[47][0-9]{13}$'
 		}
 	]
