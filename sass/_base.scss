@@ -97,6 +97,9 @@ h1,h2,h3,h4 {
 	}
 }
 
+p + h2,
+p + h3,
+p + h4 { margin:1.5em 0 1em; }
 p {
 	margin:0 0 1em;
     @include font(1em, 1.5);
