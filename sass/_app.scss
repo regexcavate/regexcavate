@@ -7,8 +7,14 @@ $color-app-dark:darken($color-app, 20%);
 
 .app {
 	position:relative;
-	background:$color-app; // fallback
-	@include background(radial-gradient(color-stops($color-app-light, $color-app), 50px 100px));
+	background: $color-app; // fallback
+	// because modern FF supports the new syntax and compass hasn't updated,
+	// let's write out the whole thing long hand.
+	background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 100, color-stop(0%, $color-app-light), color-stop(100%, $color-app));
+	background: -webkit-radial-gradient(50px 100px, $color-app-light, $color-app);
+	background: -moz-radial-gradient(50px 100px, $color-app-light, $color-app);
+	background: -o-radial-gradient(50px 100px, $color-app-light, $color-app);
+	background: radial-gradient(at 50px 100px, $color-app-light, $color-app);
 	box-shadow:0px 5px 40px rgba(0,0,0,0.4);
 	overflow:hidden;
 
