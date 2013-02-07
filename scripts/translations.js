@@ -21,7 +21,7 @@
  */
 define({
 	list:[
-	
+
 		/*===== Misc =====*/
 		 {
 			name:'anything',
@@ -382,14 +382,18 @@ define({
 	],
 
 	/*===== Shortcuts =====*/
+	/*
+	 * Shortcuts are automatically added to the "I'm Confused" panel
+	 * using the name property so make sure the name is descriptive
+	 */
 	shortcuts: [
 		 {
-			name:'email', // modified to include lowercase letters from http://www.regular-expressions.info/email.html
+			name:'email address', // modified to include lowercase letters from http://www.regular-expressions.info/email.html
 			in:'(an )?email( [aA]ddress)?',
 			out:'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$'
 		 }
 		,{
-		 	name:'uk postcode', // http://regexlib.com/REDetails.aspx?regexp_id=260
+		 	name:'UK postcode', // http://regexlib.com/REDetails.aspx?regexp_id=260
 		 	in:'(uk|UK) post(al)? ?code',
 		 	out:'^([A-PR-UWYZ0-9][A-HK-Y0-9][AEHMNPRTVXY0-9]?[ABEHMNPRVWXY0-9]? {1,2}[0-9][ABD-HJLN-UW-Z]{2}|GIR 0AA)$'
 		 }
@@ -399,7 +403,7 @@ define({
 			out:'[aeiou]'
 		 }
 		,{
-			name:'vowels',
+			name:'one or more vowels',
 			in:'(one or more )?vowels',
 			out:'[aeiou]+'
 		 }
@@ -409,7 +413,7 @@ define({
 			out:'[aeiou]{$1}'
 		 }
 		,{
-			name:'between ? and ? vowels',
+			name:'between 1 and ? vowels',
 			in:'(between |from )?([0-9]+) (and|to) ([0-9]+) vowels',
 			out:'[aeiou]{$2,$4}'
 		 }
@@ -419,7 +423,7 @@ define({
 			out:'^(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])$'
 		 }
 		,{
-			name:'Phone Number', // http://regexlib.com/REDetails.aspx?regexp_id=73
+			name:'phone number', // http://regexlib.com/REDetails.aspx?regexp_id=73
 			in:'([tT]ele)?([pP]hone) num(ber)?',
 			out:'^(\(?\+?[0-9]*\)?)?[0-9_\- \(\)]*$'
 		 }
@@ -434,22 +438,22 @@ define({
 			out:'^#(?:[0-9a-fA-F]{3}){1,2}$'
 		 }
 		,{
-			name:'URL', // http://net.tutsplus.com/tutorials/other/8-regular-expressions-you-should-know/
+			name:'a URL', // http://net.tutsplus.com/tutorials/other/8-regular-expressions-you-should-know/
 			in:'(a )?(url|URL)',
 			out:'^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$'
 		 }
 		,{
-			name:'Visa Credit Card', // http://www.regular-expressions.info/creditcard.html
+			name:'Visa credit', // http://www.regular-expressions.info/creditcard.html
 			in:'(a )?(visa|VISA|Visa)( credit| credit(-| ))?(card)?',
 			out:'^4[0-9]{12}(?:[0-9]{3})?$'
 		}
 		,{
-			name:'Mastercard Credit Card', // http://www.regular-expressions.info/creditcard.html
+			name:'Mastercard', // http://www.regular-expressions.info/creditcard.html
 			in:'(a )?(mastercard|Mastercard)( credit| credit(-| ))?(card)?',
 			out:'^5[1-5][0-9]{14}$'
 		}
 		,{
-			name:'American Express Credit Card',
+			name:'American Express',
 			in:'(a )?(amex|Amex|AmEx|American Express|american express)( credit| credit(-| ))?(card)?',
 			out:'^3[47][0-9]{13}$'
 		}

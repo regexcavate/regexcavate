@@ -83,6 +83,28 @@ require(["jquery", "translations", "examples"], function(jQuery, translations, e
 	});
 
 	/**
+	 * Dynmaically add the shortcuts to the help panel
+	 * on click, add them to the verbose input, trigger change
+	 * and hide the help panel. Replace all ? with a random number.
+	 */
+	(function helpShortcuts(){
+		var i, shortcutItem;
+		var shortcutsList = '';
+
+		for (i = 0; i < shortcuts.length; i++) {
+			shortcutsList += '<li><a href="#">' + shortcuts[i].name.replace(/\?/g, randomInterval(2,9)) + '</a></li>';
+		};
+		$('#shortcuts-list').append(shortcutsList);
+
+		$('#shortcuts-list a').on('click', function(){
+			shortcutItem = $(this).text();
+			$('.verbose').val(shortcutItem).focus().trigger('change');
+			$('.help-tab').trigger('click');
+		});
+
+	})();
+
+	/**
 	 *	This function receives a string that it parses into a regex Object.
 	 */
 	function parseInput() {
