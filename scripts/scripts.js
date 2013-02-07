@@ -100,6 +100,7 @@ require(["jquery", "translations", "examples"], function(jQuery, translations, e
 			shortcutItem = $(this).text();
 			$('.verbose').val(shortcutItem).focus().trigger('change');
 			$('.help-tab').trigger('click');
+			return false;
 		});
 
 	})();
