@@ -80,6 +80,10 @@ $color-footer-dark:darken($color-footer, 20%);
 
 	a { color:$color-link-footer; }
 	a:hover { color:lighten($color-link-footer, 15%); }
+	.foot-note {
+		font-size:0.75em; // 12px/16px
+		color: #888;
+	}
 }
 .section-wrap-footer {
 	padding-bottom:1em;
