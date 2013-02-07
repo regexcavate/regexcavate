@@ -247,7 +247,7 @@ $color-app-dark:darken($color-app, 20%);
 
 }
 //*************************
-//  	$$ Help Pannel
+//  	$$ Help Panel
 //**************************
 
 $help-shadow:-3px -3px 6px rgba(0, 0, 0, 0.1);
@@ -260,7 +260,7 @@ $help-shadow:-3px -3px 6px rgba(0, 0, 0, 0.1);
 	padding:1em;
 
 	color:$color-about;
-	font-size:0.875em; // 14px / 16px;
+	font-size:0.8125em; // 13px / 16px;
 
 	background:$color-nav;
 	border:$nav-border;
@@ -295,25 +295,18 @@ $help-shadow:-3px -3px 6px rgba(0, 0, 0, 0.1);
 	}
 
 	ul {
-		margin:1.5em 0 0 1.5em;
+		margin:1.5em 0 0 0;
 		@extend %group;
 	}
 	li {
 		float:left;
 		width:50%;
 		margin:0 0 0.5em;
-
-		@media screen and (max-width:$media-small) {
-			float:none;
-		}
 	}
 	@media screen and (max-width:$media-small) {
 		width:90%;
 		right:5%;
 	}
-}
-.help-title {
-	color:$color-link;
 }
 .help-tab {
 	position:absolute;
@@ -321,9 +314,11 @@ $help-shadow:-3px -3px 6px rgba(0, 0, 0, 0.1);
 	right:-2px;
 
 	display:inline-block;
+	margin:0;
 	padding:0.75em 2em 1em;
 
-	color:$color-link-nav;
+	font-size:1.077em; // 14px/13px
+	text-transform:none;
 
 	background:$color-nav;
 	border:$nav-border;
@@ -332,5 +327,8 @@ $help-shadow:-3px -3px 6px rgba(0, 0, 0, 0.1);
 	box-shadow:$help-shadow;
 	@include transition(all 0.2s ease);
 
-	&:hover { color:$color-link; }
+	a {
+		color:$color-link-nav;
+		&:hover { color:$color-link; }
+	}
 }

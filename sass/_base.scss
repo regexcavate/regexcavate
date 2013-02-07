@@ -122,7 +122,7 @@ pre {
 ul, ol {
     margin: 0 0 $global-vertical-rhythm 1.5em;
     padding:0;
-    list-style-position:outside;
+    list-style-position:inside;
     list-style-image:none;
 }
 ul { list-style-type:$ul; }
