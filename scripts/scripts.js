@@ -198,6 +198,15 @@ require(["jquery", "translations", "examples"], function(jQuery, translations, e
 	function doIt() {
 		return randomInterval(0, 1) === 1;
 	}
+
+	/**
+	 * No widows in running text
+	 */
+	$('p').each(function() {
+		$(this).html(function(i, html){
+			return html.replace(/\s([\S]+)$/,'&nbsp;$1');
+		});
+	});
 });
 
 require(["jquery", "help", "navscroll", "tooltip"], function(jQuery, help, navscroll, tooltip) {

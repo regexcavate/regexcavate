@@ -41,6 +41,7 @@ $color-app-dark:darken($color-app, 20%);
 	.section-title {
 		@extend %screen-reader-text;
 	}
+	.intro-copy { padding:0; }
 }
 
 .main-title {
@@ -57,7 +58,6 @@ $color-app-dark:darken($color-app, 20%);
 		margin:0 auto;
 	}
 }
-
 .verbose-container {
 	// a bug in chrome makes the fixed header jump to a new positioning
 	// context if the .verbose input contains text longer than it's width
