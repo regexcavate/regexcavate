@@ -46,6 +46,11 @@ $color-app-dark:darken($color-app, 20%);
 	}
 	.section-title {
 		@extend %screen-reader-text;
+
+		@media screen and (max-width:$media-medium) {
+			height:0;
+			media:0;
+		}
 	}
 	.intro-copy { padding:0; }
 }
