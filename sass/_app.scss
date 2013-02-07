@@ -200,6 +200,7 @@ $color-app-dark:darken($color-app, 20%);
 	.part {
 		cursor:help;
 		padding:0.25em 0; // larger hover target
+		border:0; // override Opera default
 	}
 
 	.copy-result {
