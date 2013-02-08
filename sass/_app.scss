@@ -96,7 +96,7 @@ $color-app-dark:darken($color-app, 20%);
 
 	&:focus, &:active {
 		outline:none;
-		box-shadow:0px 0px 25px saturate(rgba($color-link, 0.6), 100%),
+		box-shadow:0px 0px 25px rgba($color-app-dark, 0.7),
 		           inset 5px 5px 15px rgba(0,0,0,0.2);
 	}
 	@media screen and (max-width:$media-small) {
@@ -169,6 +169,8 @@ $color-app-dark:darken($color-app, 20%);
 .section-content-app {
 
 	p { color:#666; }
+	a { color:darken($color-link, 30%); }
+	a:hover { color:darken($color-link, 20%); }
 }
 
 .result-container {
@@ -319,6 +321,9 @@ $help-shadow:-3px -3px 6px rgba(0, 0, 0, 0.1);
 
 		a { text-transform:capitalize; }
 	}
+	a { color:$color-link-help; }
+	a:hover { color:lighten($color-link-help, 10%); }
+
 	@media screen and (max-width:$media-small) {
 		width:90%;
 		right:5%;
@@ -345,6 +350,6 @@ $help-shadow:-3px -3px 6px rgba(0, 0, 0, 0.1);
 
 	a {
 		color:$color-link-nav;
-		&:hover { color:$color-link; }
+		&:hover { color:$color-link-nav; }
 	}
 }
