@@ -64,11 +64,14 @@ $color-app-dark:darken($color-app, 20%);
 
 	h1, h2 { @extend %visually-hidden; }
 
-	.logo {
+	.logo, .logo-fallback {
 		display:block;
 		margin:0 auto;
 	}
 }
+.no-svg .logo,
+.svg .logo-fallback { display:none; }
+
 .verbose-container {
 	// a bug in chrome makes the fixed header jump to a new positioning
 	// context if the .verbose input contains text longer than it's width
