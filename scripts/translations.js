@@ -32,12 +32,12 @@ define({
 		/*===== Anchors =====*/
 		,{
 			name:'start of the line',
-			in:'(from the )?(start|beginning) of (the )?line',
+			in:'(start|begin(ing)?|(from the )?(start|beginning) of (the )?line)',
 			out:'^'
 		 }
 		,{
 			name:'end of the line',
-			in:'(to the )?end of (the )?line',
+			in:'(end|(to the )?end of (the )?line)',
 			out:'$'
 		 }
 
