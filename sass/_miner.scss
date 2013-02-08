@@ -41,6 +41,12 @@ $miner-width:181px;
 
 		z-index:30; // above tunnel to mask lamp
 	}
+	.no-svg & {
+		width:359px;
+		height:169px;
+		background:url('../images/miner-fallback.png');
+	}
+
 }
 @mixin chipping {
 	from { background-position:0 0; }
