@@ -88,16 +88,34 @@ require(["jquery", "translations", "examples"], function(jQuery, translations, e
 	 * and hide the help panel. Replace all ? with a random number.
 	 */
 	(function helpShortcuts(){
-		var i, shortcutItem;
-		var shortcutsList = '';
+		var current,
+			i,
+			shortcutItem = '',
+			shortcutsList = '';
 
 		for (i = 0; i < shortcuts.length; i++) {
 			shortcutsList += '<li><a href="#">' + shortcuts[i].name.replace(/\?/g, randomInterval(2,9)) + '</a></li>';
-		};
+		}
+
 		$('#shortcuts-list').append(shortcutsList);
 
 		$('#shortcuts-list a').on('click', function(){
-			shortcutItem = $(this).text();
+			var shortcut = $(this).text();
+
+			current = $.trim($('.verbose').val());
+			
+			// If we already have some entered value
+			if (current !== '') {
+				shortcutItem = current;
+
+				// If it doesn't end in a `,` add one.
+				if (/[^,]$/.test(current)) {
+					shortcutItem+=',';
+				}
+			}
+			
+			shortcutItem+= shortcut;
+
 			$('.verbose').val(shortcutItem).focus().trigger('change');
 			$('.help-tab').trigger('click');
 			return false;

@@ -277,7 +277,7 @@ define({
 		/*===== Words =====*/
 		,{
 			name:'a word',
-			in:'(a|one|1) word',
+			in:'(a |one |1 )?word',
 			out:'\\w'
 		 }
 		,{
@@ -304,27 +304,27 @@ define({
 		/*===== Non Words =====*/
 		,{
 			name:'a non-word',
-			in:'(a|one|1) non-?word',
+			in:'(a |one |1 )?non[- ]?word',
 			out:'\\W'
 		 }
 		,{
 			name:'non-words',
-			in:'(one or more )?non-?words',
+			in:'(one or more )?non[- ]?words',
 			out:'\\W+'
 		 }
 		,{
 			name:'any amount of non-words',
-			in:'any( number of| amount of)? non-?words',
+			in:'any( number of| amount of)? non[- ]?words',
 			out:'\\W+'
 		 }
 		,{
 			name:'? non-words',
-			in:'([0-9]+) non-?words',
+			in:'([0-9]+) non[- ]?words',
 			out:'\\W{$1}'
 		 }
 		,{
 			name:'between ? and ? non-words',
-			in:'(between |from )?([0-9]+) (and|to) ([0-9]+) non-?words',
+			in:'(between |from )?([0-9]+) (and|to) ([0-9]+) non[- ]?words',
 			out:'\\W{$2,$4}'
 		 }
 
@@ -354,31 +354,55 @@ define({
 			in:'(between |from )?([0-9]+) (and|to) ([0-9]+) digits',
 			out:'\\d{$2,$4}'
 		 }
+
+		 /*===== Non Digits =====*/
 		,{
 			name:'a non-digit',
-			in:'(a|one|1) non-?digit',
+			in:'(a|one|1) non[- ]?digit',
 			out:'\\D'
 		 }
 		,{
 			name:'non-digits',
-			in:'(one or more )?non-?digits',
+			in:'(one or more )?non[- ]?digits',
 			out:'\\D+'
 		 }
 		,{
 			name:'any amount of non-digits',
-			in:'any( number of| amount of)? non-?digits',
+			in:'any( number of| amount of)? non[- ]?digits',
 			out:'\\D+'
 		 }
 		,{
 			name:'? non-digits',
-			in:'([0-9]+) non-?digits',
+			in:'([0-9]+) non[- ]?digits',
 			out:'\\D{$1}'
 		 }
 		,{
 			name:'between ? and ? non-digits',
-			in:'(between |from )?([0-9]+) (and|to) ([0-9]+) non-?digits',
+			in:'(between |from )?([0-9]+) (and|to) ([0-9]+) non[- ]?digits',
 			out:'\\D{$2,$4}'
 		 }
+
+		 /*===== Vowels =====*/
+		 ,{
+		 	name:'a vowel',
+		 	in:'(a |one |1 )?vowel',
+		 	out:'[aeiou]'
+		  }
+		 ,{
+		 	name:'one or more vowels',
+		 	in:'(one or more )?vowels',
+		 	out:'[aeiou]+'
+		  }
+		 ,{
+		 	name:'? vowels',
+		 	in:'([0-9]+) vowels',
+		 	out:'[aeiou]{$1}'
+		  }
+		 ,{
+		 	name:'between 1 and ? vowels',
+		 	in:'(between |from )?([0-9]+) (and|to) ([0-9]+) vowels',
+		 	out:'[aeiou]{$2,$4}'
+		  }
 	],
 
 	/*===== Shortcuts =====*/
@@ -390,42 +414,22 @@ define({
 		 {
 			name:'email address', // modified to include lowercase letters from http://www.regular-expressions.info/email.html
 			in:'(an )?email( [aA]ddress)?',
-			out:'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$'
+			out:'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}'
 		 }
 		,{
 		 	name:'UK postcode', // http://regexlib.com/REDetails.aspx?regexp_id=260
 		 	in:'(uk|UK) post(al)? ?code',
-		 	out:'^([A-PR-UWYZ0-9][A-HK-Y0-9][AEHMNPRTVXY0-9]?[ABEHMNPRVWXY0-9]? {1,2}[0-9][ABD-HJLN-UW-Z]{2}|GIR 0AA)$'
-		 }
-		,{
-			name:'a vowel',
-			in:'(a |one |1 )?vowel',
-			out:'[aeiou]'
-		 }
-		,{
-			name:'one or more vowels',
-			in:'(one or more )?vowels',
-			out:'[aeiou]+'
-		 }
-		,{
-			name:'? vowels',
-			in:'([0-9]+) vowels',
-			out:'[aeiou]{$1}'
-		 }
-		,{
-			name:'between 1 and ? vowels',
-			in:'(between |from )?([0-9]+) (and|to) ([0-9]+) vowels',
-			out:'[aeiou]{$2,$4}'
+		 	out:'([A-PR-UWYZ0-9][A-HK-Y0-9][AEHMNPRTVXY0-9]?[ABEHMNPRVWXY0-9]? {1,2}[0-9][ABD-HJLN-UW-Z]{2}|GIR 0AA)'
 		 }
 		,{
 			name:'IP address', // http://regexlib.com/REDetails.aspx?regexp_id=32
 			in:'(an )?(ip address|IP|^ip$)( address)?',
-			out:'^(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])$'
+			out:'(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])'
 		 }
 		,{
 			name:'phone number', // http://regexlib.com/REDetails.aspx?regexp_id=73
 			in:'([tT]ele)?([pP]hone) num(ber)?',
-			out:'^(\(?\+?[0-9]*\)?)?[0-9_\- \(\)]*$'
+			out:'(\(?\+?[0-9]*\)?)?[0-9_\- \(\)]*'
 		 }
 		,{
 			name:'HTML tag', // http://www.regular-expressions.info/examples.html
@@ -435,27 +439,27 @@ define({
 		,{
 			name:'Hex colour', // http://stackoverflow.com/questions/1636350/how-to-identify-a-given-string-is-hex-color-format#1636354
 			in:'(a )?[hH]ex [cC]olou?r',
-			out:'^#(?:[0-9a-fA-F]{3}){1,2}$'
+			out:'#(?:[0-9a-fA-F]{3}){1,2}'
 		 }
 		,{
 			name:'a URL', // http://net.tutsplus.com/tutorials/other/8-regular-expressions-you-should-know/
 			in:'(a )?(url|URL)',
-			out:'^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$'
+			out:'(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?'
 		 }
 		,{
 			name:'Visa credit', // http://www.regular-expressions.info/creditcard.html
 			in:'(a )?(visa|VISA|Visa)( credit| credit(-| ))?(card)?',
-			out:'^4[0-9]{12}(?:[0-9]{3})?$'
+			out:'4[0-9]{12}(?:[0-9]{3})?'
 		}
 		,{
 			name:'Mastercard', // http://www.regular-expressions.info/creditcard.html
 			in:'(a )?(mastercard|Mastercard)( credit| credit(-| ))?(card)?',
-			out:'^5[1-5][0-9]{14}$'
+			out:'5[1-5][0-9]{14}'
 		}
 		,{
 			name:'American Express',
 			in:'(a )?(amex|Amex|AmEx|American Express|american express)( credit| credit(-| ))?(card)?',
-			out:'^3[47][0-9]{13}$'
+			out:'3[47][0-9]{13}'
 		}
 	]
 });
