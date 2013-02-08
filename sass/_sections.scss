@@ -39,6 +39,9 @@ $color-about-dark:darken($color-about, 20%);
 .about {
 	background:$color-about;
 	border-bottom:7px solid darken($color-about, 5%);
+
+	a { color:lighten($color-about, 40%); }
+	a:hover { color:lighten($color-about, 50%); }
 }
 
 //*************************
@@ -53,6 +56,9 @@ $color-contribute-faded:rgba($color-contribute, 0.9);
 .contribute {
 	background:$color-contribute url('../images/watermark.svg') center 9em repeat-x;
 	border-bottom:7px solid darken($color-contribute, 5%);
+
+	a { color:lighten($color-contribute, 40%); }
+	a:hover { color:lighten($color-contribute, 50%); }
 }
 .section-wrap-contribute {
 	@include background(linear-gradient(left, rgba($color-contribute, 0), $color-contribute-faded 30%, $color-contribute-faded 70%, rgba($color-contribute, 0)));
