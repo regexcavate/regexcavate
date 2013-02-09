@@ -213,3 +213,12 @@ textarea {
 	text-align:left;
 	text-indent:-9999px;
 }
+
+//*****************************
+//  $$ IE10 Win 8 Snap Mode Fix : http://timkadlec.com/2012/10/ie10-snap-mode-and-responsive-design/
+//*****************************
+@media screen and (max-width:400px) {
+	@-ms-viewport {
+		width:320px;
+	}
+}
