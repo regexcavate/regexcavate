@@ -10,8 +10,8 @@
 	2. Make sure that any translations reflect the following syntax:
 		{
 			name:'', // Essentially: what this translation matches for in plain old English.
-			in:'',   // The regex that determines whether what the user has input has a matching translation.
-			out:''   // The regex that the user was after.
+			input:'',   // The regex that determines whether what the user has input has a matching translation.
+			output:''   // The regex that the user was after.
 		}
 
 	NOTE: There's no need to include any negations. To save duplicating too much stuff below, the negation works
@@ -25,383 +25,383 @@ define({
 		/*===== Misc =====*/
 		 {
 			name:'anything',
-			in:'anything',
-			out:'.*'
+			input:'anything',
+			output:'.*'
 		 }
 
 		/*===== Anchors =====*/
 		,{
 			name:'start of the line',
-			in:'(start|begin(ing)?|(from the )?(start|beginning) of (the )?line)',
-			out:'^'
+			input:'(start|begin(ing)?|(from the )?(start|beginning) of (the )?line)',
+			output:'^'
 		 }
 		,{
 			name:'end of the line',
-			in:'(end|(to the )?end of (the )?line)',
-			out:'$'
+			input:'(end|(to the )?end of (the )?line)',
+			output:'$'
 		 }
 
 		/*===== Special Characters =====*/
 		,{
 			name:'new line',
-			in:'(new( |\-)?line|enter)',
-			out:'(\\r)?\\n'
+			input:'(new( |\-)?line|enter)',
+			output:'(\\r)?\\n'
 		 }
 		,{
 			name:'non white space',
-			in:'no(n|t)? white ?space',
-			out:'\\S'
+			input:'no(n|t)? white ?space',
+			output:'\\S'
 		 }
 		,{
 			name:'white space',
-			in:'white ?space',
-			out:'\\s'
+			input:'white ?space',
+			output:'\\s'
 		 }
 
 		/*===== Numbers =====*/
 		,{
 			name:'a tab',
-			in:'(a |a single |1 )?tab( key| character)?',
-			out:'\\t'
+			input:'(a |a single |1 )?tab( key| character)?',
+			output:'\\t'
 		}
 		,{
 			name:'tabs',
-			in:'((one|1) or more )?tabs',
-			out:'\\t+'
+			input:'((one|1) or more )?tabs',
+			output:'\\t+'
 		}
 		,{
 			name:'? tabs',
-			in:'([0-9]+) tabs',
-			out:'\\t{$1}'
+			input:'([0-9]+) tabs',
+			output:'\\t{$1}'
 		}
 		,{
 			name:'word boundary',
-			in:'(a )?word boundary?',
-			out:'\\b'
+			input:'(a )?word boundary?',
+			output:'\\b'
 		}
 		,{
 			name:'non word boundary',
-			in:'(a )?non(-| )?word boundary',
-			out:'\\B'
+			input:'(a )?non(-| )?word boundary',
+			output:'\\B'
 		}
 		,{
 			name:'a number',
-			in:'(a |a single |one |1 )?number',
-			out:'[0-9]'
+			input:'(a |a single |one |1 )?number',
+			output:'[0-9]'
 		 }
 		,{
 			name:'numbers',
-			in:'((one|1) or more )?numbers',
-			out:'[0-9]+'
+			input:'((one|1) or more )?numbers',
+			output:'[0-9]+'
 		 }
 		,{
 			name:'any amount of numbers',
-			in:'any( number of| amount of)? numbers',
-			out:'[0-9]+'
+			input:'any( number of| amount of)? numbers',
+			output:'[0-9]+'
 		 }
 		,{
 			name:'? numbers',
-			in:'([0-9]+) numbers?',
-			out:'[0-9]{$1}'
+			input:'([0-9]+) numbers?',
+			output:'[0-9]{$1}'
 		 }
 		,{
 			name:'? or more numbers',
-			in:'([2-9]|[1-9][0-9]+) or more numbers?',
-			out:'[0-9]{$1,}'
+			input:'([2-9]|[1-9][0-9]+) or more numbers?',
+			output:'[0-9]{$1,}'
 		 }
 		,{
 			name:'between ? and ? numbers',
-			in:'(between |from )?([0-9]+) (and|to) ([0-9]+) numbers',
-			out:'[0-9]{$2,$4}'
+			input:'(between |from )?([0-9]+) (and|to) ([0-9]+) numbers',
+			output:'[0-9]{$2,$4}'
 		 }
 
 		/*===== Letters =====*/
 		,{
 			name:'a letter',
-			in:'(a|a single|one|1)( uppercase or lowercase| uppercase/lowercase| lowercase or uppercase| lowercase/uppercase)? letter',
-			out:'[a-zA-Z]'
+			input:'(a|a single|one|1)( uppercase or lowercase| uppercase/lowercase| lowercase or uppercase| lowercase/uppercase)? letter',
+			output:'[a-zA-Z]'
 		 }
 		,{
 			name:'letters',
-			in:'((one |1 )or more )?(uppercase or lowercase |uppercase/lowercase |lowercase or uppercase |lowercase/uppercase )?letters',
-			out:'[a-zA-Z]+'
+			input:'((one |1 )or more )?(uppercase or lowercase |uppercase/lowercase |lowercase or uppercase |lowercase/uppercase )?letters',
+			output:'[a-zA-Z]+'
 		 }
 		,{
 			name:'any amount of letters',
-			in:'any( number of| amount of)?( uppercase or lowercase| uppercase/lowercase| lowercase or uppercase| lowercase/uppercase)? letters',
-			out:'[a-zA-Z]+'
+			input:'any( number of| amount of)?( uppercase or lowercase| uppercase/lowercase| lowercase or uppercase| lowercase/uppercase)? letters',
+			output:'[a-zA-Z]+'
 		 }
 		,{
 			name:'? letters',
-			in:'([0-9]+)( uppercase or lowercase| uppercase/lowercase| lowercase or uppercase| lowercase/uppercase)? letters',
-			out:'[a-zA-Z]{$1}'
+			input:'([0-9]+)( uppercase or lowercase| uppercase/lowercase| lowercase or uppercase| lowercase/uppercase)? letters',
+			output:'[a-zA-Z]{$1}'
 		 }
 		,{
 			name:'? or more letters',
-			in:'([0-9]|[0-9][0-9]+) or more( uppercase or lowercase| uppercase/lowercase| lowercase or uppercase| lowercase/uppercase)? letters',
-			out:'[a-zA-Z]{$1,}'
+			input:'([0-9]|[0-9][0-9]+) or more( uppercase or lowercase| uppercase/lowercase| lowercase or uppercase| lowercase/uppercase)? letters',
+			output:'[a-zA-Z]{$1,}'
 		 }
 		,{
 			name:'between ? and ? letters',
-			in:'(between |from )?([0-9]+) (and|to) ([0-9]+)( uppercase or lowercase| uppercase/lowercase| lowercase or uppercase| lowercase/uppercase)? letters',
-			out:'[a-zA-Z]{$2,$4}'
+			input:'(between |from )?([0-9]+) (and|to) ([0-9]+)( uppercase or lowercase| uppercase/lowercase| lowercase or uppercase| lowercase/uppercase)? letters',
+			output:'[a-zA-Z]{$2,$4}'
 		 }
 		,{
 			name:'a lowercase letter',
-			in:'(a|a single|one|1) lowercase letter',
-			out:'[a-z]'
+			input:'(a|a single|one|1) lowercase letter',
+			output:'[a-z]'
 		 }
 		,{
 			name:'lowercase letters',
-			in:'(one or more )?lowercase letters',
-			out:'[a-z]+'
+			input:'(one or more )?lowercase letters',
+			output:'[a-z]+'
 		 }
 		,{
 			name:'any amount of lowercase letters',
-			in:'any( number of| amount of)? lowercase letters',
-			out:'[a-z]+'
+			input:'any( number of| amount of)? lowercase letters',
+			output:'[a-z]+'
 		 }
 		,{
 			name:'? lowercase letters',
-			in:'([0-9]+) lowercase letters',
-			out:'[a-z]{$1}'
+			input:'([0-9]+) lowercase letters',
+			output:'[a-z]{$1}'
 		 }
 		,{
 			name:'between ? and ? lowercase letters',
-			in:'(between |from )?([0-9]+) (and|to) ([0-9]+) lowercase letters',
-			out:'[a-z]{$2,$4}'
+			input:'(between |from )?([0-9]+) (and|to) ([0-9]+) lowercase letters',
+			output:'[a-z]{$2,$4}'
 		 }
 		,{
 			name:'an uppercase letter',
-			in:'(a|an|a single|one|1) uppercase letter',
-			out:'[A-Z]'
+			input:'(a|an|a single|one|1) uppercase letter',
+			output:'[A-Z]'
 		 }
 		,{
 			name:'uppercase letters',
-			in:'(one or more )?uppercase letters',
-			out:'[A-Z]+'
+			input:'(one or more )?uppercase letters',
+			output:'[A-Z]+'
 		 }
 		,{
 			name:'any amount of uppercase letters',
-			in:'any( number of| amount of)? uppercase letters',
-			out:'[A-Z]+'
+			input:'any( number of| amount of)? uppercase letters',
+			output:'[A-Z]+'
 		 }
 		,{
 			name:'? uppercase letters',
-			in:'([0-9]+) uppercase letters',
-			out:'[A-Z]{$1}'
+			input:'([0-9]+) uppercase letters',
+			output:'[A-Z]{$1}'
 		 }
 		,{
 			name:'between ? and ? uppercase letters',
-			in:'(between |from )?([0-9]+) (and|to) ([0-9]+) uppercase letters',
-			out:'[A-Z]{$2,$4}'
+			input:'(between |from )?([0-9]+) (and|to) ([0-9]+) uppercase letters',
+			output:'[A-Z]{$2,$4}'
 		 }
 
 		/*===== Numbers & Letters =====*/
 		,{
 			name:'a number and/or letter',
-			in:'(a |a single |1 )?number( &| and| or)?( uppercase or lowercase| uppercase/lowercase| lowercase or uppercase| lowercase/uppercase)? letter',
-			out:'[a-zA-Z0-9]'
+			input:'(a |a single |1 )?number( &| and| or)?( uppercase or lowercase| uppercase/lowercase| lowercase or uppercase| lowercase/uppercase)? letter',
+			output:'[a-zA-Z0-9]'
 		 }
 		,{
 			name:'numbers and/or letters',
-			in:'(one or more )?numbers( &| and| or)?( uppercase or lowercase| uppercase/lowercase| lowercase or uppercase| lowercase/uppercase)? letters',
-			out:'[a-zA-Z0-9]+'
+			input:'(one or more )?numbers( &| and| or)?( uppercase or lowercase| uppercase/lowercase| lowercase or uppercase| lowercase/uppercase)? letters',
+			output:'[a-zA-Z0-9]+'
 		 }
 		,{
 			name:'any amount of numbers and/or letters',
-			in:'any( number of| amount of)? numbers( &| and| or)?( uppercase or lowercase| uppercase/lowercase| lowercase or uppercase| lowercase/uppercase)? letters',
-			out:'[a-zA-Z0-9]+'
+			input:'any( number of| amount of)? numbers( &| and| or)?( uppercase or lowercase| uppercase/lowercase| lowercase or uppercase| lowercase/uppercase)? letters',
+			output:'[a-zA-Z0-9]+'
 		 }
 		,{
 			name:'? or more numbers and/or letters',
-			in:'([0-9]|[0-9][0-9]+) or more( numbers (and|or))?( uppercase or lowercase| uppercase/lowercase| lowercase or uppercase| lowercase/uppercase)? letters( (and|or) numbers)?',
-			out:'[a-zA-Z0-9]{$1,}'
+			input:'([0-9]|[0-9][0-9]+) or more( numbers (and|or))?( uppercase or lowercase| uppercase/lowercase| lowercase or uppercase| lowercase/uppercase)? letters( (and|or) numbers)?',
+			output:'[a-zA-Z0-9]{$1,}'
 		 }
 		,{
 			name:'a number and/or lowercase letter',
-			in:'(a |1 |a single )?number( &| and| or)? lowercase letter',
-			out:'[a-z0-9]'
+			input:'(a |1 |a single )?number( &| and| or)? lowercase letter',
+			output:'[a-z0-9]'
 		 }
 		,{
 			name:'numbers and/or lowercase letters',
-			in:'(one or more )?numbers( &| and| or)? lowercase letters',
-			out:'[a-z0-9]+'
+			input:'(one or more )?numbers( &| and| or)? lowercase letters',
+			output:'[a-z0-9]+'
 		 }
 		,{
 			name:'any amount of numbers and/or lowercase letters',
-			in:'any( number of| amount of)? numbers( &| and| or)? lowercase letters',
-			out:'[a-z0-9]+'
+			input:'any( number of| amount of)? numbers( &| and| or)? lowercase letters',
+			output:'[a-z0-9]+'
 		 }
 		,{
 			name:'a number and/or uppercase letter',
-			in:'(a |1 | a single )?number( &| and| or)? uppercase letter',
-			out:'[A-Z0-9]'
+			input:'(a |1 | a single )?number( &| and| or)? uppercase letter',
+			output:'[A-Z0-9]'
 		 }
 		,{
 			name:'numbers and/or uppercase letters',
-			in:'(one or more )?numbers( &| and| or)? uppercase letters',
-			out:'[A-Z0-9]+'
+			input:'(one or more )?numbers( &| and| or)? uppercase letters',
+			output:'[A-Z0-9]+'
 		 }
 		,{
 			name:'any amount of numbers and/or uppercase letters',
-			in:'any( number of| amount of)? numbers( &| and| or)? uppercase letters',
-			out:'[a-zA-Z0-9]+'
+			input:'any( number of| amount of)? numbers( &| and| or)? uppercase letters',
+			output:'[a-zA-Z0-9]+'
 		 }
 		,{
 			name:'? numbers and/or lowercase/uppercase letters',
-			in:'([0-9]+) numbers( &| and| or) (lowercase|uppercase)( &| and| or) (uppercase|lowercase) letters',
-			out:'[a-zA-Z0-9]{$1}'
+			input:'([0-9]+) numbers( &| and| or) (lowercase|uppercase)( &| and| or) (uppercase|lowercase) letters',
+			output:'[a-zA-Z0-9]{$1}'
 		}
 		,{
 			name:'? numbers and/or lowercase letters',
-			in:'([0-9]+) numbers( &| and| or) lowercase letters',
-			out:'[a-z0-9]{$1}'
+			input:'([0-9]+) numbers( &| and| or) lowercase letters',
+			output:'[a-z0-9]{$1}'
 		}
 		,{
 			name:'? numbers and/or uppercase letters',
-			in:'([0-9]+) numbers( &| and| or) uppercase letters',
-			out:'[A-Z0-9]{$1}'
+			input:'([0-9]+) numbers( &| and| or) uppercase letters',
+			output:'[A-Z0-9]{$1}'
 		}
 		,{
 			name:'? (letters|numbers) and/or (numbers|letters)',
-			in:'([0-9]+) (letters|numbers)( &| and| or) (numbers|letters)',
-			out:'[a-zA-Z0-9]{$1}'
+			input:'([0-9]+) (letters|numbers)( &| and| or) (numbers|letters)',
+			output:'[a-zA-Z0-9]{$1}'
 		}
 		,{
 			name:'? to ? (letters|numbers) and/or (numbers|letters)',
-			in:'([0-9]+) to ([0-9]+) (letters|numbers)( &| and| or) (numbers|letters)',
-			out:'[a-zA-Z0-9]{$1,$2}'
+			input:'([0-9]+) to ([0-9]+) (letters|numbers)( &| and| or) (numbers|letters)',
+			output:'[a-zA-Z0-9]{$1,$2}'
 		}
 
 		/*===== Words =====*/
 		,{
 			name:'a word',
-			in:'(a |one |1 )?word',
-			out:'\\w'
+			input:'(a |one |1 )?word',
+			output:'\\w'
 		 }
 		,{
 			name:'words',
-			in:'(one or more )?words',
-			out:'\\w+'
+			input:'(one or more )?words',
+			output:'\\w+'
 		 }
 		,{
 			name:'any amount of words',
-			in:'any( number of| amount of)? words',
-			out:'\\w+'
+			input:'any( number of| amount of)? words',
+			output:'\\w+'
 		 }
 		,{
 			name:'? words',
-			in:'([0-9]+) words',
-			out:'\\w{$1}'
+			input:'([0-9]+) words',
+			output:'\\w{$1}'
 		 }
 		,{
 			name:'between ? and ? words',
-			in:'(between |from )?([0-9]+) (and|to) ([0-9]+) words',
-			out:'\\w{$2,$4}'
+			input:'(between |from )?([0-9]+) (and|to) ([0-9]+) words',
+			output:'\\w{$2,$4}'
 		 }
 
 		/*===== Non Words =====*/
 		,{
 			name:'a non-word',
-			in:'(a |one |1 )?non[- ]?word',
-			out:'\\W'
+			input:'(a |one |1 )?non[- ]?word',
+			output:'\\W'
 		 }
 		,{
 			name:'non-words',
-			in:'(one or more )?non[- ]?words',
-			out:'\\W+'
+			input:'(one or more )?non[- ]?words',
+			output:'\\W+'
 		 }
 		,{
 			name:'any amount of non-words',
-			in:'any( number of| amount of)? non[- ]?words',
-			out:'\\W+'
+			input:'any( number of| amount of)? non[- ]?words',
+			output:'\\W+'
 		 }
 		,{
 			name:'? non-words',
-			in:'([0-9]+) non[- ]?words',
-			out:'\\W{$1}'
+			input:'([0-9]+) non[- ]?words',
+			output:'\\W{$1}'
 		 }
 		,{
 			name:'between ? and ? non-words',
-			in:'(between |from )?([0-9]+) (and|to) ([0-9]+) non[- ]?words',
-			out:'\\W{$2,$4}'
+			input:'(between |from )?([0-9]+) (and|to) ([0-9]+) non[- ]?words',
+			output:'\\W{$2,$4}'
 		 }
 
 		/*===== Digits =====*/
 		,{
 			name:'a digit',
-			in:'(a|one|1) digit',
-			out:'\\d'
+			input:'(a|one|1) digit',
+			output:'\\d'
 		 }
 		,{
 			name:'digits',
-			in:'(one or more )?digits',
-			out:'\\d+'
+			input:'(one or more )?digits',
+			output:'\\d+'
 		 }
 		,{
 			name:'any amount of digits',
-			in:'any( number of| amount of)? digits',
-			out:'\\d+'
+			input:'any( number of| amount of)? digits',
+			output:'\\d+'
 		 }
 		,{
 			name:'? digits',
-			in:'([0-9]+) digits',
-			out:'\\d{$1}'
+			input:'([0-9]+) digits',
+			output:'\\d{$1}'
 		 }
 		,{
 			name:'between ? and ? digits',
-			in:'(between |from )?([0-9]+) (and|to) ([0-9]+) digits',
-			out:'\\d{$2,$4}'
+			input:'(between |from )?([0-9]+) (and|to) ([0-9]+) digits',
+			output:'\\d{$2,$4}'
 		 }
 
 		 /*===== Non Digits =====*/
 		,{
 			name:'a non-digit',
-			in:'(a|one|1) non[- ]?digit',
-			out:'\\D'
+			input:'(a|one|1) non[- ]?digit',
+			output:'\\D'
 		 }
 		,{
 			name:'non-digits',
-			in:'(one or more )?non[- ]?digits',
-			out:'\\D+'
+			input:'(one or more )?non[- ]?digits',
+			output:'\\D+'
 		 }
 		,{
 			name:'any amount of non-digits',
-			in:'any( number of| amount of)? non[- ]?digits',
-			out:'\\D+'
+			input:'any( number of| amount of)? non[- ]?digits',
+			output:'\\D+'
 		 }
 		,{
 			name:'? non-digits',
-			in:'([0-9]+) non[- ]?digits',
-			out:'\\D{$1}'
+			input:'([0-9]+) non[- ]?digits',
+			output:'\\D{$1}'
 		 }
 		,{
 			name:'between ? and ? non-digits',
-			in:'(between |from )?([0-9]+) (and|to) ([0-9]+) non[- ]?digits',
-			out:'\\D{$2,$4}'
+			input:'(between |from )?([0-9]+) (and|to) ([0-9]+) non[- ]?digits',
+			output:'\\D{$2,$4}'
 		 }
 
 		 /*===== Vowels =====*/
 		 ,{
 		 	name:'a vowel',
-		 	in:'(a |one |1 )?vowel',
-		 	out:'[aeiou]'
+		 	input:'(a |one |1 )?vowel',
+		 	output:'[aeiou]'
 		  }
 		 ,{
 		 	name:'one or more vowels',
-		 	in:'(one or more )?vowels',
-		 	out:'[aeiou]+'
+		 	input:'(one or more )?vowels',
+		 	output:'[aeiou]+'
 		  }
 		 ,{
 		 	name:'? vowels',
-		 	in:'([0-9]+) vowels',
-		 	out:'[aeiou]{$1}'
+		 	input:'([0-9]+) vowels',
+		 	output:'[aeiou]{$1}'
 		  }
 		 ,{
 		 	name:'between 1 and ? vowels',
-		 	in:'(between |from )?([0-9]+) (and|to) ([0-9]+) vowels',
-		 	out:'[aeiou]{$2,$4}'
+		 	input:'(between |from )?([0-9]+) (and|to) ([0-9]+) vowels',
+		 	output:'[aeiou]{$2,$4}'
 		  }
 	],
 
@@ -413,53 +413,53 @@ define({
 	shortcuts: [
 		 {
 			name:'email address', // modified to include lowercase letters from http://www.regular-expressions.info/email.html
-			in:'(an )?email( [aA]ddress)?',
-			out:'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}'
+			input:'(an )?email( [aA]ddress)?',
+			output:'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}'
 		 }
 		,{
 		 	name:'UK postcode', // http://regexlib.com/REDetails.aspx?regexp_id=260
-		 	in:'(uk|UK) post(al)? ?code',
-		 	out:'([A-PR-UWYZ0-9][A-HK-Y0-9][AEHMNPRTVXY0-9]?[ABEHMNPRVWXY0-9]? {1,2}[0-9][ABD-HJLN-UW-Z]{2}|GIR 0AA)'
+		 	input:'(uk|UK) post(al)? ?code',
+		 	output:'([A-PR-UWYZ0-9][A-HK-Y0-9][AEHMNPRTVXY0-9]?[ABEHMNPRVWXY0-9]? {1,2}[0-9][ABD-HJLN-UW-Z]{2}|GIR 0AA)'
 		 }
 		,{
 			name:'IP address', // http://regexlib.com/REDetails.aspx?regexp_id=32
-			in:'(an )?(ip address|IP|^ip$)( address)?',
-			out:'(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])'
+			input:'(an )?(ip address|IP|^ip$)( address)?',
+			output:'(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])'
 		 }
 		,{
 			name:'phone number', // http://regexlib.com/REDetails.aspx?regexp_id=73
-			in:'([tT]ele)?([pP]hone) num(ber)?',
-			out:'(\(?\+?[0-9]*\)?)?[0-9_\- \(\)]*'
+			input:'([tT]ele)?([pP]hone) num(ber)?',
+			output:'(\(?\+?[0-9]*\)?)?[0-9_\- \(\)]*'
 		 }
 		,{
 			name:'HTML tag', // http://www.regular-expressions.info/examples.html
-			in:'(an? )?(HTML|html)( tag)?',
-			out:'<([a-zA-Z][a-zA-Z0-9]*)\b[^>]*>(.*?)</\1>'
+			input:'(an? )?(HTML|html)( tag)?',
+			output:'<([a-zA-Z][a-zA-Z0-9]*)\b[^>]*>(.*?)</\1>'
 		 }
 		,{
 			name:'Hex colour', // http://stackoverflow.com/questions/1636350/how-to-identify-a-given-string-is-hex-color-format#1636354
-			in:'(a )?[hH]ex [cC]olou?r',
-			out:'#(?:[0-9a-fA-F]{3}){1,2}'
+			input:'(a )?[hH]ex [cC]olou?r',
+			output:'#(?:[0-9a-fA-F]{3}){1,2}'
 		 }
 		,{
 			name:'a URL', // http://net.tutsplus.com/tutorials/other/8-regular-expressions-you-should-know/
-			in:'(a )?(url|URL)',
-			out:'(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?'
+			input:'(a )?(url|URL)',
+			output:'(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?'
 		 }
 		,{
 			name:'Visa credit', // http://www.regular-expressions.info/creditcard.html
-			in:'(a )?(visa|VISA|Visa)( credit| credit(-| ))?(card)?',
-			out:'4[0-9]{12}(?:[0-9]{3})?'
+			input:'(a )?(visa|VISA|Visa)( credit| credit(-| ))?(card)?',
+			output:'4[0-9]{12}(?:[0-9]{3})?'
 		}
 		,{
 			name:'Mastercard', // http://www.regular-expressions.info/creditcard.html
-			in:'(a )?(mastercard|Mastercard)( credit| credit(-| ))?(card)?',
-			out:'5[1-5][0-9]{14}'
+			input:'(a )?(mastercard|Mastercard)( credit| credit(-| ))?(card)?',
+			output:'5[1-5][0-9]{14}'
 		}
 		,{
 			name:'American Express',
-			in:'(a )?(amex|Amex|AmEx|American Express|american express)( credit| credit(-| ))?(card)?',
-			out:'3[47][0-9]{13}'
+			input:'(a )?(amex|Amex|AmEx|American Express|american express)( credit| credit(-| ))?(card)?',
+			output:'3[47][0-9]{13}'
 		}
 	]
 });

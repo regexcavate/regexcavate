@@ -201,15 +201,14 @@ require(["jquery", "translations", "examples"], function(jQuery, translations, e
 	 */
 	function probe(list, part) {
 		for (var j=list.length; j > 0; j--) {
-			var regex = new RegExp('^'+list[list.length-j].in+'$');
+			var regex = new RegExp('^'+list[list.length-j].input+'$');
 
-			// If this part matches this translation, we have a winner.
+			// // If this part matches this translation, we have a winner.
 			if ( regex.test(part) ) {
-				regexParts.push(part.replace(regex, list[list.length-j].out));
+				regexParts.push(part.replace(regex, list[list.length-j].output));
 
 				return true;
 			}
-
 		}
 
 		return false;
