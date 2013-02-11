@@ -17,7 +17,7 @@ jQuery(function($){
 			setText(tooltipText, partWidth, partPosition);
 		},
 		mouseleave: function(){
-			$('.tooltip').toggleClass('is-visible');
+			$('.tooltip').removeClass('is-visible');
 		}
 	});
 	function setText(text, width, position){
@@ -28,7 +28,7 @@ jQuery(function($){
 		var tooltipWidth = $('.tooltip').outerWidth();
 		var tooltipPosition = partPosition + (partWidth/2) - (tooltipWidth/2);
 
-		$('.tooltip').css({ 'left' : tooltipPosition }).toggleClass('is-visible');
+		$('.tooltip').css({ 'left' : tooltipPosition }).addClass('is-visible');
 	}
 
 });
