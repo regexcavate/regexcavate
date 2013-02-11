@@ -127,6 +127,7 @@ $color-app-dark:darken($color-app, 20%);
 }
 
 .tooltip {
+	display:none;
 	position:absolute;
 	bottom:110%;
 
@@ -144,7 +145,7 @@ $color-app-dark:darken($color-app, 20%);
 	@include transition(all, 0.5s ease);
 	z-index:10;
 
-	&.is-visible { opacity:1; }
+	&.is-visible { display:block; opacity:1; }
 
 	&:after {
 		content:"";
