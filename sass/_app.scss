@@ -75,7 +75,7 @@ $color-app-dark:darken($color-app, 20%);
 .verbose-container {
 	// a bug in chrome makes the fixed header jump to a new positioning
 	// context if the .verbose input contains text longer than it's width
-	// and is deleted with backspace key. The usual GPU-rendering-gitch-fix
+	// and is deleted with backspace key. The usual GPU-rendering-glitch-fix
 	// seems to make it go away
 	// http://code.google.com/p/chromium/issues/detail?id=139613
 	-webkit-transform:translateZ(0);
