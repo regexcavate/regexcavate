@@ -7,7 +7,7 @@ if (/debug=true/.test(location.href)) {
 	});
 }
 
-require(["jquery", "translations", "examples"], function(jQuery, translations, examples) {
+require(["jquery", "translations", "examples", "base64"], function(jQuery, translations, examples, base64) {
 	var prepend = examples.prepend,
 		examples = examples.list,
 		regexParts = [],
@@ -147,6 +147,8 @@ require(["jquery", "translations", "examples"], function(jQuery, translations, e
 				// that the tooltips are visible above the container
 				$('.result-container').css('overflow', 'visible');
 			});
+
+			$('.regexplained').attr('href', 'http://regexplained.co.uk/#' + base64.encode(JSON.stringify({pattern: regexStringCopy})));
 		} else {
 			$('.result').empty();
 			$('.copy-me').empty();
