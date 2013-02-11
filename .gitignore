@@ -1,5 +1,4 @@
 config.rb
 .sass-cache
-css/*
 .dropbox
 scripts/jquery.min.js
