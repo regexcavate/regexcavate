@@ -481,8 +481,8 @@ textarea {
   }
 }
 
-/* line 9, ../sass/_fork-me.scss */
-.fork-me {
+/* line 9, ../sass/_contribute-github.scss */
+.contribute-github {
   position: absolute;
   top: 50px;
   left: -50px;
@@ -490,7 +490,7 @@ textarea {
   width: 250px;
   height: 2.5em;
   line-height: 2.5em;
-  padding: 0 4em;
+  padding: 0 4em 0 2em;
   color: #fff;
   font-size: 12px;
   font-family: 'Collegiate','Ubuntu','Helvetica','Arial',sans-serif;
@@ -516,17 +516,17 @@ textarea {
   z-index: 0;
 }
 @media screen and (max-width: 540px) {
-  /* line 9, ../sass/_fork-me.scss */
-  .fork-me {
+  /* line 9, ../sass/_contribute-github.scss */
+  .contribute-github {
     opacity: 0;
   }
 }
-/* line 39, ../sass/_fork-me.scss */
-.fork-me:hover {
+/* line 39, ../sass/_contribute-github.scss */
+.contribute-github:hover {
   color: #f9ecec;
 }
-/* line 41, ../sass/_fork-me.scss */
-.fork-me:before {
+/* line 41, ../sass/_contribute-github.scss */
+.contribute-github:before {
   content: "";
   position: absolute;
   top: 0.2em;
