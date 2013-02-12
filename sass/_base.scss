@@ -117,6 +117,9 @@ pre {
     white-space: pre-wrap;
     word-wrap: break-word;
 }
+:not(pre) > code {
+	color:#e90;
+}
 
 /*************************
 	$$ Lists

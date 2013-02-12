@@ -103,7 +103,7 @@ require(["jquery", "translations", "examples", "base64"], function(jQuery, trans
 			var shortcut = $(this).text();
 
 			current = $.trim($('.verbose').val());
-			
+
 			// If we already have some entered value
 			if (current !== '') {
 				shortcutItem = current;
@@ -113,7 +113,7 @@ require(["jquery", "translations", "examples", "base64"], function(jQuery, trans
 					shortcutItem+=',';
 				}
 			}
-			
+
 			shortcutItem+= shortcut;
 
 			$('.verbose').val(shortcutItem).focus().trigger('change');

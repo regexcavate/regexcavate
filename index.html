@@ -24,8 +24,8 @@
 			<header class="site-header">
 				<nav class="main-nav">
 					<a href="#about">About</a>
+					<a href="#tutorial">Tutorial</a>
 					<a href="#contribute">Contribute</a>
-					<a href="#who">Who?</a>
 				</nav>
 				<a class="contribute-github" href="https://github.com/regexcavate/regexcavate">Contribute on Github</a>
 			</header>
@@ -120,17 +120,17 @@
 
 					<p>That can be matched with a regex like this:</p>
 
-					<pre><code>1[0-9]{6}[a-zA-Z]{2}</code></pre>
+					<pre class="language-javascript"><code>/1[0-9]{6}[a-zA-Z]{2}/</code></pre>
 
 					<p>So, how can this be used to check against user input? Well, we can use this pattern in
 					a little Javascript function like so:</p>
 
-					<pre><code>var ref = document.getElementById('referenceNumber'); // the ID of reference number field
+					<pre class="language-javascript"><code>var ref = document.getElementById('referenceNumber'); // the ID of reference number field
 var regex = /1[0-9]{6}[a-zA-Z]{2}/; // the pattern we're expecting
 if ( regex.test(ref.value) ) {
-	// do stuff if match found
+  // do stuff if match found
 } else {
-	// show error messages about reference format
+  // show error messages about reference format
 }</code></pre>
 
 					<p>For more information on the Javascript <code>test()</code> method, check out
@@ -152,7 +152,7 @@ if ( regex.test(ref.value) ) {
 
 					<p>Try to regexcavate for <em>"any whitespace", "at the end of the line"</em> and you&rsquo;ll get this:<p>
 
-					<pre><code>\s+$</code></pre>
+					<pre class="language-javascript"><code>/\s+$/</code></pre>
 
 					<p>Now use this in a find and replace, searching for <code>\s+$</code> and "replace all" with
 					an empty field and you'll be trailing whitespace free!</p>
@@ -160,7 +160,7 @@ if ( regex.test(ref.value) ) {
 					<p>You can also use the <code>String.replace()</code> method in Javascript. Here&rsquo;s a quick
 					example:</p>
 
-					<pre><code>var string = 'I hate regular expressions... hate them!';
+					<pre class="language-javascript"><code>var string = 'I hate regular expressions... hate them!';
 string.replace(/hate/g, 'love'); // "g" replaces all occurrences
 console.log(string); // logs 'I love regular expressions... love them!'</code></pre>
 
@@ -241,6 +241,7 @@ console.log(string); // logs 'I love regular expressions... love them!'</code></
 		</footer>
 
 		<script data-main="scripts/scripts" src="scripts/require-jquery.js"></script>
+		<script src="scripts/prism.js"></script>
 
 		<script type="text/javascript">
 			/*===== Google Analytics =====*/

@@ -42,6 +42,28 @@ $color-about-dark:darken($color-about, 20%);
 }
 
 //*************************
+//  	$$ Tutorial
+//**************************
+
+
+$color-tutorial-light:lighten($color-tutorial, 20%);
+$color-tutorial-dark:darken($color-tutorial, 20%);
+
+.tutorial {
+	background:$color-tutorial;
+	border-bottom:7px solid darken($color-tutorial, 5%);
+
+	.code {
+		width:auto;
+		overflow-x:scroll;
+		white-space: pre;
+		word-spacing: normal;
+		word-wrap: normal;
+		code { width:auto; }
+	}
+}
+
+//*************************
 //  	$$ contribute
 //**************************
 
