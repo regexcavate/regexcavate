@@ -104,6 +104,77 @@
 			</div>
 		</section>
 
+		<section class="tutorial" id="tutorial">
+			<div class="section-wrap">
+				<h2 class="section-title">Tutorial</h2>
+				<div class="section-content">
+					<p>So you&rsquo;ve got your regex, what now? Here's a quick tutorial of what you can
+					do with it. Here we&rsquo;re using some jQuery flavoured Javascript for the sake of brevity.
+					We'll look at two useful ways of using regex: match and replace</p>
+
+					<h3>Match</h3>
+
+					<p>Let's say you have a contact form that has a field for a reference number for your account
+					(say for a bank or utility service). The company's reference numbers are expected in the form of
+					<code>100000AA</code> where A is any letter and 0 is any number. That could be described as:
+					"1 followed by 6 numbers and ending with two letters"</p>
+
+					<p>That can be matched with a regex like this:</p>
+
+					<pre><code>1[0-9]{6}[a-zA-Z]{2}</code></pre>
+
+					<p>So, how can this be used to check against user input? Well, we can use this pattern in
+					a little Javascript function like so:</p>
+
+					<pre><code>$('form').on('submit', function(){
+						var ref = $('#referenceNumber'); // the ID of reference number field
+						var regex = /1[0-9]{6}[a-zA-Z]{2}/; // the pattern we're expecting
+						if ( ref.val().match(regex) ) {
+							console.log('match found');
+							// do stuff if match found
+						} else {
+							console.log('no match found');
+							// show error messages about reference format
+						}
+					});</code></pre>
+
+					<p>For more information on Javascript <code>match()</code> method, check out
+					<a href="https://developer.mozilla.org/en-US/docs/JavaScript/Reference/Global_Objects/String/match">MDN for String.match</a></p>
+
+					<h3>Replace</h3>
+
+					<p>Matching a pattern is useful - espcially for more complex things like email addresses,
+					usernames, phonenumbers etc. but frequently you want to find and <em>replace</em> on a search
+					pattern.</p>
+
+					<p>If you are using a text editor like Textmate, Sublime Text or Vim, you&rsquo; probably
+					find that it&rsquo;s search and replace functionality will accept a regex as the search pattern.
+					This means you can find stuff that you would not normally be able to.</p>
+
+					<p>Let's say you have some code that is littered with trailing whitespcae. This can cause issues
+					in some languages but is just generally a bit messy to look at. Well, you could match all
+					whitespace at the end of a line and replace it with nothing to tidy things up.</p>
+
+					<p>Try to regexcavate for "any whitespace", "at the end of the line" and you'll get this:<p>
+
+					<pre><code>\s+$</code></pre>
+
+					<p>Now use this in a find and replace, searching for <code>\s+$</code> and "replace all" with
+					an empty field and you'll be trailing whitespace free!</p>
+
+					<p>You can also use the <code>String.replace()</code> method in Javascript. Here's a quick
+					example:</p>
+
+					<pre><code>var string = 'I hate regular expressions';
+					string.replace(/hate/, 'love');
+					console.log(string);
+					// logs 'I love regular expressions'
+					</code></pre>
+
+				</div>
+			</div>
+		</section>
+
 		<section class="contribute" id="contribute">
 			<div class="section-wrap section-wrap-contribute">
 				<h2 class="section-title section-title-contribute">Contribute</h2>
