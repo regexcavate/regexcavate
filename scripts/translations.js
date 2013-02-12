@@ -48,13 +48,23 @@ define({
 			output:'(\\r)?\\n'
 		 }
 		,{
+			name:'any non white space',
+			input:'any no(n|t)? white(-| )?space',
+			output:'\\S+'
+		 }
+		,{
 			name:'non white space',
-			input:'(any )?no(n|t)? white ?space',
+			input:'no(n|t)? white(-| )?space',
 			output:'\\S'
 		 }
 		,{
+			name:'any white space',
+			input:'any white(-| )?space',
+			output:'\\s+'
+		 }
+		,{
 			name:'white space',
-			input:'(any )?white ?space',
+			input:'white(-| )?space',
 			output:'\\s'
 		 }
 		,{
