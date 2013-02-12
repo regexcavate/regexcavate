@@ -206,8 +206,8 @@ require(["jquery", "translations", "examples", "base64"], function(jQuery, trans
 			var regex = new RegExp('^'+list[list.length-j].input+'$');
 
 			// // If this part matches this translation, we have a winner.
-			if ( regex.test(part) ) {
-				regexParts.push(part.replace(regex, list[list.length-j].output));
+			if ( regex.test(part.toLowerCase()) ) {
+				regexParts.push(part.toLowerCase().replace(regex, list[list.length-j].output));
 
 				return true;
 			}

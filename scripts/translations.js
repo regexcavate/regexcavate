@@ -413,7 +413,7 @@ define({
 	shortcuts: [
 		 {
 			name:'email address', // modified to include lowercase letters from http://www.regular-expressions.info/email.html
-			input:'(an )?email( [aA]ddress)?',
+			input:'(an )?email( address)?',
 			output:'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}'
 		 }
 		,{
@@ -428,7 +428,7 @@ define({
 		 }
 		,{
 			name:'phone number', // http://regexlib.com/REDetails.aspx?regexp_id=73
-			input:'([tT]ele)?([pP]hone) num(ber)?',
+			input:'(tele)?(phone) num(ber)?',
 			output:'(\(?\+?[0-9]*\)?)?[0-9_\- \(\)]*'
 		 }
 		,{
@@ -438,7 +438,7 @@ define({
 		 }
 		,{
 			name:'Hex colour', // http://stackoverflow.com/questions/1636350/how-to-identify-a-given-string-is-hex-color-format#1636354
-			input:'(a )?[hH]ex [cC]olou?r',
+			input:'(a )?hex colou?r',
 			output:'#(?:[0-9a-fA-F]{3}){1,2}'
 		 }
 		,{
