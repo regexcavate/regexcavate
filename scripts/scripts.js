@@ -251,8 +251,9 @@ require(["jquery", "translations", "examples", "base64"], function(jQuery, trans
 	});
 });
 
-require(["jquery", "help", "navscroll", "tooltip"], function(jQuery, help, navscroll, tooltip) {
-	/* Everthing that's done by these is done in the respective js files. */
+require(["jquery", "help", "navscroll", "tooltip", "prism"], function(jQuery, help, navscroll, tooltip, Prism) {
+	/* most of what's done by these is done in the respective js files. */
+	Prism.highlightAll();
 });
 
 /*===== Just a little bit of fun. =====*/
