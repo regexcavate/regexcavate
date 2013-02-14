@@ -7,7 +7,7 @@ if (/debug=true/.test(location.href)) {
 	});
 }
 
-require(["jquery", "translations", "examples", "base64"], function(jQuery, translations, examples, base64) {
+require(["jquery", "translations", "examples", "lib/base64"], function(jQuery, translations, examples, base64) {
 	var prepend = examples.prepend,
 		examples = examples.list,
 		regexParts = [],
@@ -251,12 +251,13 @@ require(["jquery", "translations", "examples", "base64"], function(jQuery, trans
 	});
 });
 
-require(["jquery", "help", "navscroll", "tooltip"], function(jQuery, help, navscroll, tooltip) {
-	/* Everthing that's done by these is done in the respective js files. */
+require(["jquery", "help", "navscroll", "tooltip", "lib/prism"], function(jQuery, help, navscroll, tooltip, Prism) {
+	/* most of what's done by these is done in the respective js files. */
+	Prism.highlightAll();
 });
 
 /*===== Just a little bit of fun. =====*/
-require(["konami"], function(Konami) {
+require(["lib/konami"], function(Konami) {
 	var konami = new Konami();
 	konami.code = function() {
 		if ($('body').hasClass('excavating')) {
