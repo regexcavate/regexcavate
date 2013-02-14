@@ -111,13 +111,13 @@
 			<div class="section-wrap">
 				<h2 class="section-title">Tutorial</h2>
 				<div class="section-content">
-					<p>So you&rsquo;ve got your regex, what now? Here's a quick tutorial of what you can
-					do with it. We'll look at two useful ways of using regex: <code>test</code> and <code>replace</code></p>
+					<p>So you&rsquo;ve got your regex, what now? Here&rsquo;s a quick tutorial of what you can
+					do with it. We&rsquo;ll look at two useful ways of using regex in Javascript: <code>test</code> and <code>replace</code></p>
 
 					<h3>Test</h3>
 
-					<p>Let's say you have a contact form that has a field for a reference number for your account
-					(say for a bank or utility service). The company's reference numbers are expected in the form of
+					<p>Let&rsquo;s say you have a contact form that has a field for a reference number for your account
+					(say for a bank or utility service). The company&rsquo;s reference numbers are expected in the form of
 					<code>100000AA</code> where A is any letter and 0 is any number. That could be described as:
 					"1, 6 numbers, 2 letters".</p>
 
@@ -133,7 +133,7 @@
 					a little Javascript function like so:</p>
 
 					<pre class="language-javascript"><code>var ref = document.getElementById('referenceNumber'); // the ID of reference number field
-var regex = /1[0-9]{6}[a-zA-Z]{2}/; // the pattern we're expecting
+var regex = /1[0-9]{6}[a-zA-Z]{2}/; // the pattern we&rsquo;re expecting
 if ( regex.test(ref.value) ) {
   // do stuff if match found
 } else {
@@ -162,7 +162,7 @@ if ( regex.test(ref.value) ) {
 					<pre class="language-javascript"><code>/\s+$/</code></pre>
 
 					<p>Now use this in a find and replace, searching for <code>\s+$</code> and "replace all" with
-					an empty field and you'll be trailing whitespace free!</p>
+					an empty field and you&rsquo;ll be trailing whitespace free!</p>
 
 					<p>You can also use the <code>String.replace()</code> method in Javascript. Here&rsquo;s a quick
 					example:</p>
