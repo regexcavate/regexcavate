@@ -1,5 +1,8 @@
-define({
-	list:[
+/*jshint unused:false */
+'use strict';
+
+var examples = {
+	list: [
 		'anything',
 		'new line',
 		'non whitespace',
@@ -41,18 +44,18 @@ define({
 		':non-digit?s'
 	],
 	prepend: [
-		 [ // Singular
-		 	'a ',
-		 	'a single ',
-		 	'one ',
-		 	'1 '
-		 ],
-		 [ // Plural
-		 	'one or more ',
-		 	'? ',
-		 	'? to ? ',
-		 	'any number of ',
-		 	'any amount of '
-		 ]
+		[ // Singular
+			'a ',
+			'a single ',
+			'one ',
+			'1 '
+		],
+		[ // Plural
+			'one or more ',
+			'? ',
+			'? to ? ',
+			'any number of ',
+			'any amount of '
+		]
 	]
-});
+};

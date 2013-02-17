@@ -1,18 +1,12 @@
-'use strict';
+/*global base64, examples, Prism, Konami, translations */
+(function() {
+	'use strict';
 
-if (/debug=true/.test(location.href)) {
-	// Use this for development/debugging. Chrome (for example) caches XHRed scripts super aggressively.
-	require.config({
-		urlArgs: "cache_bust=" +  (new Date()).getTime()
-	});
-}
-
-require(["jquery", "translations", "examples", "lib/base64"], function(jQuery, translations, examples, base64) {
 	var prepend = examples.prepend,
-		examples = examples.list,
 		regexParts = [],
 		shortcuts = translations.shortcuts;
 
+	examples = examples.list;
 	translations = translations.list;
 
 	jQuery(function($) {
@@ -37,7 +31,7 @@ require(["jquery", "translations", "examples", "lib/base64"], function(jQuery, t
 				prependSeed = randomInterval(0, 1);
 
 				seeded = seeded.replace(/^:/, prepend[prependSeed][randomInterval(0, prepend[prependSeed].length-1)])
-							   .replace(/\?s/g, (prependSeed === 0 ? '' : 's'));
+							.replace(/\?s/g, (prependSeed === 0 ? '' : 's'));
 			}
 
 			seeded += ',';
@@ -67,9 +61,11 @@ require(["jquery", "translations", "examples", "lib/base64"], function(jQuery, t
 		$('.verbose').keyup(function(e) {
 			// If the user presses enter (13), or types a comma (188)
 			if (e.keyCode === 13 || e.keyCode === 188) {
-				parseInput.call(this);
+				parseInput.call(this, this); // Pass this in as an argument to get around a jshint strict issue in the parseInput function
 			}
-		}).change(parseInput).attr('placeholder', placeholder);
+		}).change(function() {
+			parseInput.call(this, this);
+		}).attr('placeholder', placeholder);
 
 		$('.result, .copy-result').live('click', function() {
 			var height = Number($('.result').outerHeight())+Number($('.result > .part').css('padding-bottom').replace('px', ''))+Number($('.result > .part').css('padding-top').replace('px', ''));
@@ -126,8 +122,8 @@ require(["jquery", "translations", "examples", "lib/base64"], function(jQuery, t
 	/**
 	 *	This function receives a string that it parses into a regex Object.
 	 */
-	function parseInput() {
-		var parts = this.value.replace(/, /g, ',').split(','),
+	function parseInput(input) {
+		var parts = input.value.replace(/, /g, ',').split(','),
 			regex = strToRegex(parts),
 			regexString = '',
 			regexStringCopy = '';
@@ -216,9 +212,9 @@ require(["jquery", "translations", "examples", "lib/base64"], function(jQuery, t
 		return false;
 	}
 
-	// This function was found here: http://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+	// This function was modified, but originally found here: http://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
 	function escapeRegExp(str) {
-		return str.replace(/[\-\[\/\{\(\)\*\+\?\.\\\^\$\|\<\>]/g, "\\$&");
+		return str.replace(/[\-\[\/\{\(\)\*\+\?\.\\\^\$\|\>]/g, "\\$&");
 	}
 
 	/**
@@ -229,7 +225,7 @@ require(["jquery", "translations", "examples", "lib/base64"], function(jQuery, t
 	 *	@returns A number between `from` and `to`.
 	 */
 	function randomInterval(from,to) {
-	    return Math.floor(Math.random()*(to-from+1)+from);
+		return Math.floor(Math.random()*(to-from+1)+from);
 	}
 
 	/**
@@ -249,15 +245,10 @@ require(["jquery", "translations", "examples", "lib/base64"], function(jQuery, t
 			return html.replace(/\s([\S]+)$/,'&nbsp;$1');
 		});
 	});
-});
 
-require(["jquery", "help", "navscroll", "tooltip", "lib/prism"], function(jQuery, help, navscroll, tooltip, Prism) {
-	/* most of what's done by these is done in the respective js files. */
 	Prism.highlightAll();
-});
 
-/*===== Just a little bit of fun. =====*/
-require(["lib/konami"], function(Konami) {
+	/*===== Just a little bit of fun. =====*/
 	var konami = new Konami();
 	konami.code = function() {
 		if ($('body').hasClass('excavating')) {
@@ -267,4 +258,4 @@ require(["lib/konami"], function(Konami) {
 		}
 	};
 	konami.load();
-});
+})();

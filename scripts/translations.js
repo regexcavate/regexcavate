@@ -1,3 +1,4 @@
+/*jshint laxcomma:true, unused:false */
 /*
 	This file is the meat & potatoes of this site - as it were.
 	The intention is for this file to be 100% open source which means that
@@ -19,7 +20,7 @@
 			regex returned by any of the individual translations below is within a range (ie: '[...]'), then `^`
 			will automatically be prepended inside.
  */
-define({
+var translations = {
 	list:[
 
 		/*===== Misc =====*/
@@ -44,7 +45,7 @@ define({
 		/*===== Special Characters =====*/
 		,{
 			name:'new line',
-			input:'(new( |\-)?line|enter)',
+			input:'(new( |\\-)?line|enter)',
 			output:'(\\r)?\\n'
 		 }
 		,{
@@ -394,24 +395,24 @@ define({
 
 		 /*===== Vowels =====*/
 		 ,{
-		 	name:'a vowel',
-		 	input:'(a |one |1 |any )?vowel',
-		 	output:'[aeiou]'
+			name:'a vowel',
+			input:'(a |one |1 |any )?vowel',
+			output:'[aeiou]'
 		  }
 		 ,{
-		 	name:'one or more vowels',
-		 	input:'(one or more )?vowels',
-		 	output:'[aeiou]+'
+			name:'one or more vowels',
+			input:'(one or more )?vowels',
+			output:'[aeiou]+'
 		  }
 		 ,{
-		 	name:'? vowels',
-		 	input:'([0-9]+) vowels',
-		 	output:'[aeiou]{$1}'
+			name:'? vowels',
+			input:'([0-9]+) vowels',
+			output:'[aeiou]{$1}'
 		  }
 		 ,{
-		 	name:'between 1 and ? vowels',
-		 	input:'(between |from )?([0-9]+) (and|to) ([0-9]+) vowels',
-		 	output:'[aeiou]{$2,$4}'
+			name:'between 1 and ? vowels',
+			input:'(between |from )?([0-9]+) (and|to) ([0-9]+) vowels',
+			output:'[aeiou]{$2,$4}'
 		  }
 	],
 
@@ -424,27 +425,27 @@ define({
 		 {
 			name:'email address', // modified to include lowercase letters from http://www.regular-expressions.info/email.html
 			input:'(an )?email( address)?',
-			output:'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}'
+			output:'[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}'
 		 }
 		,{
-		 	name:'UK postcode', // http://regexlib.com/REDetails.aspx?regexp_id=260
-		 	input:'(uk|UK) post(al)? ?code',
-		 	output:'([A-PR-UWYZ0-9][A-HK-Y0-9][AEHMNPRTVXY0-9]?[ABEHMNPRVWXY0-9]? {1,2}[0-9][ABD-HJLN-UW-Z]{2}|GIR 0AA)'
+			name:'UK postcode', // http://regexlib.com/REDetails.aspx?regexp_id=260
+			input:'(uk|UK) post(al)? ?code',
+			output:'([A-PR-UWYZ0-9][A-HK-Y0-9][AEHMNPRTVXY0-9]?[ABEHMNPRVWXY0-9]? {1,2}[0-9][ABD-HJLN-UW-Z]{2}|GIR 0AA)'
 		 }
 		,{
 			name:'IP address', // http://regexlib.com/REDetails.aspx?regexp_id=32
 			input:'(an )?(ip address|IP|^ip$)( address)?',
-			output:'(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])'
+			output:'(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])\\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])'
 		 }
 		,{
 			name:'phone number', // http://regexlib.com/REDetails.aspx?regexp_id=73
 			input:'(tele)?(phone) num(ber)?',
-			output:'(\(?\+?[0-9]*\)?)?[0-9_\- \(\)]*'
+			output:'(\\(?\\+?[0-9]*\\)?)?[0-9_\\- \\(\\)]*'
 		 }
 		,{
 			name:'HTML tag', // http://www.regular-expressions.info/examples.html
 			input:'(an? )?(HTML|html)( tag)?',
-			output:'<([a-zA-Z][a-zA-Z0-9]*)\b[^>]*>(.*?)</\1>'
+			output:'<([a-zA-Z][a-zA-Z0-9]*)\\b[^>]*>(.*?)</\\1>'
 		 }
 		,{
 			name:'Hex colour', // http://stackoverflow.com/questions/1636350/how-to-identify-a-given-string-is-hex-color-format#1636354
@@ -454,7 +455,7 @@ define({
 		,{
 			name:'a URL', // http://net.tutsplus.com/tutorials/other/8-regular-expressions-you-should-know/
 			input:'(a )?(url|URL)',
-			output:'(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?'
+			output:'(https?:\\/\\/)?([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\\/\\w \\.-]*)*\/?'
 		 }
 		,{
 			name:'Visa credit', // http://www.regular-expressions.info/creditcard.html
@@ -472,4 +473,4 @@ define({
 			output:'3[47][0-9]{13}'
 		}
 	]
-});
+};
