@@ -1,0 +1,31 @@
+{
+	"single": [
+		{
+			"name": "a %",
+			"input": "(a |a single |one |1 | any )",
+			"output": "%"
+		}
+	],
+	"multiple": [
+		{
+			"name": "%s",
+			"input": "((one|1) or more |any (number|amount) of )",
+			"output": "%+"
+		},
+		{
+			"name": "? %s",
+			"input": "([0-9]+) ",
+			"output": "%{$1}"
+		},
+		{
+			"name": "? or more %s",
+			"input": "(at least )?([2-9]|[1-9][0-9]+) (or more )?",
+			"output": "%{$2,}"
+		},
+		{
+			"name": "between ? and ? %s",
+			"input": "(between |from )?([0-9]+) (and|to) ([0-9]+) ",
+			"output": "%{$2,$4}"
+		}
+	]
+}
