@@ -28,7 +28,7 @@ module.exports = function(grunt) {
 		files = grunt.config('expandify.files');
 
 		files.forEach(function(filepath) {
-			var localeMatch = filepath.match(/locale\/([a-z]{2})\/([^\/]+)\.json$/i),
+			var localeMatch = filepath.match(/locale\/([a-z_]{2,5})\/([^\/]+)\.json$/i),
 				filename = localeMatch[2],
 				locale = localeMatch[1],
 				localisedExpansions = 'scripts/locale/'+locale+'/expandify.json',

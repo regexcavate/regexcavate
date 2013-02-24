@@ -24,24 +24,34 @@ module.exports = function(grunt) {
 		expandify: {
 			dest: 'scripts/dist/',
 			files: [
-				'scripts/locale/en/translations.json'
+				'scripts/locale/en_gb/shortcuts.json',
+				'scripts/locale/en_gb/translations.json'
 			]
 		},
+		// Note that expandify must be run BEFORE concat so that the generated localized content is used.
 		concat: {
-			dist: {
+			// Create a compiled lib file for any non-localized stuff.
+			lib: {
 				src: [
 					'scripts/lib/jquery.js',
 					'scripts/lib/base64.js',
 					'scripts/lib/konami.js',
 					'scripts/lib/prism.js',
-					'scripts/examples.js',
 					'scripts/help.js',
 					'scripts/navscroll.js',
 					'scripts/tooltip.js',
-					'scripts/translations.js',
 					'scripts/main.js'
 				],
-				dest: 'scripts/dist/main.js'
+				// This file will be used in all the localized `main.js` files.
+				dest: 'scripts/dist/lib.js'
+			},
+			en_gb: {
+				src: [
+					'scripts/dist/lib.js',
+					'scripts/dist/locale/en_gb/shortcuts.js',
+					'scripts/dist/locale/en_gb/translations.js'
+				],
+				dest: 'scripts/dist/locale/en_gb/main.js'
 			}
 		},
 		watch: {
@@ -87,7 +97,7 @@ module.exports = function(grunt) {
 			},
 			dist: {
 				files: {
-					'scripts/dist/main.js': ['<banner:meta.banner>', 'scripts/dist/main.js']
+					'scripts/dist/locale/en_gb/main.js': ['<banner:meta.banner>', 'scripts/dist/locale/en_gb/main.js']
 				}
 			}
 		}
@@ -100,5 +110,5 @@ module.exports = function(grunt) {
 	grunt.loadTasks('tasks');
 
 	// Default task.
-	grunt.registerTask('default', 'compass concat uglify'); /* TODO: jshint compass expandify concat uglify */
+	grunt.registerTask('default', ["compass", "expandify", "concat", "uglify"]); /* TODO: ["jshint", "compass", "expandify", "concat", "uglify"] */
 };
