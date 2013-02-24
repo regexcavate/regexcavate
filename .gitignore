@@ -3,3 +3,4 @@ config.rb
 .dropbox
 scripts/jquery.min.js
 scripts/dist
+node_modules/
