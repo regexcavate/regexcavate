@@ -12,12 +12,14 @@
 		,{
 			"name":"start of the line",
 			"input":"(start|begin(ing)?|(from the )?(start|beginning) of (the )?line)",
-			"output":"^"
+			"output":"^",
+			"start":true
 		 }
 		,{
 			"name":"end of the line",
 			"input":"(end|(to the )?end of (the )?line)",
-			"output":"$"
+			"output":"$",
+			"end":true
 		 }
 
 		,"/*===== Special Characters =====*/"
@@ -82,7 +84,7 @@
 		,{
 			"name":"letter",
 			"expansions": ["single", "multiple"],
-			"input":["%((upper|lower)case( &| and| or| \\/) (upper|lower)case)? letter", "%((upper|lower)case( &| and| or| \\/) (upper|lower)case)? letters"],
+			"input":["%((upper|lower)[\\- ]?(case)?( &| and| or| \\/) (upper|lower)[\\- ]?case )?letter", "%((upper|lower)[\\- ]?(case)?( &| and| or| \\/) (upper|lower)[\\- ]?case )?letters"],
 			"output":"[a-zA-Z]"
 		 }
 		,{
@@ -102,20 +104,20 @@
 		,{
 			"name":"number and/or letter",
 			"expansions": ["single", "multiple"],
-			"input":["%(number |((upper|lower)case( &| and| or| \\/) (upper|lower)case )? letter )(& |and |or )?(number |((upper|lower)case( &| and| or| \\/) (upper|lower)case )? letter)", "%(numbers |((upper|lower)case( &| and| or| \\/) (upper|lower)case )? letters )(& |and |or )?(numbers |((upper|lower)case( &| and| or| \\/) (upper|lower)case )? letters)"],
+			"input":["%(number |((upper|lower)[\\- ]?(case)?( &| and| or| \\/) (upper|lower)[\\- ]?case )?letter )(& |and |or )?%(number|((upper|lower)[\\- ]?(case)?( &| and| or| \\/) (upper|lower)[\\- ]?case )?letter)", "%(numbers |((upper|lower)[\\- ]?(case)?( &| and| or| \\/) (upper|lower)[\\- ]?case )?letters )(& |and |or )?%(numbers|((upper|lower)[\\- ]?(case)?( &| and| or| \\/) (upper|lower)[\\- ]?case )?letters)"],
 			"output":"[a-zA-Z0-9]"
 		 }
 		,{
-			"name":"number and/or lowercase letter",
+			"name":"number and/or lower(case)? letter",
 			"expansions": ["single", "multiple"],
-			"input":["%(number |(lowercase( &| and| or| \\/) lowercase )? letter )(& |and |or )?(number |(lowercase( &| and| or| \\/) lowercase )? letter)", "%(numbers |(lowercase( &| and| or| \\/) lowercase )? letters )(& |and |or )?(numbers |(lowercase( &| and| or| \\/) lowercase )? letters)"],
-			"output":"[a-zA-Z0-9]"
+			"input":["%(number |lower[\\- ]?(case)? letter )(& |and |or )?%(number|lower[\\- ]?case letter)", "%(numbers |lower[\\- ]?(case)? letters )(& |and |or )?%(numbers|lower[\\- ]?case letters)"],
+			"output":"[a-z0-9]"
 		 }
 		,{
 			"name":"number and/or uppercase letter",
 			"expansions": ["single", "multiple"],
-			"input":["%(number |(uppercase( &| and| or| \\/) uppercase )? letter )(& |and |or )?(number |(uppercase( &| and| or| \\/) uppercase )? letter)", "%(numbers |(uppercase( &| and| or| \\/) uppercase )? letters )(& |and |or )?(numbers |(uppercase( &| and| or| \\/) uppercase )? letters)"],
-			"output":"[a-zA-Z0-9]"
+			"input":["%(number |upper[\\- ]?(case)? letter )(& |and |or )?%(number|upper[\\- ]?case letter)", "%(numbers |upper[\\- ]?(case)? letters )(& |and |or )?%(numbers|upper[\\- ]?case letters)"],
+			"output":"[A-Z0-9]"
 		 }
 
 		,"/*===== Words =====*/"

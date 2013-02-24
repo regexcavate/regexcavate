@@ -2,14 +2,14 @@
 	"single": [
 		{
 			"name": "a %",
-			"input": "(a |a single |one |1 | any )",
+			"input": "(a |a single |one |1 |any ((number|amount) of )?)?",
 			"output": "%"
 		}
 	],
 	"multiple": [
 		{
 			"name": "%s",
-			"input": "((one|1) or more |any (number|amount) of )",
+			"input": "((one|1) or more )?",
 			"output": "%+"
 		},
 		{
