@@ -47,9 +47,9 @@ module.exports = function(grunt) {
 			},
 			en_gb: {
 				src: [
-					'scripts/dist/lib.js',
 					'scripts/dist/locale/en_gb/shortcuts.js',
-					'scripts/dist/locale/en_gb/translations.js'
+					'scripts/dist/locale/en_gb/translations.js',
+					'scripts/dist/lib.js'
 				],
 				dest: 'scripts/dist/locale/en_gb/main.js'
 			}
@@ -95,7 +95,7 @@ module.exports = function(grunt) {
 			options: {
 				banner: '<%= meta.banner %>'
 			},
-			dist: {
+			en_gb: {
 				files: {
 					'scripts/dist/locale/en_gb/main.js': ['<banner:meta.banner>', 'scripts/dist/locale/en_gb/main.js']
 				}

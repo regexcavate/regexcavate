@@ -35,7 +35,7 @@ module.exports = function(grunt) {
 				list,
 				newDest = dest + localeMatch[0],
 				out = [],
-				src;
+				src = '';
 			
 			newDest = newDest.replace('.json', '.js');
 			
@@ -85,10 +85,19 @@ module.exports = function(grunt) {
 					if (!matchedExpansion) {
 						out.push(translation);
 					}
+
+					// If this is the start, or begin, we need to get the localized copy for use in the placeholder.
+					if (translation.start) {
+						src+= 'window.START = "'+translation.name+'";';
+					}
+					if (translation.end) {
+						src+= 'window.END = "'+translation.name+'";';
+					}
 				}
 			});
 
-			src = "var "+filename+" = "+JSON.stringify(out)+";";
+			// Dump out a LOCALE constant so that in main.js we know which to use.
+			src+= 'window.LOCALE = "'+locale+'"; var '+filename+' = '+JSON.stringify(out)+';';
 
 			grunt.file.write(newDest, src);
 			grunt.log.writeln('Done expandifying, new file is at: '+newDest);

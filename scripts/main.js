@@ -1,17 +1,12 @@
-/*global base64, examples, Prism, Konami, translations */
+/*global base64, Prism, Konami, translations, shortcuts */
 (function() {
 	'use strict';
 
-	var prepend = examples.prepend,
-		regexParts = [],
-		shortcuts = translations.shortcuts;
-
-	examples = examples.list;
-	translations = translations.list;
+	var regexParts = [];
 
 	jQuery(function($) {
 		var placeholder = '',
-			maxSeed = examples.length-1,
+			maxSeed = translations.length-1,
 			seeded,
 			prependSeed;
 
@@ -19,22 +14,13 @@
 		while (placeholder.length < 35) {
 			var lastNum = false;
 
-			seeded = examples[randomInterval(0, maxSeed)];
+			seeded = translations[randomInterval(0, maxSeed)].name+',';
 
 			// If this is the first item, randomly choose whether to show "beginning of the line" or not.
 			if (placeholder.length === 0 && doIt()) {
-				placeholder+= 'beginning of line,';
+				// START will be in the 'expanded' translations file.
+				placeholder+= START+',';
 			}
-
-			// If the seeded item starts with a :, use a randomly chosen prepend string.
-			if (/^:/.test(seeded)) {
-				prependSeed = randomInterval(0, 1);
-
-				seeded = seeded.replace(/^:/, prepend[prependSeed][randomInterval(0, prepend[prependSeed].length-1)])
-							.replace(/\?s/g, (prependSeed === 0 ? '' : 's'));
-			}
-
-			seeded += ',';
 
 			// If the placeholder has any ? symbols, replace these all with random numbers
 			while (/\?/.test(seeded)) {
@@ -52,7 +38,8 @@
 
 		// Now that we're done, randomly choose whether to show $ (end of line) or not.
 		if (doIt()) {
-			placeholder+= 'end of line';
+			// END will be in the 'expanded' translations file.
+			placeholder+= END;
 		} else {
 			// If not, there's a trailing comma we must remove.
 			placeholder = placeholder.slice(0,placeholder.length-1);
