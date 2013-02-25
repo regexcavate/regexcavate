@@ -73,7 +73,7 @@ module.exports = function(grunt) {
 								matchedExpansion = true;
 
 								out.push({
-									"name": exp.name.replace(/%/g, translation.name),
+									"name": translation.name[expansionIndex].replace(/%/g, exp.name),
 									"input": translation.input[expansionIndex].replace(/%/g, exp.input),
 									"output": exp.output.replace(/%/g, translation.output)
 								});

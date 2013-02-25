@@ -24,49 +24,37 @@
 
 		,"/*===== Special Characters =====*/"
 		,{
-			"name":"new line",
+			"name":["%new line", "%new lines"],
 			"expansions": ["single", "multiple"],
 			"input":["%(new( |\\-)?line|enter)", "%(new( |\\-)?lines|enters)"],
 			"output":"(\\r?\\n)"
 		 }
 		,{
-			"name":"non white space",
-			"expansions": ["single", "multiple"],
-			"input":["%no[nt]? white[\\- ]?space", "%no[nt]? white[\\- ]?spaces"],
-			"output":"\\S+"
-		 }
-		,{
-			"name":"non white space",
-			"expansions": ["single", "multiple"],
-			"input":["%no[nt]? white[\\- ]?space", "%no[nt]? white[\\- ]?spaces"],
-			"output":"\\S"
-		 }
-		,{
-			"name":"any white space",
-			"expansions": ["single", "multiple"],
-			"input":["%any white[\\- ]?space", "%any white[\\- ]?spaces"],
-			"output":"\\s+"
-		 }
-		,{
-			"name":"white space",
+			"name":["%white space", "%white spaces"],
 			"expansions": ["single", "multiple"],
 			"input":["%white[\\- ]?space", "%white[\\- ]?spaces"],
 			"output":"\\s"
 		 }
 		,{
-			"name":"tab",
+			"name":["%non white space", "%non white spaces"],
+			"expansions": ["single", "multiple"],
+			"input":["%no[nt]? white[\\- ]?space", "%no[nt]? white[\\- ]?spaces"],
+			"output":"\\S"
+		 }
+		,{
+			"name":["%tab", "%tabs"],
 			"expansions": ["single", "multiple"],
 			"input":["%tab( key| character)?", "%tabs?( keys| characters)?"],
 			"output":"\\t"
 		 }
 		,{
-			"name":"word boundary",
+			"name":["%word boundary", "%word boundaries"],
 			"expansions": ["single", "multiple"],
 			"input":["%word( boundary)", "%words?( boundaries)"],
 			"output":"\\b"
 		 }
 		,{
-			"name":"non word boundary",
+			"name":["%non word boundary", "%non word boundaries"],
 			"expansions": ["single", "multiple"],
 			"input":["%no[nt][\\- ]?word boundary", "%no[nt][\\- ]?word boundaries"],
 			"output":"\\B"
@@ -74,7 +62,7 @@
 
 		,"/*===== Numbers =====*/"
 		,{
-			"name":"number",
+			"name":["%number", "%numbers"],
 			"expansions": ["single", "multiple"],
 			"input":["%number", "%numbers"],
 			"output":"[0-9]"
@@ -82,19 +70,19 @@
 
 		,"/*===== Letters =====*/"
 		,{
-			"name":"letter",
+			"name":["%letter", "%letters"],
 			"expansions": ["single", "multiple"],
 			"input":["%((upper|lower)[\\- ]?(case)?( &| and| or| \\/) (upper|lower)[\\- ]?case )?letter", "%((upper|lower)[\\- ]?(case)?( &| and| or| \\/) (upper|lower)[\\- ]?case )?letters"],
 			"output":"[a-zA-Z]"
 		 }
 		,{
-			"name":"lowercase letter",
+			"name":["%lowercase letter", "%lowercase letters"],
 			"expansions": ["single", "multiple"],
 			"input":["%lowercase letter", "%lowercase letters"],
 			"output":"[a-z]"
 		 }
 		,{
-			"name":"uppercase letter",
+			"name":["%uppercase letter", "%uppercase letters"],
 			"expansions": ["single", "multiple"],
 			"input":["%uppercase letter", "%uppercase letters"],
 			"output":"[A-Z]"
@@ -102,19 +90,19 @@
 
 		,"/*===== Numbers & Letters =====*/"
 		,{
-			"name":"number and/or letter",
+			"name":["%number and %letter", "%numbers or %letters"],
 			"expansions": ["single", "multiple"],
 			"input":["%(number |((upper|lower)[\\- ]?(case)?( &| and| or| \\/) (upper|lower)[\\- ]?case )?letter )(& |and |or )?%(number|((upper|lower)[\\- ]?(case)?( &| and| or| \\/) (upper|lower)[\\- ]?case )?letter)", "%(numbers |((upper|lower)[\\- ]?(case)?( &| and| or| \\/) (upper|lower)[\\- ]?case )?letters )(& |and |or )?%(numbers|((upper|lower)[\\- ]?(case)?( &| and| or| \\/) (upper|lower)[\\- ]?case )?letters)"],
 			"output":"[a-zA-Z0-9]"
 		 }
 		,{
-			"name":"number and/or lower(case)? letter",
+			"name":["%number or %lowercase letter", "%numbers and %lowercase letters"],
 			"expansions": ["single", "multiple"],
 			"input":["%(number |lower[\\- ]?(case)? letter )(& |and |or )?%(number|lower[\\- ]?case letter)", "%(numbers |lower[\\- ]?(case)? letters )(& |and |or )?%(numbers|lower[\\- ]?case letters)"],
 			"output":"[a-z0-9]"
 		 }
 		,{
-			"name":"number and/or uppercase letter",
+			"name":["%number and %uppercase letter", "%numbers or %uppercase letters"],
 			"expansions": ["single", "multiple"],
 			"input":["%(number |upper[\\- ]?(case)? letter )(& |and |or )?%(number|upper[\\- ]?case letter)", "%(numbers |upper[\\- ]?(case)? letters )(& |and |or )?%(numbers|upper[\\- ]?case letters)"],
 			"output":"[A-Z0-9]"
@@ -122,7 +110,7 @@
 
 		,"/*===== Words =====*/"
 		,{
-			"name":"word",
+			"name":["%word", "%words"],
 			"expansions": ["single", "multiple"],
 			"input":["%word", "%words"],
 			"output":"[\\w]*"
@@ -130,7 +118,7 @@
 
 		,"/*===== Non Words =====*/"
 		,{
-			"name":"non-word",
+			"name":["%non-word", "%non-words"],
 			"expansions": ["single", "multiple"],
 			"input":["no[nt][\\- ]?word", "no[nt][\\- ]?words"],
 			"output":"[\\W]*"
@@ -138,7 +126,7 @@
 
 		,"/*===== Digits =====*/"
 		,{
-			"name":"digit",
+			"name":["%digit", "%digits"],
 			"expansions": ["single", "multiple"],
 			"input":["%digit", "%digits"],
 			"output":"\\d"
@@ -146,14 +134,14 @@
 
 		,"/*===== Non Digits =====*/"
 		,{
-			"name":"non-digit",
+			"name":["%non-digit", "%non-digits"],
 			"input":["%no[nt][\\- ]?digit", "%no[nt][\\- ]?digits"],
 			"output":"\\D"
 		 }
 
 		,"/*===== Vowels =====*/"
 		,{
-			"name":"vowel",
+			"name":["%vowel", "%vowels"],
 			"expansions": ["single", "multiple"],
 			"input":["%vowel", "%vowels"],
 			"output":"[aeiou]"
