@@ -6,21 +6,25 @@
 
 	jQuery(function($) {
 		var placeholder = '',
+			placeholderItems = 2,
+			placeholderStart = false,
 			maxSeed = translations.length-1,
-			seeded,
 			prependSeed;
 
 		// Make sure we don't make this placeholder too long.
-		while (placeholder.length < 35) {
-			var lastNum = false;
-
-			seeded = translations[randomInterval(0, maxSeed)].name+',';
+		while (placeholderItems > 0) {
+			var lastNum = false,
+				seeded = '';
 
 			// If this is the first item, randomly choose whether to show "beginning of the line" or not.
-			if (placeholder.length === 0 && doIt()) {
+			if (placeholderItems === 0 && doIt()) {
 				// START will be in the 'expanded' translations file.
 				placeholder+= START+',';
+				placeholderStart = true;
+				placeholderItems--;
 			}
+
+			seeded = translations[randomInterval(0, maxSeed)].name;
 
 			// If the placeholder has any ? symbols, replace these all with random numbers
 			while (/\?/.test(seeded)) {
@@ -30,20 +34,18 @@
 				seeded = seeded.replace('?', lastNum);
 			}
 
-			// If this added to the placeholder isn't too long, add it.
-			if ((placeholder+seeded).length < 50) {
-				placeholder+= seeded;
+			placeholder += seeded+(placeholderItems >= 0 ? ',' : '');
+			placeholderItems--;
+
+			// If there's a space left, it's randomly decided that we want to add the "end", and there's no start of line item.
+			if (placeholderItems === 1 && doIt() && !placeholderStart) {
+				// END will be in the 'expanded' translations file.
+				placeholder+= END; // The `,` gets stripped out below.
+				placeholderItems--;
 			}
 		}
 
-		// Now that we're done, randomly choose whether to show $ (end of line) or not.
-		if (doIt()) {
-			// END will be in the 'expanded' translations file.
-			placeholder+= END;
-		} else {
-			// If not, there's a trailing comma we must remove.
-			placeholder = placeholder.slice(0,placeholder.length-1);
-		}
+		if(window.console&&window.console.log)console.log(placeholder);
 
 		$('.verbose').keyup(function(e) {
 			// If the user presses enter (13), or types a comma (188)
