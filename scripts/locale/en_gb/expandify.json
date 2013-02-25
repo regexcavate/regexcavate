@@ -8,8 +8,8 @@
 	],
 	"multiple": [
 		{
-			"name": "one or more ",
-			"input": "((one|1) or more )?",
+			"name": "one or more/any ",
+			"input": "((one|1) or more |any )?",
 			"output": "%+"
 		},
 		{
