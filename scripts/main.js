@@ -8,8 +8,7 @@
 		var placeholder = '',
 			placeholderItems = 2,
 			placeholderStart = false,
-			maxSeed = translations.length-1,
-			prependSeed;
+			maxSeed = translations.length-1;
 
 		// Make sure we don't make this placeholder too long.
 		while (placeholderItems > 0) {
@@ -17,14 +16,21 @@
 				seeded = '';
 
 			// If this is the first item, randomly choose whether to show "beginning of the line" or not.
-			if (placeholderItems === 0 && doIt()) {
+			if (placeholderItems === 2 && doIt()) {
 				// START will be in the 'expanded' translations file.
 				placeholder+= START+',';
 				placeholderStart = true;
 				placeholderItems--;
 			}
 
-			seeded = translations[randomInterval(0, maxSeed)].name;
+			seeded = translations[randomInterval(0, maxSeed)];
+
+			// Make sure this isn't one of our catchAll translations as they won't make sense as a placeholder.
+			if (seeded.catchAll) {
+				continue;
+			}
+
+			seeded = seeded.name;
 
 			// If the placeholder has any ? symbols, replace these all with random numbers
 			while (/\?/.test(seeded)) {
@@ -34,18 +40,18 @@
 				seeded = seeded.replace('?', lastNum);
 			}
 
-			placeholder += seeded+(placeholderItems >= 0 ? ',' : '');
+			placeholder += seeded+',';
 			placeholderItems--;
 
 			// If there's a space left, it's randomly decided that we want to add the "end", and there's no start of line item.
 			if (placeholderItems === 1 && doIt() && !placeholderStart) {
 				// END will be in the 'expanded' translations file.
-				placeholder+= END; // The `,` gets stripped out below.
+				placeholder+= END;
 				placeholderItems--;
 			}
 		}
 
-		if(window.console&&window.console.log)console.log(placeholder);
+		placeholder = placeholder.replace(/,$/, '');
 
 		$('.verbose').keyup(function(e) {
 			// If the user presses enter (13), or types a comma (188)
@@ -192,7 +198,13 @@
 
 			// // If this part matches this translation, we have a winner.
 			if ( regex.test(part.toLowerCase()) ) {
-				regexParts.push(part.toLowerCase().replace(regex, list[list.length-j].output));
+				if (list[list.length-j].catchAll) {
+					// If this is a catchAll, don't lowercase as the user might expect capitals as input, and make sure to escape any
+					//	unescaped - within []
+					regexParts.push(part.replace(regex, list[list.length-j].output).replace(/\[\-\]/g, '[\\-]'));
+				} else {
+					regexParts.push(part.toLowerCase().replace(regex, list[list.length-j].output));
+				}
 
 				return true;
 			}

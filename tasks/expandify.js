@@ -78,6 +78,29 @@ module.exports = function(grunt) {
 									"output": exp.output.replace(/%/g, translation.output)
 								});
 							});
+						} else if (translation.catchAll) {
+							expansions.forEach(function(exp) {
+								var newInput = translation.input.replace(/%/g, exp.input.replace(/^([\(\[].*[\)\]])\?$/, '$1')),
+									tmpInput = newInput,
+									bracesBeforeCatch = 0;
+
+								/* This is a hacky way to find out how many groups there are in this
+									regex *BEFORE* the occurrence of the catch all so that in the `output`
+									we grab the correct occurrence. */
+								while (tmpInput.indexOf('.') != 0) {
+									tmpInput = tmpInput.slice(tmpInput.indexOf('(')+1, tmpInput.length);
+									bracesBeforeCatch++;
+								}
+
+								matchedExpansion = true;
+
+								out.push({
+									"catchAll": true,
+									"name": translation.name.replace(/%/g, exp.name),
+									"input": newInput,
+									"output": exp.output.replace(/%/g, (key !== "single" ? '[' : '') + '$'+bracesBeforeCatch+(key !== "single" ? ']' : ''))
+								});
+							});
 						}
 					});
 
