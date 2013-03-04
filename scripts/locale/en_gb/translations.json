@@ -11,13 +11,13 @@
 		,"/*===== Anchors =====*/"
 		,{
 			"name":"start of the line",
-			"input":"(start|begin(ing)?|(from the )?(start|beginning) of (the )?line)",
+			"input":"(at )?(the )?(start|begin(ing)?|(from the )?(start|beginning) of (the )?line)",
 			"output":"^",
 			"start":true
 		 }
 		,{
 			"name":"end of the line",
-			"input":"(end|(to the )?end of (the )?line)",
+			"input":"(at )?(the )?(end|(to the )?end of (the )?line)",
 			"output":"$",
 			"end":true
 		 }
@@ -115,13 +115,25 @@
 			"input":["%word", "%words"],
 			"output":"[\\w]*"
 		 }
+		,{
+			"name":["%word character", "%word characters"],
+			"expansions":["single", "multiple"],
+			"input":["%word character", "%word characters"],
+			"output":"\\w"
+		 }
 
 		,"/*===== Non Words =====*/"
 		,{
 			"name":["%non-word", "%non-words"],
 			"expansions":["single", "multiple"],
-			"input":["no[nt][\\- ]?word", "no[nt][\\- ]?words"],
-			"output":"[\\W]*"
+			"input":["%no[nt][\\- ]?word", "%no[nt][\\- ]?words"],
+			"output":"\\W"
+		 }
+		,{
+			"name":["%non-word character", "%non-word characters"],
+			"expansions":["single", "multiple"],
+			"input":["%no[nt][\\- ]?word character", "%no[nt][\\- ]?word characters"],
+			"output":"\\W"
 		 }
 
 		,"/*===== Digits =====*/"
