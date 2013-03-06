@@ -4,7 +4,7 @@
 
 jQuery(function($){
 
-	$('.main-nav a').on('click', function(){
+	$('[href^="#"]').on('click', function(){
 		var target = $(this).attr('href');
 		var position = $(target).offset().top;
 
