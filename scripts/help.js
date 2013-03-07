@@ -1,4 +1,5 @@
 jQuery(function($){
+	'use strict';
 
 	$('.help-tab').on('click', function(){
 

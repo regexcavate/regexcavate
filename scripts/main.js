@@ -1,46 +1,36 @@
-'use strict';
+/*global base64, Prism, Konami, translations, START, END, shortcuts, shortcut_names */
+(function() {
+	'use strict';
 
-if (/debug=true/.test(location.href)) {
-	// Use this for development/debugging. Chrome (for example) caches XHRed scripts super aggressively.
-	require.config({
-		urlArgs: "cache_bust=" +  (new Date()).getTime()
-	});
-}
-
-require(["jquery", "translations", "examples", "base64"], function(jQuery, translations, examples, base64) {
-	var prepend = examples.prepend,
-		examples = examples.list,
-		regexParts = [],
-		shortcuts = translations.shortcuts;
-
-	translations = translations.list;
+	var regexParts = [];
 
 	jQuery(function($) {
 		var placeholder = '',
-			maxSeed = examples.length-1,
-			seeded,
-			prependSeed;
+			placeholderItems = 2,
+			placeholderStart = false,
+			maxSeed = translations.length-1;
 
 		// Make sure we don't make this placeholder too long.
-		while (placeholder.length < 35) {
-			var lastNum = false;
-
-			seeded = examples[randomInterval(0, maxSeed)];
+		while (placeholderItems > 0) {
+			var lastNum = false,
+				seeded = '';
 
 			// If this is the first item, randomly choose whether to show "beginning of the line" or not.
-			if (placeholder.length === 0 && doIt()) {
-				placeholder+= 'beginning of line,';
+			if (placeholderItems === 2 && doIt()) {
+				// START will be in the 'expanded' translations file.
+				placeholder+= START+',';
+				placeholderStart = true;
+				placeholderItems--;
 			}
 
-			// If the seeded item starts with a :, use a randomly chosen prepend string.
-			if (/^:/.test(seeded)) {
-				prependSeed = randomInterval(0, 1);
+			seeded = translations[randomInterval(0, maxSeed)];
 
-				seeded = seeded.replace(/^:/, prepend[prependSeed][randomInterval(0, prepend[prependSeed].length-1)])
-							   .replace(/\?s/g, (prependSeed === 0 ? '' : 's'));
+			// Make sure this isn't one of our catchAll translations as they won't make sense as a placeholder.
+			if (seeded.catchAll) {
+				continue;
 			}
 
-			seeded += ',';
+			seeded = seeded.name;
 
 			// If the placeholder has any ? symbols, replace these all with random numbers
 			while (/\?/.test(seeded)) {
@@ -50,26 +40,27 @@ require(["jquery", "translations", "examples", "base64"], function(jQuery, trans
 				seeded = seeded.replace('?', lastNum);
 			}
 
-			// If this added to the placeholder isn't too long, add it.
-			if ((placeholder+seeded).length < 50) {
-				placeholder+= seeded;
+			placeholder += seeded+',';
+			placeholderItems--;
+
+			// If there's a space left, it's randomly decided that we want to add the "end", and there's no start of line item.
+			if (placeholderItems === 1 && doIt() && !placeholderStart) {
+				// END will be in the 'expanded' translations file.
+				placeholder+= END;
+				placeholderItems--;
 			}
 		}
 
-		// Now that we're done, randomly choose whether to show $ (end of line) or not.
-		if (doIt()) {
-			placeholder+= 'end of line';
-		} else {
-			// If not, there's a trailing comma we must remove.
-			placeholder = placeholder.slice(0,placeholder.length-1);
-		}
+		placeholder = placeholder.replace(/,$/, '');
 
 		$('.verbose').keyup(function(e) {
 			// If the user presses enter (13), or types a comma (188)
 			if (e.keyCode === 13 || e.keyCode === 188) {
-				parseInput.call(this);
+				parseInput.call(this, this); // Pass this in as an argument to get around a jshint strict issue in the parseInput function
 			}
-		}).change(parseInput).attr('placeholder', placeholder);
+		}).change(function() {
+			parseInput.call(this, this);
+		}).attr('placeholder', placeholder);
 
 		$('.result, .copy-result').live('click', function() {
 			var height = Number($('.result').outerHeight())+Number($('.result > .part').css('padding-bottom').replace('px', ''))+Number($('.result > .part').css('padding-top').replace('px', ''));
@@ -93,17 +84,17 @@ require(["jquery", "translations", "examples", "base64"], function(jQuery, trans
 			shortcutItem = '',
 			shortcutsList = '';
 
-		for (i = 0; i < shortcuts.length; i++) {
-			shortcutsList += '<li><a href="#">' + shortcuts[i].name.replace(/\?/g, randomInterval(2,9)) + '</a></li>';
+		for (i = 0; i < shortcut_names.length; i++) {
+			shortcutsList += '<li><a href="">' + shortcut_names[i] + '</a></li>';
 		}
 
 		$('#shortcuts-list').append(shortcutsList);
 
-		$('#shortcuts-list a').on('click', function(){
+		$('#shortcuts-list a').on('click', function(e){
 			var shortcut = $(this).text();
 
 			current = $.trim($('.verbose').val());
-			
+
 			// If we already have some entered value
 			if (current !== '') {
 				shortcutItem = current;
@@ -113,11 +104,13 @@ require(["jquery", "translations", "examples", "base64"], function(jQuery, trans
 					shortcutItem+=',';
 				}
 			}
-			
+
 			shortcutItem+= shortcut;
 
 			$('.verbose').val(shortcutItem).focus().trigger('change');
 			$('.help-tab').trigger('click');
+
+			e.preventDefault();
 			return false;
 		});
 
@@ -126,8 +119,8 @@ require(["jquery", "translations", "examples", "base64"], function(jQuery, trans
 	/**
 	 *	This function receives a string that it parses into a regex Object.
 	 */
-	function parseInput() {
-		var parts = this.value.replace(/, /g, ',').split(','),
+	function parseInput(input) {
+		var parts = input.value.replace(/, /g, ',').split(','),
 			regex = strToRegex(parts),
 			regexString = '',
 			regexStringCopy = '';
@@ -168,11 +161,11 @@ require(["jquery", "translations", "examples", "base64"], function(jQuery, trans
 
 		for (var i=parts.length; i > 0; i--) {
 			var negation = false,
-				part = parts[parts.length - i],
+				part = $.trim(parts[parts.length - i]),
 				partSolved = false;
 
 			// If this part starts with not/no, trim it out and remember that this is a negation for later.
-			if (/^(not|no)/.test(part)) {
+			if (/^(not|no) /.test(part)) {
 				part = part.replace(/^(not|no) /, '');
 				negation = true;
 			}
@@ -203,11 +196,24 @@ require(["jquery", "translations", "examples", "base64"], function(jQuery, trans
 	 */
 	function probe(list, part) {
 		for (var j=list.length; j > 0; j--) {
-			var regex = new RegExp('^'+list[list.length-j].input+'$');
+			var catchAll,
+				regex = new RegExp('^'+list[list.length-j].input+'$');
 
 			// // If this part matches this translation, we have a winner.
 			if ( regex.test(part.toLowerCase()) ) {
-				regexParts.push(part.toLowerCase().replace(regex, list[list.length-j].output));
+				if (list[list.length-j].catchAll) {
+					// Don't lowercase as the user might expect capitals as input
+					catchAll = part.replace(regex, list[list.length-j].output);
+
+					// If the catch all doesn't begin with `[` or `(`
+					if (!/^\[/.test(catchAll)) {
+						catchAll = escapeRegExp(catchAll);
+					}
+
+					regexParts.push(catchAll.replace(/\[\-\]/g, '[\\-]'));
+				} else {
+					regexParts.push(part.toLowerCase().replace(regex, list[list.length-j].output));
+				}
 
 				return true;
 			}
@@ -216,9 +222,9 @@ require(["jquery", "translations", "examples", "base64"], function(jQuery, trans
 		return false;
 	}
 
-	// This function was found here: http://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
+	// This function was modified, but originally found here: http://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
 	function escapeRegExp(str) {
-		return str.replace(/[\-\[\/\{\(\)\*\+\?\.\\\^\$\|\<\>]/g, "\\$&");
+		return str.replace(/[\-\[\/\{\(\)\*\+\?\.\\\^\$\|\>]/g, "\\$&");
 	}
 
 	/**
@@ -229,7 +235,7 @@ require(["jquery", "translations", "examples", "base64"], function(jQuery, trans
 	 *	@returns A number between `from` and `to`.
 	 */
 	function randomInterval(from,to) {
-	    return Math.floor(Math.random()*(to-from+1)+from);
+		return Math.floor(Math.random()*(to-from+1)+from);
 	}
 
 	/**
@@ -249,14 +255,10 @@ require(["jquery", "translations", "examples", "base64"], function(jQuery, trans
 			return html.replace(/\s([\S]+)$/,'&nbsp;$1');
 		});
 	});
-});
 
-require(["jquery", "help", "navscroll", "tooltip"], function(jQuery, help, navscroll, tooltip) {
-	/* Everthing that's done by these is done in the respective js files. */
-});
+	Prism.highlightAll();
 
-/*===== Just a little bit of fun. =====*/
-require(["konami"], function(Konami) {
+	/*===== Just a little bit of fun. =====*/
 	var konami = new Konami();
 	konami.code = function() {
 		if ($('body').hasClass('excavating')) {
@@ -266,4 +268,4 @@ require(["konami"], function(Konami) {
 		}
 	};
 	konami.load();
-});
+})();

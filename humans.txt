@@ -10,7 +10,7 @@
 # TECHNOLOGY COLOPHON
 
     HTML5, CSS3, JS
-    jQuery, Require.js, Compass/SCSS
+    jQuery, GruntJS, Compass/SCSS
 
 
                                   .r;.                                                                         

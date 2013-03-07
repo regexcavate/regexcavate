@@ -2,3 +2,6 @@ config.rb
 .sass-cache
 .dropbox
 scripts/jquery.min.js
+scripts/dist
+node_modules/
+css/
