@@ -52,8 +52,7 @@ $header-height:10px;
 
 		background:$color-nav;
 		border:$nav-border;
-		border-top:0;
-		border-right:0;
+		border-top:none;
 		border-radius:(0 0 10px 10px);
 		box-shadow:$nav-shadow;
 		@include transition(all 0.2s ease);
@@ -82,6 +81,7 @@ $header-height:10px;
 			}
 		}
 		&:last-child {
+			border-left:none;
 
 			&:before {
 				right:-10%;
@@ -94,9 +94,5 @@ $header-height:10px;
 		@media screen and (max-width:$media-small) {
 			padding:0.75em 1.5em;
 		}
-	}
-
-	@media screen and (max-width:500px) {
-		font-size:0.8125em; // 13px / 16px
 	}
 }
