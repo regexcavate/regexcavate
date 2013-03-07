@@ -1,3 +1,4 @@
+/*global module */
 'use strict';
 
 module.exports = function(grunt) {
@@ -42,9 +43,7 @@ module.exports = function(grunt) {
 			localisedExpansions = grunt.file.readJSON(localisedExpansions);
 
 			list.forEach(function(translation) {
-				var input,
-					matchedExpansion,
-					output;
+				var matchedExpansion;
 
 				// Make sure this is a proper translation object (ie: not a string or other data type).
 				if (typeof translation === typeof {}) {
@@ -73,7 +72,7 @@ module.exports = function(grunt) {
 								/* This is a hacky way to find out how many groups there are in this
 									regex *BEFORE* the occurrence of the catch all so that in the `output`
 									we grab the correct occurrence. */
-								while (tmpInput.indexOf('.') != 0) {
+								while (tmpInput.indexOf('.') !== 0) {
 									tmpInput = tmpInput.slice(tmpInput.indexOf('(')+1, tmpInput.length);
 									bracesBeforeCatch++;
 								}
