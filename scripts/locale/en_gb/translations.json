@@ -92,19 +92,19 @@
 		,{
 			"name":["%number and %letter", "%numbers or %letters"],
 			"expansions":["single", "multiple"],
-			"input":["%(number |((upper|lower)[\\- ]?(case)?( &| and| or| \\/) (upper|lower)[\\- ]?case )?letter )(& |and |or )?%(number|((upper|lower)[\\- ]?(case)?( &| and| or| \\/) (upper|lower)[\\- ]?case )?letter)", "%(numbers |((upper|lower)[\\- ]?(case)?( &| and| or| \\/) (upper|lower)[\\- ]?case )?letters )(& |and |or )?%(numbers|((upper|lower)[\\- ]?(case)?( &| and| or| \\/) (upper|lower)[\\- ]?case )?letters)"],
+			"input":["%(number |((upper|lower)[\\- ]?(case)?( &| and| or| \\/) (upper|lower)[\\- ]?case )?letter )(& |and |or )?%(number|((upper|lower)[\\- ]?(case)?( &| and| or| \\/) (upper|lower)[\\- ]?case )?letter)", "%(numbers |((upper|lower)[\\- ]?(case)?( &| and| or| \\/) (upper|lower)[\\- ]?case )?letters )(& |and |or )?(numbers|((upper|lower)[\\- ]?(case)?( &| and| or| \\/) (upper|lower)[\\- ]?case )?letters)"],
 			"output":"[a-zA-Z0-9]"
 		 }
 		,{
 			"name":["%number or %lowercase letter", "%numbers and %lowercase letters"],
 			"expansions":["single", "multiple"],
-			"input":["%(number |lower[\\- ]?(case)? letter )(& |and |or )?%(number|lower[\\- ]?case letter)", "%(numbers |lower[\\- ]?(case)? letters )(& |and |or )?%(numbers|lower[\\- ]?case letters)"],
+			"input":["%(number |lower[\\- ]?(case)? letter )(& |and |or )?%(number|lower[\\- ]?case letter)", "%(numbers |lower[\\- ]?(case)? letters )(& |and |or )?(numbers|lower[\\- ]?case letters)"],
 			"output":"[a-z0-9]"
 		 }
 		,{
 			"name":["%number and %uppercase letter", "%numbers or %uppercase letters"],
 			"expansions":["single", "multiple"],
-			"input":["%(number |upper[\\- ]?(case)? letter )(& |and |or )?%(number|upper[\\- ]?case letter)", "%(numbers |upper[\\- ]?(case)? letters )(& |and |or )?%(numbers|upper[\\- ]?case letters)"],
+			"input":["%(number |upper[\\- ]?(case)? letter )(& |and |or )?%(number|upper[\\- ]?case letter)", "%(numbers |upper[\\- ]?(case)? letters )(& |and |or )?(numbers|upper[\\- ]?case letters)"],
 			"output":"[A-Z0-9]"
 		 }
 
