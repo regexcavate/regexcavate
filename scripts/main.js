@@ -1,4 +1,4 @@
-/*global base64, Prism, Konami, translations, shortcuts */
+/*global base64, Prism, Konami, translations, START, END, shortcuts, shortcut_names */
 (function() {
 	'use strict';
 
@@ -84,8 +84,8 @@
 			shortcutItem = '',
 			shortcutsList = '';
 
-		for (i = 0; i < shortcuts.length; i++) {
-			shortcutsList += '<li><a href="#">' + shortcuts[i].name.replace(/\?/g, randomInterval(2,9)) + '</a></li>';
+		for (i = 0; i < shortcut_names.length; i++) {
+			shortcutsList += '<li><a href="#">' + shortcut_names[i] + '</a></li>';
 		}
 
 		$('#shortcuts-list').append(shortcutsList);

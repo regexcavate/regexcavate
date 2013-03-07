@@ -1,5 +1,5 @@
 {
-	"comment":"Shortcuts are automatically added to the \"I'm Confused\" panel using the name property so make sure the name is descriptive.",
+	"comment":"Shortcuts are automatically added to the \"I'm Confused\" panel using the first element of the array in the name property so make sure it's descriptive and can be used as the `input`.",
 	"list":[
 		 {
 		 	"comment":"Modified to include lowercase letters.",
@@ -12,7 +12,7 @@
 		,{
 			"name":["%UK postcode", "%UK postcodes"],
 			"expansions": ["single", "multiple"],
-			"input":["%(uk|UK) post(al)? ?code", "%(uk|UK) post(al)? ?codes"],
+			"input":["%(uk |UK )?post(al)? ?code", "%(uk |UK )?post(al)? ?codes"],
 			"output":"([A-PR-UWYZ0-9][A-HK-Y0-9][AEHMNPRTVXY0-9]?[ABEHMNPRVWXY0-9]? {1,2}[0-9][ABD-HJLN-UW-Z]{2}|GIR 0AA)",
 			"source":"http://regexlib.com/REDetails.aspx?regexp_id=260"
 		 }
