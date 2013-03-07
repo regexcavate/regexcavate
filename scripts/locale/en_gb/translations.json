@@ -17,7 +17,7 @@
 		 }
 		,{
 			"name":"end of the line",
-			"input":"(at )?(the )?(end|(to the )?end of (the )?line)",
+			"input":"(at )?(the )?(eol|end|(to the )?(eol|end of (the )?line))",
 			"output":"$",
 			"end":true
 		 }
