@@ -127,7 +127,7 @@
 			"name":["%non-word", "%non-words"],
 			"expansions":["single", "multiple"],
 			"input":["%no[nt][\\- ]?word", "%no[nt][\\- ]?words"],
-			"output":"\\W"
+			"output":"[\\W]*"
 		 }
 		,{
 			"name":["%non-word character", "%non-word characters"],

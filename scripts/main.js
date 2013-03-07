@@ -163,7 +163,7 @@
 				partSolved = false;
 
 			// If this part starts with not/no, trim it out and remember that this is a negation for later.
-			if (/^(not|no)/.test(part)) {
+			if (/^(not|no) /.test(part)) {
 				part = part.replace(/^(not|no) /, '');
 				negation = true;
 			}

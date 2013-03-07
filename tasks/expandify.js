@@ -3,22 +3,7 @@
 module.exports = function(grunt) {
 	grunt.registerTask('expandify', 'Expands translations to their full form.', function() {
 		var dest,
-			files = this.filesSrc,
-			prepend = [
-				[ // Singular
-					'a ',
-					'a single ',
-					'one ',
-					'1 '
-				],
-				[ // Plural
-					'one or more ',
-					'? ',
-					'? to ? ',
-					'any number of ',
-					'any amount of '
-				]
-			];
+			files = this.filesSrc;
 
 		// Fail task if we don't know which file/s to expandify or where to put them
 		grunt.config.requires('expandify.dest');
