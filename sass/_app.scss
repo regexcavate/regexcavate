@@ -90,6 +90,7 @@ $color-app-dark:darken($color-app, 20%);
 	color:#333;
 	font-size:2em;
 	text-align:center;
+	line-height:1em;
 
 	border:1px solid $color-app-dark;
 	box-shadow:0px 0px 25px rgba($color-link, 0.3),
@@ -123,6 +124,7 @@ $color-app-dark:darken($color-app, 20%);
 }
 @include placeholder(){
 	color:#999;
+	font-size:0.5em;
 	font-style:italic;
 }
 
