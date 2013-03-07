@@ -122,7 +122,7 @@
 
 					<p>Let&rsquo;s say you have a contact form that has a field for a reference number for your account
 					(say for a bank or utility service). The company&rsquo;s reference numbers are expected in the form of
-					<code>100000AA</code> where A is any letter and 0 is any number. That could be described as:
+					<code>1000000AA</code> where A is any letter and 0 is any number. That could be described as:
 					"1, 6 numbers, 2 letters".</p>
 
 					<p>Try to regexcavate for that and you&rsquo;ll get this:</p>
@@ -161,7 +161,7 @@ if ( regex.test(ref.value) ) {
 					in some languages but is just generally a bit messy to look at. Well, you could match all
 					whitespace at the end of a line and replace it with nothing to tidy things up.</p>
 
-					<p>Try to regexcavate for <em>"any whitespace", "at the end of the line"</em> and you&rsquo;ll get this:<p>
+					<p>Try to regexcavate for <em>"any whitespaces, at the end of the line"</em> and you&rsquo;ll get this:<p>
 
 					<pre class="language-javascript"><code>/\s+$/</code></pre>
 
@@ -169,11 +169,11 @@ if ( regex.test(ref.value) ) {
 					an empty field and you&rsquo;ll be trailing whitespace free!</p>
 
 					<p>You can also use the <code>String.replace()</code> method in Javascript. Here&rsquo;s a quick
-					example:</p>
+					example... we're rather fond of regex, so let's update the string below:</p>
 
 					<pre class="language-javascript"><code>var string = 'I hate regular expressions... hate them!';
 string = string.replace(/hate/g, 'love'); // "g" replaces all occurrences
-console.log(string); // logs 'I love regular expressions... love them!'</code></pre>
+console.log(string); // 'I love regular expressions... love them!'</code></pre>
 
 				</div>
 			</div>
