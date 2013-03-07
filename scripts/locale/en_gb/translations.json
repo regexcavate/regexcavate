@@ -32,13 +32,13 @@
 		,{
 			"name":["%white space", "%white spaces"],
 			"expansions":["single", "multiple"],
-			"input":["%white[\\- ]?space", "%white[\\- ]?spaces"],
+			"input":["%white[\\- ]?space( character)?", "%white[\\- ]?space( character)?s"],
 			"output":"\\s"
 		 }
 		,{
 			"name":["%non white space", "%non white spaces"],
 			"expansions":["single", "multiple"],
-			"input":["%no[nt]? white[\\- ]?space", "%no[nt]? white[\\- ]?spaces"],
+			"input":["%no[nt]? white[\\- ]?space( character)?", "%no[nt]? white[\\- ]?space( character)?s"],
 			"output":"\\S"
 		 }
 		,{
