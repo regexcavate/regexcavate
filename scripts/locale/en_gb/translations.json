@@ -108,13 +108,7 @@
 			"output":"[A-Z0-9]"
 		 }
 
-		,"/*===== Words =====*/"
-		,{
-			"name":["%word", "%words"],
-			"expansions":["single", "multiple"],
-			"input":["%word", "%words"],
-			"output":"[\\w]*"
-		 }
+		,"/*===== Word Characters =====*/"
 		,{
 			"name":["%word character", "%word characters"],
 			"expansions":["single", "multiple"],
@@ -122,13 +116,7 @@
 			"output":"\\w"
 		 }
 
-		,"/*===== Non Words =====*/"
-		,{
-			"name":["%non-word", "%non-words"],
-			"expansions":["single", "multiple"],
-			"input":["%no[nt][\\- ]?word", "%no[nt][\\- ]?words"],
-			"output":"[\\W]*"
-		 }
+		,"/*===== Non Word Characters =====*/"
 		,{
 			"name":["%non-word character", "%non-word characters"],
 			"expansions":["single", "multiple"],
