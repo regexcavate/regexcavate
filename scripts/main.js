@@ -161,7 +161,7 @@
 
 		for (var i=parts.length; i > 0; i--) {
 			var negation = false,
-				part = parts[parts.length - i],
+				part = $.trim(parts[parts.length - i]),
 				partSolved = false;
 
 			// If this part starts with not/no, trim it out and remember that this is a negation for later.
@@ -196,14 +196,21 @@
 	 */
 	function probe(list, part) {
 		for (var j=list.length; j > 0; j--) {
-			var regex = new RegExp('^'+list[list.length-j].input+'$');
+			var catchAll,
+				regex = new RegExp('^'+list[list.length-j].input+'$');
 
 			// // If this part matches this translation, we have a winner.
 			if ( regex.test(part.toLowerCase()) ) {
 				if (list[list.length-j].catchAll) {
-					// If this is a catchAll, don't lowercase as the user might expect capitals as input, and make sure to escape any
-					//	unescaped - within []
-					regexParts.push(part.replace(regex, list[list.length-j].output).replace(/\[\-\]/g, '[\\-]'));
+					// Don't lowercase as the user might expect capitals as input
+					catchAll = part.replace(regex, list[list.length-j].output);
+
+					// If the catch all doesn't begin with `[` or `(`
+					if (!/^\[/.test(catchAll)) {
+						catchAll = escapeRegExp(catchAll);
+					}
+
+					regexParts.push(catchAll.replace(/\[\-\]/g, '[\\-]'));
 				} else {
 					regexParts.push(part.toLowerCase().replace(regex, list[list.length-j].output));
 				}
