@@ -85,12 +85,12 @@
 			shortcutsList = '';
 
 		for (i = 0; i < shortcut_names.length; i++) {
-			shortcutsList += '<li><a href="#">' + shortcut_names[i] + '</a></li>';
+			shortcutsList += '<li><a href="">' + shortcut_names[i] + '</a></li>';
 		}
 
 		$('#shortcuts-list').append(shortcutsList);
 
-		$('#shortcuts-list a').on('click', function(){
+		$('#shortcuts-list a').on('click', function(e){
 			var shortcut = $(this).text();
 
 			current = $.trim($('.verbose').val());
@@ -109,6 +109,8 @@
 
 			$('.verbose').val(shortcutItem).focus().trigger('change');
 			$('.help-tab').trigger('click');
+
+			e.preventDefault();
 			return false;
 		});
 
