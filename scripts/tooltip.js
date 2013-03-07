@@ -1,8 +1,9 @@
 //*************************
-//  	$$ Tooltip.js
+//		$$ Tooltip.js
 //**************************
 
 jQuery(function($){
+	'use strict';
 
 	$('.part').live({
 		mouseenter: function(){

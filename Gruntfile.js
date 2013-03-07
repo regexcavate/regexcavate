@@ -11,7 +11,7 @@ module.exports = function(grunt) {
 				'<%= grunt.template.today("yyyy-mm-dd") %>\n' +
 				'* http://regexcavate.com/\n' +
 				'* Copyright (c) <%= grunt.template.today("yyyy") %> ' +
-				'Rémy Bach, Guy Routledge, & Rob Miller; Licensed MIT */'+
+				'Rémy Bach, Guy Routledge, & Rob Miller; Licensed MIT */' +
 				';'
 		},
 		compass: {
@@ -110,5 +110,5 @@ module.exports = function(grunt) {
 	grunt.loadTasks('tasks');
 
 	// Default task.
-	grunt.registerTask('default', ["compass", "expandify", "concat", "uglify"]); /* TODO: ["jshint", "compass", "expandify", "concat", "uglify"] */
+	grunt.registerTask('default', ["jshint", "compass", "expandify", "concat", "uglify"]);
 };

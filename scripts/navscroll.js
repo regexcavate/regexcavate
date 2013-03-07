@@ -1,8 +1,9 @@
 //*************************
-//  	$$ Nav Scroll
+//		$$ Nav Scroll
 //**************************
 
 jQuery(function($){
+	'use strict';
 
 	$('[href^="#"]').on('click', function(){
 		var target = $(this).attr('href');
