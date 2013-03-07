@@ -1,0 +1,35 @@
+{
+	"name": "regexcavate",
+	"version": "1.0.0",
+	"description": "Dig into Regular Expressions",
+	"homepage": "http://regexcavate.com",
+	"bugs": {
+		"url": "https://github.com/regexcavate/regexcavate/issues",
+		"email": "regexcavate@gmail.com"
+	},
+	"contributors": [
+		{
+			"name": "Guy Routledge",
+			"url": "http://www.guyroutledge.co.uk/"
+		},
+		{
+			"name": "Rémy Bach",
+			"url": "http://remy.bach.me.uk"
+		},
+		{
+			"name": "Rob Miller"
+		}
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/regexcavate/regexcavate"
+	},
+	"private": true,
+	"devDependencies": {
+		"grunt": "0.4.0rc7",
+		"grunt-contrib-concat": "0.1.2",
+		"grunt-contrib-compass": "0.1.2",
+		"grunt-contrib-jshint": "0.1.1",
+		"grunt-contrib-uglify": "0.1.1"
+	}
+}
