@@ -2,7 +2,7 @@
 	 "multiple": [
 		{
 			"name": "one or more/any ",
-			"input": "((one|1) or more |any ((number|amount) of)?)?",
+			"input": "((one|1) or more |any ((number|amount) of )?)?",
 			"output": "%+"
 		},
 		{
