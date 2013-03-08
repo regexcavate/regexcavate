@@ -22,6 +22,7 @@ module.exports = function(grunt) {
 				newDest = dest + localeMatch[0],
 				out = [],
 				shortcuts = [],
+				shortcutName = '',
 				src = '';
 			
 			newDest = newDest.replace('.json', '.js');
@@ -95,7 +96,12 @@ module.exports = function(grunt) {
 					}
 
 					if (filename.indexOf('shortcuts') !== -1) {
-						shortcuts.push(translation.name[0].replace(/%/g, ''));
+						if (typeof translation.name === "string") {
+							shortcutName = translation.name;
+						} else {
+							shortcutName = translation.name[0];
+						}
+						shortcuts.push(shortcutName.replace(/%/g, ''));
 					}
 
 					// If this is the start, or begin, we need to get the localized copy for use in the placeholder.
