@@ -9643,11 +9643,16 @@ jQuery(function($){
 		}
 		return false;
 
+	}).on('keydown', function(e){
+		if ( e.which === 13 ) {
+			$('.help-tab').trigger('click');
+			return false;
+		}
 	});
 });
 
 //*************************
-//		$$ Nav Scroll
+// 		$$ Nav Scroll
 //**************************
 
 jQuery(function($){
