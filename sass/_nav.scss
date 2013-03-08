@@ -87,7 +87,8 @@ $header-height:10px;
 				right:-10%;
 			}
 		}
-		&:hover {
+		&:hover,
+		&:focus {
 			padding-top:1.25em;
 		}
 

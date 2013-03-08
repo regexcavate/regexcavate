@@ -62,35 +62,8 @@ module.exports = function(grunt) {
 		jshint: {
 			files: ['scripts/*.js'],
 			options: {
-				// Enforcing
-				curly: true,
-				immed: true,
-				indent: 4,
-				latedef: true,
-				newcap: true,
-				noarg: true,
-				noempty: true,
-				strict: true,
-				sub: true,
-				trailing: true,
-				undef: true,
-				unused: true,
-				
-				// Relaxing
-				boss: true,
-				eqnull: true,
-				globalstrict: true,
-				iterator: true,
-				loopfunc: true,
-				smarttabs: true,
-
-				// Environments
-				browser: true,
-				jquery: true,
-				nonstandard: true,
-				white: false
-			},
-			globals: {}
+				jshintrc: '.jshintrc'
+			}
 		},
 		uglify: {
 			options: {

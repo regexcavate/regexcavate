@@ -53,7 +53,7 @@ a:hover {
 	color:$color-hover;
 }
 a:visited { color:$color-link; }
-a:focus { outline:none; }
+a:focus { outline:1px dotted #999; }
 a:hover, a:active { outline: 0; }
 
 
