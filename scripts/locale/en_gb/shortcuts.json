@@ -69,20 +69,20 @@
 			"input":["%(visa|VISA|Visa)( credit| credit(-| ))?(card)?"],
 			"output":"4[0-9]{12}(?:[0-9]{3})?",
 			"source":"http://www.regular-expressions.info/creditcard.html"
-		}
+		 }
 		,{
 			"name":["%Mastercard"],
 			"expansions": ["single"],
 			"input":["%(mastercard|Mastercard)( credit| credit(-| ))?(card)?"],
 			"output":"5[1-5][0-9]{14}",
 			"source":"http://www.regular-expressions.info/creditcard.html"
-		}
+		 }
 		,{
 			"name":["%American Express"],
 			"expansions": ["single"],
 			"input":["%(amex|Amex|AmEx|American Express|american express)( credit| credit(-| ))?(card)?"],
 			"output":"3[47][0-9]{13}",
 			"source":"http://www.regular-expressions.info/creditcard.html"
-		}
+		 }
 	]
 }
