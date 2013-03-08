@@ -2,6 +2,18 @@
 	"comment":"Shortcuts are automatically added to the \"I'm Confused\" panel using the first element of the array in the name property so make sure it's descriptive and can be used as the `input`.",
 	"list":[
 		 {
+		 	"name":["%word"],
+		 	"expansions":["single"],
+		 	"input":["%word"],
+		 	"output":"\\S+"
+		 }
+		,{
+		 	"name":["%words"],
+		 	"expansions":["multiple"],
+		 	"input":["%words"],
+		 	"output":"(\\S+\\s??\\b)"
+		 }
+		,{
 		 	"comment":"Modified to include lowercase letters.",
 			"name":["%email address"],
 			"expansions": ["single"],
