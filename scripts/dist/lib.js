@@ -9708,7 +9708,7 @@ jQuery(function($){
 
 });
 
-/*global base64, Prism, Konami, translations, START, END, shortcuts, shortcut_names */
+/*global base64, config, Prism, Konami, translations, START, END, shortcuts, shortcut_names */
 (function() {
 	'use strict';
 
@@ -9761,7 +9761,8 @@ jQuery(function($){
 			}
 		}
 
-		placeholder = placeholder.replace(/,$/, '');
+		// Prepend our configured text to the placeholder (for example: "Try: ")
+		placeholder = config.placeHolderPrepend + placeholder.replace(/,$/, '');
 
 		$('.verbose').keyup(function(e) {
 			// If the user presses enter (13), or types a comma (188)
@@ -9875,8 +9876,8 @@ jQuery(function($){
 				partSolved = false;
 
 			// If this part starts with not/no, trim it out and remember that this is a negation for later.
-			if (/^(not|no) /.test(part)) {
-				part = part.replace(/^(not|no) /, '');
+			if (config.negation.test(part)) {
+				part = part.replace(config.negation, '');
 				negation = true;
 			}
 
