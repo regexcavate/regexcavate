@@ -48,6 +48,7 @@ module.exports = function(grunt) {
 			},
 			en_gb: {
 				src: [
+					'scripts/locale/en_gb/config.js',
 					'scripts/dist/locale/en_gb/shortcuts.js',
 					'scripts/dist/locale/en_gb/translations.js',
 					'scripts/dist/lib.js'
