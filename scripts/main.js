@@ -126,6 +126,13 @@
 			regexString = '',
 			regexStringCopy = '';
 
+		// If this looks like a regex, i.e.: It has anything EXCEPT a comma (since that separates parts in the input) between [] or {}
+		if (/(\[[^,]*\]|\{[^,]*\})/.test(input.value)) {
+			$('.noticed-regex').show();
+		} else {
+			$('.noticed-regex').hide();
+		}
+
 		for (var i=regex.length; i > 0; i--) {
 			regexString+= '<abbr class="part" title="'+parts[regex.length-i]+'">'+regex[regex.length-i]+'</abbr>';
 			regexStringCopy+= regex[regex.length-i];
