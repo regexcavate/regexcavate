@@ -1,6 +1,11 @@
 {
 	 "multiple": [
 		{
+			"name": "zero or more",
+			"input": "(zero|0|none) or more (of )?",
+			"output": "%*"
+		},
+		{
 			"name": "one or more/any ",
 			"input": "((one|1) or more |any ((number|amount) of )?)?",
 			"output": "%+"
