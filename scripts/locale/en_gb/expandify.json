@@ -1,7 +1,7 @@
 {
 	 "multiple": [
 		{
-			"name": "zero or more",
+			"name": "zero or more ",
 			"input": "(zero|0|none) or more (of )?",
 			"output": "%*"
 		},
