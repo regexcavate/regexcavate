@@ -127,7 +127,7 @@
 			regexStringCopy = '';
 
 		// If this looks like a regex, i.e.: It has anything EXCEPT a comma (since that separates parts in the input) between [] or {}
-		if (/(\[[^,]*\]|\{[^,]*\})/.test(input.value)) {
+		if (/(\[[^,]*\])/.test(input.value)) {
 			$('.noticed-regex').show();
 		} else {
 			$('.noticed-regex').hide();
