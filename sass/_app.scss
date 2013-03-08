@@ -177,9 +177,9 @@ $color-app-dark:darken($color-app, 20%);
 	a { color:darken($color-link, 30%); }
 	a:hover { color:darken($color-link, 20%); }
 
-	p.noticed-regex {
-		color:red;
-		display:none;
+	.noticed-regex {
+		opacity:1;
+		position:static;
 	}
 }
 
