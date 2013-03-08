@@ -354,6 +354,10 @@ $help-shadow:-3px -3px 6px rgba(0, 0, 0, 0.1);
 	box-shadow:$help-shadow;
 	@include transition(all 0.2s ease);
 
+	&:focus {
+		outline:1px dotted #999;
+	}
+
 	a {
 		color:$color-link-nav;
 		&:hover { color:$color-link-nav; }

@@ -1,7 +1,7 @@
 jQuery(function($){
 	'use strict';
 
-	$('.help-tab').on('click focus', function(){
+	$('.help-tab').on('click', function(){
 
 		var helpHeight = $('.help').outerHeight();
 
@@ -18,5 +18,10 @@ jQuery(function($){
 		}
 		return false;
 
+	}).on('keydown', function(e){
+		if ( e.which === 13 ) {
+			$('.help-tab').trigger('click');
+			return false;
+		}
 	});
 });
