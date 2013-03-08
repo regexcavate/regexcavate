@@ -1,7 +1,7 @@
 jQuery(function($){
 	'use strict';
 
-	$('.help-tab').on('click', function(){
+	$('.help-tab').on('click focus', function(){
 
 		var helpHeight = $('.help').outerHeight();
 
