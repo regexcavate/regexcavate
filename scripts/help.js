@@ -8,7 +8,7 @@ jQuery(function($){
 		if ( $('.help').is('.is-active') ) {
 			$('.help').animate({
 				'top' : '100%'
-			}, focusHelp);
+			});
 			$('.help').removeClass('is-active');
 		} else {
 			$('.help').animate({
