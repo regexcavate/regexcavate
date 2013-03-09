@@ -170,6 +170,20 @@ $color-app-dark:darken($color-app, 20%);
 		z-index:-1;
 	}
 }
+$noticed-regex-width:250px;
+.noticed-regex {
+	@extend .tooltip;
+	width:$noticed-regex-width;
+	left:50%;
+	margin-left:-$noticed-regex-width/2;
+
+	// tweak position of tooltip arrow
+	// as this warning tooltip is taller
+	&:after {
+		bottom:-10%;
+	}
+	&.is-visible { opacity:1; }
+}
 
 .section-content-app {
 
@@ -177,11 +191,6 @@ $color-app-dark:darken($color-app, 20%);
 	a { color:darken($color-link, 30%); }
 	a:hover { color:darken($color-link, 20%); }
 
-	.noticed-regex {
-		opacity:1;
-		padding-right:70px;
-		position:static;
-	}
 }
 
 .result-container {
