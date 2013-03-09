@@ -133,11 +133,9 @@
 
 		// If this looks like a regex,
 		// i.e.: It looks like a range [a-z]
-		// or starts with a / commonly used to denote a pattern
-		// or starts with an anchor like ^
-		// or starts with a ( for a conditional, capturing group or assertion
-		// and has anything EXCEPT a comma (since that separates parts in the input)
-		if (/(\[[^,]*\]|^\/|^\^|^\.|^\()/.test(input.value)) {
+		// or it looks like a JS formatted regex
+		// or there seems to be one of the character classes you escape in regex (eg: \s)
+		if (/([\[\/][^,]*[\]\/]|\\[bdnrstw]|\{[0-9]+,?([0-9]+)?\})/.test(input.value)) {
 			$('.noticed-regex').addClass('is-visible');
 		} else {
 			$('.noticed-regex').removeClass('is-visible');
