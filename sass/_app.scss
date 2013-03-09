@@ -171,12 +171,17 @@ $color-app-dark:darken($color-app, 20%);
 	}
 }
 
-
 .section-content-app {
 
 	p { color:#666; }
 	a { color:darken($color-link, 30%); }
 	a:hover { color:darken($color-link, 20%); }
+
+	.noticed-regex {
+		opacity:1;
+		padding-right:70px;
+		position:static;
+	}
 }
 
 .result-container {
