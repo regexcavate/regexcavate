@@ -9626,7 +9626,7 @@ Prism.languages.javascript=Prism.languages.extend("clike",{keyword:/\b(var|let|i
 jQuery(function($){
 	'use strict';
 
-	$('.help-tab').on('click', function(){
+	$('.help-tab, .help-tab-trigger').on('click', function(){
 
 		var helpHeight = $('.help').outerHeight();
 
@@ -9638,9 +9638,10 @@ jQuery(function($){
 		} else {
 			$('.help').animate({
 				'top' : '-=' +  helpHeight
-			});
+			}, focusHelp);
 			$('.help').addClass('is-active');
 		}
+
 		return false;
 
 	}).on('keydown', function(e){
@@ -9649,8 +9650,13 @@ jQuery(function($){
 			return false;
 		}
 	});
-});
 
+	function focusHelp() {
+		$('html, body').animate({
+			scrollTop : $('.app').height() - $(window).height()
+		}, 500);
+	}
+});
 //*************************
 // 		$$ Nav Scroll
 //**************************
@@ -9728,7 +9734,7 @@ jQuery(function($){
 			// If this is the first item, randomly choose whether to show "beginning of the line" or not.
 			if (placeholderItems === 2 && doIt()) {
 				// START will be in the 'expanded' translations file.
-				placeholder+= START+',';
+				placeholder+= START+', ';
 				placeholderStart = true;
 				placeholderItems--;
 			}
@@ -9750,7 +9756,7 @@ jQuery(function($){
 				seeded = seeded.replace('?', lastNum);
 			}
 
-			placeholder += seeded+',';
+			placeholder += seeded+', ';
 			placeholderItems--;
 
 			// If there's a space left, it's randomly decided that we want to add the "end", and there's no start of line item.
@@ -9762,7 +9768,7 @@ jQuery(function($){
 		}
 
 		// Prepend our configured text to the placeholder (for example: "Try: ")
-		placeholder = config.placeHolderPrepend + placeholder.replace(/,$/, '');
+		placeholder = config.placeHolderPrepend + placeholder.replace(/, $/, '');
 
 		$('.verbose').keyup(function(e) {
 			// If the user presses enter (13), or types a comma (188)
@@ -9835,6 +9841,13 @@ jQuery(function($){
 			regex = strToRegex(parts),
 			regexString = '',
 			regexStringCopy = '';
+
+		// If this looks like a regex, i.e.: It has anything EXCEPT a comma (since that separates parts in the input) between [] or {}
+		if (/(\[[^,]*\])/.test(input.value)) {
+			$('.noticed-regex').show();
+		} else {
+			$('.noticed-regex').hide();
+		}
 
 		for (var i=regex.length; i > 0; i--) {
 			regexString+= '<abbr class="part" title="'+parts[regex.length-i]+'">'+regex[regex.length-i]+'</abbr>';
