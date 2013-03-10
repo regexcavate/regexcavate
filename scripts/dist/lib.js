@@ -9770,7 +9770,12 @@ jQuery(function($){
 		// Prepend our configured text to the placeholder (for example: "Try: ")
 		placeholder = config.placeHolderPrepend + placeholder.replace(/, $/, '');
 
-		$('.verbose').keyup(function(e) {
+		$('.verbose').keydown(function(){
+			// hide any visible warning about noticed regex
+			if ( $('.noticed-regex').is('.is-visible') ) {
+				$('.noticed-regex').removeClass('is-visible');
+			}
+		}).keyup(function(e) {
 			// If the user presses enter (13), or types a comma (188)
 			if (e.keyCode === 13 || e.keyCode === 188) {
 				parseInput.call(this, this); // Pass this in as an argument to get around a jshint strict issue in the parseInput function
@@ -9842,11 +9847,14 @@ jQuery(function($){
 			regexString = '',
 			regexStringCopy = '';
 
-		// If this looks like a regex, i.e.: It has anything EXCEPT a comma (since that separates parts in the input) between [] or {}
-		if (/(\[[^,]*\])/.test(input.value)) {
-			$('.noticed-regex').show();
+		// If this looks like a regex,
+		// i.e.: It looks like a range [a-z]
+		// or it looks like a JS formatted regex
+		// or there seems to be one of the character classes you escape in regex (eg: \s)
+		if (/([\[\/][^,]*[\]\/]|\\[bdnrstw]|\{[0-9]+,?([0-9]+)?\})/.test(input.value)) {
+			$('.noticed-regex').addClass('is-visible');
 		} else {
-			$('.noticed-regex').hide();
+			$('.noticed-regex').removeClass('is-visible');
 		}
 
 		for (var i=regex.length; i > 0; i--) {
