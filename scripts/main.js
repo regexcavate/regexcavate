@@ -146,7 +146,7 @@
 		// i.e.: It looks like a range [a-z]
 		// or it looks like a JS formatted regex
 		// or there seems to be one of the character classes you escape in regex (eg: \s)
-		if (/([\[\/][^,]*[\]\/]|\\[bdnrstw]|\{[0-9]+,?([0-9]+)?\})/.test(input.value)) {
+		if (/([\[\/][^,]+[\]\/]|\\[bdnrstw]|\{[0-9]+,?([0-9]+)?\})/.test(input.value)) {
 			$('.noticed-regex').addClass('is-visible');
 		} else {
 			$('.noticed-regex').removeClass('is-visible');
