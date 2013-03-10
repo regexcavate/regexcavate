@@ -41,6 +41,10 @@
 
 				<div class="verbose-container">
 					<input type="text" class="verbose" placeholder="" autofocus tabindex="1">
+					<p class="noticed-regex">
+						Uh-oh, it seems like you&rsquo;ve tried to put a regex in the field.
+						<a href="" class="help-tab-trigger">That&rsquo;s not how this works</a>.
+					</p>
 				</div>
 
 				<h2 class="section-title">How To</h2>
@@ -49,10 +53,6 @@
 						To begin: break up what you want to match into parts in plain English
 						and enter them in the field above with each part separated by a comma.
 						When you&rsquo;re done, press enter/return.
-					</p>
-					<p class="noticed-regex tooltip">
-						Uh-oh, it seems like you&rsquo;ve tried to put a regex in the field.
-						<a href="" class="help-tab-trigger">That&rsquo;s not how this works</a>.
 					</p>
 					<div class="result-container">
 						<pre><code class="result">&nbsp;</code></pre>
@@ -71,9 +71,8 @@
 
 				<div class="help">
 					<h3 class="help-tab" tabindex="5"><a href="">I&rsquo;m Confused</a></h3>
-					<p>If you&rsquo;re new to regex, and want a bit of a quick intro
-					<a href="http://remy.bach.me.uk/talks/getting-started-with-regex" rel="friend">these slides</a>
-					should help get you started.</p>
+					<p>Regexcavate is a natural language parser for regex. Enter plain English words
+					that describe what you'd like to match and get back a regular expression.</p>
 
 					<p>For more ideas, refresh the page for a random placeholder.</p>
 
@@ -119,6 +118,10 @@
 			<div class="section-wrap">
 				<h2 class="section-title">Tutorial</h2>
 				<div class="section-content">
+					<p>If you&rsquo;re new to regex, and want a bit of a quick intro
+					<a href="http://remy.bach.me.uk/talks/getting-started-with-regex" rel="friend">these slides</a>
+					should help get you started.</p>
+
 					<p>So you&rsquo;ve got your regex, what now? Here&rsquo;s a quick tutorial of what you can
 					do with it. We&rsquo;ll look at two useful ways of using regex in Javascript: <code>test</code> and <code>replace</code></p>
 
