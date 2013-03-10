@@ -2,7 +2,8 @@
 (function() {
 	'use strict';
 
-	var regexParts = [];
+	var debounceInput = false,
+		regexParts = [];
 
 	jQuery(function($) {
 		var placeholder = '',
@@ -131,6 +132,16 @@
 			regexString = '',
 			regexStringCopy = '';
 
+		if (!debounceInput) {
+			debounceInput = true;
+
+			setTimeout(function() {
+				debounceInput = false;
+			}, 250);
+		} else {
+			return false;
+		}
+		
 		// If this looks like a regex,
 		// i.e.: It looks like a range [a-z]
 		// or it looks like a JS formatted regex
@@ -176,7 +187,9 @@
 		regexParts.length = 0;
 
 		for (var i=parts.length; i > 0; i--) {
-			var negation = false,
+			var compareParts = [],
+				comparisons,
+				negation = false,
 				part = $.trim(parts[parts.length - i]),
 				partSolved = false;
 
@@ -194,9 +207,21 @@
 				regexParts[regexParts.length-1] = regexParts[regexParts.length-1].replace(/\[/, '[^');
 			}
 
-			// If none of the translations matched, and this part isn't a shortcut then just give back the same as was input.
-			if (!partSolved && !probe(shortcuts, part)) {
-				regexParts.push(escapeRegExp(part));
+			// Check for comparisons (i.e.: "foo or bar" = (foo|bar))
+			if (!partSolved && config.comparator.test(part)) {
+				comparisons = part.split(config.comparator);
+
+				for (var j=comparisons.length; j > 0; j--) {
+					// Only compare translations and NOT shortcuts as those are a little too advanced.
+					compareParts.push(probe(translations,comparisons[comparisons.length - j], true));
+				}
+
+				regexParts.push('('+compareParts.join('|')+')');
+			} else {
+				// If none of the translations matched, and this part isn't a shortcut then just give back the same as was input.
+				if (!partSolved && !probe(shortcuts, part)) {
+					regexParts.push(escapeRegExp(part));
+				}
 			}
 		}
 
@@ -208,11 +233,13 @@
 	 *
 	 *	@param list The array of translations/shortcuts we're probing.
 	 *	@param part The particular string we're probing for.
-	 *	@returns partSolved Whether this particular part was found.
+	 *	@param returnPart Whether or not to rather return the part than automatically add it to regexParts.
+	 *	@returns partSolved Either whether this particular part was found (boolean), or the part that was found if returnPart is true.
 	 */
-	function probe(list, part) {
+	function probe(list, part, returnPart) {
 		for (var j=list.length; j > 0; j--) {
 			var catchAll,
+				newPart,
 				regex = new RegExp('^'+list[list.length-j].input+'$');
 
 			// // If this part matches this translation, we have a winner.
@@ -226,16 +253,26 @@
 						catchAll = escapeRegExp(catchAll);
 					}
 
-					regexParts.push(catchAll.replace(/\[\-\]/g, '[\\-]'));
+					newPart = catchAll.replace(/\[\-\]/g, '[\\-]');
 				} else {
-					regexParts.push(part.toLowerCase().replace(regex, list[list.length-j].output));
+					newPart = part.toLowerCase().replace(regex, list[list.length-j].output);
 				}
 
-				return true;
+				if (returnPart) {
+					return newPart;
+				} else {
+					regexParts.push(newPart);
+					return true;
+				}
 			}
 		}
 
-		return false;
+		if (returnPart) {
+			// Return the unmodified part.
+			return part;
+		} else {
+			return false;
+		}
 	}
 
 	// This function was modified, but originally found here: http://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
