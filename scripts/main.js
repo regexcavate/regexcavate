@@ -189,22 +189,30 @@
 		for (var i=parts.length; i > 0; i--) {
 			var compareParts = [],
 				comparisons,
-				negation = false,
 				part = $.trim(parts[parts.length - i]),
+				latest = '',
+				negation = config.negation.test(part),
+				optional = config.optionals.test(part),
 				partSolved = false;
 
-			// If this part starts with not/no, trim it out and remember that this is a negation for later.
-			if (config.negation.test(part)) {
-				part = part.replace(config.negation, '');
-				negation = true;
+			if (optional) {
+				part = $.trim(part.replace(config.optionals, ''));
+			}
+			if (negation) {
+				part = $.trim(part.replace(config.negation, ''));
 			}
 
 			partSolved = probe(translations, part);
 
+			latest = regexParts[regexParts.length-1];
+
 			// If this part has a regex match AND is a negation AND is a range that doesn't already have a negation in it.
 			if (partSolved && negation && /\[[^\^]/.test(regexParts[regexParts.length-1])) {
 				// Add the ^ symbol to the start of any range that doesn't already have it.
-				regexParts[regexParts.length-1] = regexParts[regexParts.length-1].replace(/\[/, '[^');
+				regexParts[regexParts.length-1] = latest.replace(/\[/, '[^');
+			}
+			if (optional && /^(\[|\()([^\]]*)(\]|\))(\+|\*|\{[^\}]*\})?$/.test(latest)) {
+				regexParts[regexParts.length-1] = '('+latest+')?';
 			}
 
 			// Check for comparisons (i.e.: "foo or bar" = (foo|bar))
@@ -217,11 +225,9 @@
 				}
 
 				regexParts.push('('+compareParts.join('|')+')');
-			} else {
-				// If none of the translations matched, and this part isn't a shortcut then just give back the same as was input.
-				if (!partSolved && !probe(shortcuts, part)) {
-					regexParts.push(escapeRegExp(part));
-				}
+			// If none of the translations matched, and this part isn't a shortcut then just give back the same as was input.
+			} else if (!partSolved && !probe(shortcuts, part)) {
+				regexParts.push(escapeRegExp(part));
 			}
 		}
 
@@ -242,7 +248,7 @@
 				newPart,
 				regex = new RegExp('^'+list[list.length-j].input+'$');
 
-			// // If this part matches this translation, we have a winner.
+			// If this part matches this translation, we have a winner.
 			if ( regex.test(part.toLowerCase()) ) {
 				if (list[list.length-j].catchAll) {
 					// Don't lowercase as the user might expect capitals as input
