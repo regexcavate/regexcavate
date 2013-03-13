@@ -141,7 +141,7 @@
 		} else {
 			return false;
 		}
-		
+
 		// If this looks like a regex,
 		// i.e.: It looks like a range [a-z]
 		// or it looks like a JS formatted regex
@@ -224,7 +224,7 @@
 					compareParts.push(probe(translations,comparisons[comparisons.length - j], true));
 				}
 
-				regexParts.push('('+compareParts.join('|')+')');
+				regexParts.push('('+compareParts.join('|')+')'+(optional ? '?' : ''));
 			// If none of the translations matched, and this part isn't a shortcut then just give back the same as was input.
 			} else if (!partSolved && !probe(shortcuts, part)) {
 				regexParts.push(escapeRegExp(part));
