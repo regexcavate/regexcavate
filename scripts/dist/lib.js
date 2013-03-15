@@ -9718,7 +9718,8 @@ jQuery(function($){
 (function() {
 	'use strict';
 
-	var regexParts = [];
+	var debounceInput = false,
+		regexParts = [];
 
 	jQuery(function($) {
 		var placeholder = '',
@@ -9847,11 +9848,21 @@ jQuery(function($){
 			regexString = '',
 			regexStringCopy = '';
 
+		if (!debounceInput) {
+			debounceInput = true;
+
+			setTimeout(function() {
+				debounceInput = false;
+			}, 250);
+		} else {
+			return false;
+		}
+
 		// If this looks like a regex,
 		// i.e.: It looks like a range [a-z]
 		// or it looks like a JS formatted regex
 		// or there seems to be one of the character classes you escape in regex (eg: \s)
-		if (/([\[\/][^,]*[\]\/]|\\[bdnrstw]|\{[0-9]+,?([0-9]+)?\})/.test(input.value)) {
+		if (/([\[\/][^,]+[\]\/]|\\[bdnrstw]|\{[0-9]+,?([0-9]+)?\})/.test(input.value)) {
 			$('.noticed-regex').addClass('is-visible');
 		} else {
 			$('.noticed-regex').removeClass('is-visible');
@@ -9892,26 +9903,46 @@ jQuery(function($){
 		regexParts.length = 0;
 
 		for (var i=parts.length; i > 0; i--) {
-			var negation = false,
+			var compareParts = [],
+				comparisons,
 				part = $.trim(parts[parts.length - i]),
+				latest = '',
+				negation = config.negation.test(part),
+				optional = config.optionals.test(part),
 				partSolved = false;
 
-			// If this part starts with not/no, trim it out and remember that this is a negation for later.
-			if (config.negation.test(part)) {
-				part = part.replace(config.negation, '');
-				negation = true;
+			if (optional) {
+				part = $.trim(part.replace(config.optionals, ''));
+			}
+			if (negation) {
+				part = $.trim(part.replace(config.negation, ''));
 			}
 
 			partSolved = probe(translations, part);
 
+			latest = regexParts[regexParts.length-1];
+
 			// If this part has a regex match AND is a negation AND is a range that doesn't already have a negation in it.
 			if (partSolved && negation && /\[[^\^]/.test(regexParts[regexParts.length-1])) {
 				// Add the ^ symbol to the start of any range that doesn't already have it.
-				regexParts[regexParts.length-1] = regexParts[regexParts.length-1].replace(/\[/, '[^');
+				regexParts[regexParts.length-1] = latest.replace(/\[/, '[^');
+			}
+			if (optional && /^(\[|\()([^\]]*)(\]|\))(\+|\*|\{[^\}]*\})?$/.test(latest)) {
+				regexParts[regexParts.length-1] = '('+latest+')?';
 			}
 
+			// Check for comparisons (i.e.: "foo or bar" = (foo|bar))
+			if (!partSolved && config.comparator.test(part)) {
+				comparisons = part.split(config.comparator);
+
+				for (var j=comparisons.length; j > 0; j--) {
+					// Only compare translations and NOT shortcuts as those are a little too advanced.
+					compareParts.push(probe(translations,comparisons[comparisons.length - j], true));
+				}
+
+				regexParts.push('('+compareParts.join('|')+')'+(optional ? '?' : ''));
 			// If none of the translations matched, and this part isn't a shortcut then just give back the same as was input.
-			if (!partSolved && !probe(shortcuts, part)) {
+			} else if (!partSolved && !probe(shortcuts, part)) {
 				regexParts.push(escapeRegExp(part));
 			}
 		}
@@ -9924,14 +9955,16 @@ jQuery(function($){
 	 *
 	 *	@param list The array of translations/shortcuts we're probing.
 	 *	@param part The particular string we're probing for.
-	 *	@returns partSolved Whether this particular part was found.
+	 *	@param returnPart Whether or not to rather return the part than automatically add it to regexParts.
+	 *	@returns partSolved Either whether this particular part was found (boolean), or the part that was found if returnPart is true.
 	 */
-	function probe(list, part) {
+	function probe(list, part, returnPart) {
 		for (var j=list.length; j > 0; j--) {
 			var catchAll,
+				newPart,
 				regex = new RegExp('^'+list[list.length-j].input+'$');
 
-			// // If this part matches this translation, we have a winner.
+			// If this part matches this translation, we have a winner.
 			if ( regex.test(part.toLowerCase()) ) {
 				if (list[list.length-j].catchAll) {
 					// Don't lowercase as the user might expect capitals as input
@@ -9942,16 +9975,26 @@ jQuery(function($){
 						catchAll = escapeRegExp(catchAll);
 					}
 
-					regexParts.push(catchAll.replace(/\[\-\]/g, '[\\-]'));
+					newPart = catchAll.replace(/\[\-\]/g, '[\\-]');
 				} else {
-					regexParts.push(part.toLowerCase().replace(regex, list[list.length-j].output));
+					newPart = part.toLowerCase().replace(regex, list[list.length-j].output);
 				}
 
-				return true;
+				if (returnPart) {
+					return newPart;
+				} else {
+					regexParts.push(newPart);
+					return true;
+				}
 			}
 		}
 
-		return false;
+		if (returnPart) {
+			// Return the unmodified part.
+			return part;
+		} else {
+			return false;
+		}
 	}
 
 	// This function was modified, but originally found here: http://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
