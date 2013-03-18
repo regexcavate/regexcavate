@@ -9858,6 +9858,9 @@ jQuery(function($){
 			return false;
 		}
 
+		// Hide the help tab if it's visible.
+		$('.help.is-active .help-tab').trigger('click');
+
 		// If this looks like a regex,
 		// i.e.: It looks like a range [a-z]
 		// or it looks like a JS formatted regex
@@ -9869,7 +9872,7 @@ jQuery(function($){
 		}
 
 		for (var i=regex.length; i > 0; i--) {
-			regexString+= '<abbr class="part" title="'+parts[regex.length-i]+'">'+regex[regex.length-i]+'</abbr>';
+			regexString+= '<abbr class="part" title="'+parts[regex.length-i]+'">'+htmlEscape(regex[regex.length-i])+'</abbr>';
 			regexStringCopy+= regex[regex.length-i];
 		}
 
@@ -10000,6 +10003,16 @@ jQuery(function($){
 	// This function was modified, but originally found here: http://stackoverflow.com/questions/3446170/escape-string-for-use-in-javascript-regex
 	function escapeRegExp(str) {
 		return str.replace(/[\-\[\/\{\(\)\*\+\?\.\\\^\$\|\>]/g, "\\$&");
+	}
+
+	// This function was found here: http://stackoverflow.com/a/7124052
+	function htmlEscape(str) {
+	    return String(str)
+	            .replace(/&/g, '&amp;')
+	            .replace(/"/g, '&quot;')
+	            .replace(/'/g, '&#39;')
+	            .replace(/</g, '&lt;')
+	            .replace(/>/g, '&gt;');
 	}
 
 	/**
