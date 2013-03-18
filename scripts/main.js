@@ -142,6 +142,9 @@
 			return false;
 		}
 
+		// Hide the help tab if it's visible.
+		$('.help.is-active .help-tab').trigger('click');
+
 		// If this looks like a regex,
 		// i.e.: It looks like a range [a-z]
 		// or it looks like a JS formatted regex
