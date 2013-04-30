@@ -377,3 +377,44 @@ $help-shadow:-3px -3px 6px rgba(0, 0, 0, 0.1);
 		&:hover { color:$color-link-nav; }
 	}
 }
+
+.first-timer {
+	// @Guy: please change/update this to your liking if you're not happy with it. I mostly grabbed it from the avgrund demo.
+	&, h3 {
+		color:$color-footer;
+	}
+
+	p {
+		font-size:0.8em;
+	}
+	header p {
+		font-size:1em;
+	}
+
+	footer {
+		margin-top: 2em;
+	}
+
+	.btn {
+		border: 0px;
+		padding: 8px 10px;
+		margin: 1em 0;
+		border-radius: 1px;
+
+		cursor: pointer;
+		color: #fff;
+		background: #7aa76d;
+
+		@include transition(0.15s background ease);
+
+		&:hover {
+			background: #91cd85;
+		}
+		&:active {
+			background: #60895a;
+		}
+		&+.btn {
+			margin-left: 1em;
+		}
+	}
+}

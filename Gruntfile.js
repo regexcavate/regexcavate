@@ -38,6 +38,7 @@ module.exports = function(grunt) {
 					'scripts/lib/base64.js',
 					'scripts/lib/konami.js',
 					'scripts/lib/prism.js',
+					'scripts/lib/avgrund.js',
 					'scripts/help.js',
 					'scripts/navscroll.js',
 					'scripts/tooltip.js',

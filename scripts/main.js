@@ -1,4 +1,4 @@
-/*global base64, config, Prism, Konami, translations, START, END, shortcuts, shortcut_names */
+/*global base64, config, Prism, Konami, Avgrund, translations, START, END, shortcuts, shortcut_names */
 (function() {
 	'use strict';
 
@@ -6,7 +6,8 @@
 		regexParts = [];
 
 	jQuery(function($) {
-		var placeholder = '',
+		var firstTimer,
+			placeholder = '',
 			placeholderItems = 2,
 			placeholderStart = false,
 			maxSeed = translations.length-1;
@@ -78,6 +79,27 @@
 		$('.copy-me').live('blur', function() {
 			$('.result-container').removeClass('busy-copying');
 		});
+
+		if (window.localStorage && !window.localStorage['regexcavate-first-timer']) {
+			firstTimer = $('.first-timer');
+
+			Avgrund.show(".first-timer");
+
+			firstTimer.find('.btn').click(function(e) {
+				window.localStorage['regexcavate-first-timer'] = true;
+				Avgrund.hide();
+
+				e.preventDefault();
+			});
+			firstTimer.find('.show-me').click(function(e) {
+				// Use a timeout here so that the page can return to it's default state for the scroll to go to the correct position.
+				window.setTimeout(function() {
+					$('.tut-link').trigger('click');
+				}, 250);
+
+				e.preventDefault();
+			});
+		}
 	});
 
 	/**

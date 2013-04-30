@@ -31,7 +31,7 @@ audio, canvas, video {
     display: inline-block;
 }
 
-html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+html { background:#222; font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
 html, button, input, select, textarea { font-family: $font-copy; color: $color-copy; }
 body { margin: 0; background:none; color:$color-copy; font-size: 1em; line-height: $global-vertical-rhythm; }
 

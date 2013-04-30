@@ -19,12 +19,12 @@
 	</head>
 	<body class="excavating">
 
-		<section class="app">
+		<section class="app avgrund-contents">
 
 			<header class="site-header">
 				<nav class="main-nav">
 					<a href="#about" tabindex="2">About</a>
-					<a href="#tutorial" tabindex="3">Tutorial</a>
+					<a href="#tutorial" tabindex="3" class="tut-link">Tutorial</a>
 					<a href="#contribute" tabindex="4">Contribute</a>
 				</nav>
 				<a class="contribute-github" href="https://github.com/regexcavate/regexcavate">Contribute on Github</a>
@@ -84,7 +84,7 @@
 			</div>
 		</section>
 
-		<section class="about" id="about">
+		<section class="about avgrund-contents" id="about">
 			<div class="section-wrap">
 				<h2 class="section-title">About</h2>
 				<div class="section-content">
@@ -108,7 +108,7 @@
 			</div>
 		</section>
 
-		<section class="tutorial" id="tutorial">
+		<section class="tutorial avgrund-contents" id="tutorial">
 			<div class="section-wrap">
 				<h2 class="section-title">Tutorial</h2>
 				<div class="section-content">
@@ -180,7 +180,7 @@ console.log(string); // 'I love regular expressions... love them!'</code></pre>
 			</div>
 		</section>
 
-		<section class="contribute" id="contribute">
+		<section class="contribute avgrund-contents" id="contribute">
 			<div class="section-wrap section-wrap-contribute">
 				<h2 class="section-title section-title-contribute">Contribute</h2>
 				<div class="section-content">
@@ -249,6 +249,25 @@ console.log(string); // 'I love regular expressions... love them!'</code></pre>
 				<div class="reggie-the-miner"></div>
 			</div>
 		</footer>
+
+		<div class="first-timer avgrund-popup">
+			<header>
+				<h3>Welcome</h3>
+				<p>
+					It looks like it's your first time here - we have a handy tutorial
+					that will run you through the basics of what this is all about.
+				</p>
+			</header>
+			<p>
+				Note: We'll only show you this once (or at least until you clear your
+				localStorage).
+			</p>
+			<footer>
+				<a href="" class="btn show-me">Show me the tutorial</a>
+				<a href="" class="btn go-away">Go away!</a>
+			</footer>
+		</div>
+		<div class="avgrund-cover"></div>
 
 		<script src="scripts/dist/locale/en_gb/main.js"></script>
 
