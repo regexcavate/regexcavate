@@ -86,6 +86,6 @@ module.exports = function(grunt) {
 	grunt.loadTasks('tasks');
 
 	// Default task.
-	grunt.registerTask('default', ["jshint", /*"compass",*/ "expandify", "concat", "uglify"]);
-	grunt.registerTask('dev', ["jshint", /*"compass",*/ "expandify", "concat"]);
+	grunt.registerTask('default', ["jshint", "compass", "expandify", "concat", "uglify"]);
+	grunt.registerTask('dev', ["jshint", "compass", "expandify", "concat"]);
 };
