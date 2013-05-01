@@ -33,8 +33,6 @@ var Avgrund = (function(){
 		document.addEventListener( 'click', onDocumentClick, false );
 		document.addEventListener( 'touchstart', onDocumentClick, false );
 
-		$(popup).css('top',  ($(window).height() / 2) - ($(popup).height() / 2)) + $(window).scrollTop();
-
 		removeClass( popup, currentState );
 		addClass( popup, 'no-transition' );
 		addClass( popup, state );

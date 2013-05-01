@@ -6,7 +6,7 @@
  * Created by Hakim El Hattab, http://hakim.se
  */
  
-.avgrund-active body {
+.avgrund-active .avgrund-scale {
 	-webkit-transform: scale( 0.95 );
 	-moz-transform: scale( 0.95 );
 	-ms-transform: scale( 0.95 );
@@ -49,7 +49,7 @@
 	position: absolute;
 	width: 340px;
 	left: 50%;
-	top: 50%;
+	top: 260px;
 	margin: -130px 0 0 -190px;
 	visibility: hidden;
 	opacity: 0;
@@ -92,7 +92,7 @@
 	}
 
 
-.avgrund-ready body,
+.avgrund-ready .avgrund-scale,
 .avgrund-ready .avgrund-contents,
 .avgrund-ready .avgrund-popup,
 .avgrund-ready .avgrund-cover {
