@@ -56,6 +56,14 @@ module.exports = function(grunt) {
 				dest: 'scripts/dist/locale/en_gb/main.js'
 			}
 		},
+		connect: {
+			server: {
+				options: {
+					keepalive: true,
+					port: 8080
+				}
+			}
+		},
 		watch: {
 			files: '<config:lint.files>',
 			tasks: 'lint'
@@ -79,6 +87,7 @@ module.exports = function(grunt) {
 	});
 
 	grunt.loadNpmTasks('grunt-contrib-concat');
+	grunt.loadNpmTasks('grunt-contrib-connect');
 	grunt.loadNpmTasks('grunt-contrib-compass');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
@@ -86,5 +95,5 @@ module.exports = function(grunt) {
 
 	// Default task.
 	grunt.registerTask('default', ["jshint", "compass", "expandify", "concat", "uglify"]);
-	grunt.registerTask('dev', ["jshint", "compass", "expandify", "concat"]);
+	grunt.registerTask('dev', ["jshint", "compass", "expandify", "concat", "connect"]);
 };
