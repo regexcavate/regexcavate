@@ -16,6 +16,13 @@ module.exports = function(grunt) {
 				';'
 		},
 		compass: {
+			dev: {
+				options: {
+					config: 'config.rb',
+					debugInfo: true,
+					outputStyle: 'expanded'
+				}
+			},
 			dist: {
 				options: {
 					config: 'config.rb'
@@ -65,11 +72,20 @@ module.exports = function(grunt) {
 			}
 		},
 		watch: {
-			files: '<config:lint.files>',
-			tasks: 'lint'
+			options: {
+				livereload: true
+			},
+			scripts: {
+				files: ['scripts/*.js', '!scripts/lib/*', 'scripts/locale/**/*.js'],
+				tasks: ['jshint', 'expandify', 'concat']
+			},
+			styles: {
+				files: 'sass/*.scss',
+				tasks: ['compass:dev']
+			}
 		},
 		jshint: {
-			files: ['scripts/*.js'],
+			files: ['scripts/*.js', '!scripts/lib/*', 'scripts/locale/**/*.js'],
 			options: {
 				jshintrc: '.jshintrc'
 			}
@@ -86,14 +102,11 @@ module.exports = function(grunt) {
 		}
 	});
 
-	grunt.loadNpmTasks('grunt-contrib-concat');
-	grunt.loadNpmTasks('grunt-contrib-connect');
-	grunt.loadNpmTasks('grunt-contrib-compass');
-	grunt.loadNpmTasks('grunt-contrib-jshint');
-	grunt.loadNpmTasks('grunt-contrib-uglify');
+	// This loads in all the grunt tasks auto-magically.
+	require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 	grunt.loadTasks('tasks');
 
 	// Default task.
-	grunt.registerTask('default', ["jshint", "compass", "expandify", "concat", "uglify"]);
-	grunt.registerTask('dev', ["jshint", "compass", "expandify", "concat", "connect"]);
+	grunt.registerTask('default', ["jshint", "compass:dist", "expandify", "concat", "uglify"]);
+	grunt.registerTask('dev', ["jshint", "compass:dev", "expandify", "concat", "connect", "watch"]);
 };
