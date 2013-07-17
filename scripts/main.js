@@ -340,4 +340,8 @@
 		}
 	};
 	konami.load();
+
+	/*===== Attach some functions to the window object for testing purposes =====*/
+	// Note: This is totally a crap way of doing things and this file should just get refactored at some point.
+	window.strToRegex = strToRegex;
 })();

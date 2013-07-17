@@ -84,6 +84,14 @@ module.exports = function(grunt) {
 				tasks: ['compass:dev']
 			}
 		},
+		jasmine: {
+			en_gb: {
+				src: ['scripts/dist/locale/en_gb/shortcuts.js', 'scripts/dist/locale/en_gb/translations.js', 'scripts/dist/locale/en_gb/main.js', 'tests/fixtures/en_gb/*.js'],
+				options: {
+					specs: 'tests/spec/en_gb.js'
+				}
+			}
+		},
 		jshint: {
 			files: ['scripts/*.js', '!scripts/lib/*', 'scripts/locale/**/*.js'],
 			options: {
@@ -109,4 +117,5 @@ module.exports = function(grunt) {
 	// Default task.
 	grunt.registerTask('default', ["jshint", "compass:dist", "expandify", "concat", "uglify"]);
 	grunt.registerTask('dev', ["jshint", "compass:dev", "expandify", "concat", "connect", "watch"]);
+	grunt.registerTask('test', ["jshint", "expandify", "concat", "jasmine"]);
 };
