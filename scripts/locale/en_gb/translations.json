@@ -11,7 +11,7 @@
 		,"/*===== Anchors =====*/"
 		,{
 			"name":"start of the line",
-			"input":"(at )?(the )?(start|begin(ing)?|(from the )?(start|beginning)( of)? (the |a )?(line|string))",
+			"input":"(at |from )?(the )?(start|begin(ing)?|(start|beginning)( of)? (the |a )?(line|string))",
 			"output":"^",
 			"start":true
 		 }
@@ -135,6 +135,7 @@
 		,"/*===== Non Digits =====*/"
 		,{
 			"name":["%non-digit", "%non-digits"],
+			"expansions":["single", "multiple"],
 			"input":["%no[nt][\\- ]?digit", "%no[nt][\\- ]?digits"],
 			"output":"\\D"
 		 }
