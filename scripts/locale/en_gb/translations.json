@@ -60,6 +60,20 @@
 			"output":"\\B"
 		 }
 
+		,"/*===== Words =====*/"
+		,{
+		 	"name":["%word"],
+		 	"expansions":["single"],
+		 	"input":["%word"],
+		 	"output":"\\S+"
+		 }
+		,{
+		 	"name":["%words"],
+		 	"expansions":["multiple"],
+		 	"input":["%words"],
+		 	"output":"(\\S+\\s??\\b)"
+		 }
+
 		,"/*===== Numbers =====*/"
 		,{
 			"name":["%number", "%numbers"],
