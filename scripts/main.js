@@ -218,6 +218,9 @@
 				regexParts[regexParts.length-1] = '('+latest+')?';
 			}
 
+			// Check for shortcuts
+			probe(shortcuts, part);
+
 			// Check for comparisons (i.e.: "foo or bar" = (foo|bar))
 			if (!partSolved && config.comparator.test(part)) {
 				comparisons = part.split(config.comparator);
@@ -229,7 +232,7 @@
 
 				regexParts.push('('+compareParts.join('|')+')'+(optional ? '?' : ''));
 			// If none of the translations matched, and this part isn't a shortcut then just give back the same as was input.
-			} else if (!partSolved && !probe(shortcuts, part)) {
+			} else if (!partSolved) {
 				regexParts.push(escapeRegExp(part));
 			}
 		}
