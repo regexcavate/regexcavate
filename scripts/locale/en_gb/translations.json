@@ -4,14 +4,14 @@
 		"/*===== Misc =====*/"
 		,{
 			"name":"anything",
-			"input":"anything",
+			"input":"(anything|all the things)",
 			"output":".*"
 		 }
 
 		,"/*===== Anchors =====*/"
 		,{
 			"name":"start of the line",
-			"input":"(at |from )?(the )?(start|begin(ing)?|(start|beginning)( of)? (the |a )?(line|string))",
+			"input":"(at |from )?(the )?(start|begin(ning)?|(start|beginning)( of)? (the |a )?(line|string))",
 			"output":"^",
 			"start":true
 		 }
