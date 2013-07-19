@@ -1,52 +1,8 @@
 // This should have key value pairs in the form of:
 //	"expected regex outcome": ["phrase 1", "phrase 2"] (don't forget to escape slashes.)
 window.shortcutTests = {
-	 // Word
-	 "\\S+": [
-		 "word"
-		,"a word"
-		,"any word"
-		,"a single word"
-		,"one word"
-		,"1 word"
-	 ]
-	,"(\\S+\\s??\\b)*": [
-		 "zero or more words"
-		,"zero or more of words"
-		,"0 or more words"
-		,"0 or more of words"
-		,"none or more words"
-		,"none or more of words"
-	 ]
-	,"(\\S+\\s??\\b)+": [
-		 "one or more words"
-		,"1 or more words"
-		,"any words"
-		,"any number of words"
-		,"any amount of words"
-	 ]
-	,"(\\S+\\s??\\b){14}": [
-		 "14 words"
-	 ]
-	,"(\\S+\\s??\\b){5,}": [
-		,"5 or more words"
-		,"at least 5 words"
-		,"at least 5 or more words"
-	 ]
-	,"(\\S+\\s??\\b){14,}": [
-		,"14 or more words"
-		,"at least 14 words"
-		,"at least 14 or more words"
-	 ]
-	,"(\\S+\\s??\\b){14,20}": [
-		 "between 14 and 20 words"
-		,"between 14 to 20 words"
-		,"from 14 to 20 words"
-		,"14 to 20 words"
-	 ]
-
 	 // Post codes
-	,"([A-PR-UWYZ0-9][A-HK-Y0-9][AEHMNPRTVXY0-9]?[ABEHMNPRVWXY0-9]? {1,2}[0-9][ABD-HJLN-UW-Z]{2}|GIR 0AA)": [
+	 "([A-PR-UWYZ0-9][A-HK-Y0-9][AEHMNPRTVXY0-9]?[ABEHMNPRVWXY0-9]? {1,2}[0-9][ABD-HJLN-UW-Z]{2}|GIR 0AA)": [
 		 "uk postcode"
 		,"UK postcode"
 		,"uk postal code"
@@ -133,20 +89,6 @@ window.shortcutTests = {
 		,"14 UK postcodes"
 		,"14 uk postal codes"
 		,"14 UK postal codes"
-	 ]
-	,"([A-PR-UWYZ0-9][A-HK-Y0-9][AEHMNPRTVXY0-9]?[ABEHMNPRVWXY0-9]? {1,2}[0-9][ABD-HJLN-UW-Z]{2}|GIR 0AA){5,}": [
-		 "5 or more uk postcodes"
-		,"5 or more UK postcodes"
-		,"5 or more uk postal codes"
-		,"5 or more UK postal codes"
-		,"at least 5 uk postcodes"
-		,"at least 5 UK postcodes"
-		,"at least 5 uk postal codes"
-		,"at least 5 UK postal codes"
-		,"at least 5 or more uk postcodes"
-		,"at least 5 or more UK postcodes"
-		,"at least 5 or more uk postal codes"
-		,"at least 5 or more UK postal codes"
 	 ]
 	,"([A-PR-UWYZ0-9][A-HK-Y0-9][AEHMNPRTVXY0-9]?[ABEHMNPRVWXY0-9]? {1,2}[0-9][ABD-HJLN-UW-Z]{2}|GIR 0AA){14,}": [
 		 "14 or more uk postcodes"
